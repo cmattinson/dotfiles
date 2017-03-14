@@ -1,0 +1,13 @@
+[color]
+	ui = auto
+[core]
+	editor = atom --wait
+[push]
+	default = upstream
+[merg]
+	conflictstyle = diff3
+[user]
+	email = c.mattinson@hotmail.com
+	name = cmattinson
+[credential]
+	helper = store
