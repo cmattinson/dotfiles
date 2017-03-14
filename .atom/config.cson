@@ -1,0 +1,17 @@
+"*":
+  core:
+    disabledPackages: [
+      "autocomplete-plus"
+    ]
+  editor:
+    fontSize: 15
+    scrollPastEnd: true
+    showIndentGuide: true
+    tabLength: 8
+  "exception-reporting":
+    userId: "34913f30-6951-1a79-4e96-edf11c198798"
+  "tree-view":
+    hideIgnoredNames: true
+    hideVcsIgnoredFiles: true
+  welcome:
+    showOnStartup: false
