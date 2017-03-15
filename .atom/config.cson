@@ -3,7 +3,7 @@
     disabledPackages: [
       "autocomplete-plus"
     ]
-    telemetryConsent: "no"
+    telemetryConsent: "limited"
   editor:
     fontSize: 15
     scrollPastEnd: true
