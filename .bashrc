@@ -4,7 +4,7 @@
 
 alias 305="cd /home/chris/Workspace/305"
 alias nobelprize="cd /home/chris/Workspace/305/nobel-prize"
-alias editbash="atom ~/.bashrc"
+alias editbash="vim ~/.bashrc"
 alias install="sudo apt-get install"
 alias addrepo="sudo add-apt-repository"
 alias update="sudo apt-get update"
