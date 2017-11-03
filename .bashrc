@@ -128,7 +128,7 @@ blue="\[\033[0;34m\]"
 cyan="\[\033[0;36m\]"
 reset="\[\033[0m\]"
 
-purple="\e[38;5;93m"
+purple="\e[38;5;135m"
 white="\e[38;5;15m"
 
 # Change command prompt
