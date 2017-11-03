@@ -2,13 +2,13 @@
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
 
-alias 305="cd /home/chris/Workspace/305"
-alias nobelprize="cd /home/chris/Workspace/305/nobel-prize"
+
+alias java="cd ~/Workspace/java"
 alias editbash="vim ~/.bashrc"
 alias install="sudo apt-get install"
 alias addrepo="sudo add-apt-repository"
 alias update="sudo apt-get update"
-alias mips="cd /home/chris/Workspace/229/mips"
+alias 220="cd ~/Workspace/220"
 
 # If not running interactively, don't do anything
 case $- in
@@ -132,9 +132,14 @@ source ~/.git-completion.bash
 red="\[\033[0;31m\]"
 green="\[\033[0;32m\]"
 blue="\[\033[0;34m\]"
-purple="\[\033[0;35m\]"
+magenta="\[\033[0;35m\]"
 cyan="\[\033[0;36m\]"
 reset="\[\033[0m\]"
+
+# https://misc.flogisoft.com/bash/tip_colors_and_formatting
+
+purple="\e[38;5;92m"
+white="\e[38;5;256m"
 
 # Change command prompt
 source ~/.git-prompt.sh
@@ -142,4 +147,4 @@ export GIT_PS1_SHOWDIRTYSTATE=1
 # '\u' adds the name of the current user to the prompt
 # '\$(__git_ps1)' adds git-related stuff
 # '\W' adds the name of the current directory
-export PS1="$cyan\u$green\$(__git_ps1)$blue \W $ $reset"
+export PS1="$purple\u$default\$(__git_ps1)$white \W $ $reset"

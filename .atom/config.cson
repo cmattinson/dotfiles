@@ -1,11 +1,16 @@
 "*":
+  "atom-material-ui":
+    colors:
+      abaseColor: "#7654a7"
+      predefinedColor: "Purple"
+    fonts: {}
   core:
     disabledPackages: [
       "autocomplete-plus"
     ]
     telemetryConsent: "limited"
   editor:
-    fontSize: 15
+    fontSize: 13
     scrollPastEnd: true
     showIndentGuide: true
     tabLength: 8
