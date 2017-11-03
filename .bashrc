@@ -2,17 +2,6 @@
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
 
-<<<<<<< HEAD
-
-alias java="cd ~/Workspace/java"
-alias editbash="vim ~/.bashrc"
-alias install="sudo apt-get install"
-alias addrepo="sudo add-apt-repository"
-alias update="sudo apt-get update"
-alias 220="cd ~/Workspace/220"
-
-=======
->>>>>>> 2e2cd43ae0118db1571556a0d8496866d1c616a9
 # If not running interactively, don't do anything
 case $- in
     *i*) ;;
@@ -134,36 +123,20 @@ source ~/.git-completion.bash
 
 red="\[\033[0;31m\]"
 green="\[\033[0;32m\]"
-<<<<<<< HEAD
-blue="\[\033[0;34m\]"
-magenta="\[\033[0;35m\]"
-cyan="\[\033[0;36m\]"
-reset="\[\033[0m\]"
-
-# https://misc.flogisoft.com/bash/tip_colors_and_formatting
-
-purple="\e[38;5;92m"
-white="\e[38;5;256m"
-
-=======
 yellow="\[\033[0;33m\]"
 blue="\[\033[0;34m\]"
 purple="\[\033[0;35m\]"
 cyan="\[\033[0;36m\]"
 reset="\[\033[0m\]"
 
->>>>>>> 2e2cd43ae0118db1571556a0d8496866d1c616a9
 # Change command prompt
 source ~/.git-prompt.sh
 export GIT_PS1_SHOWDIRTYSTATE=1
 # '\u' adds the name of the current user to the prompt
 # '\$(__git_ps1)' adds git-related stuff
 # '\W' adds the name of the current directory
-<<<<<<< HEAD
-export PS1="$purple\u$default\$(__git_ps1)$white \W $ $reset"
-=======
+export PS1="$cyan\u$green\$(__git_ps1)$purple \W $ $reset"
 
 LS_COLORS=$LS_COLORS:'di=40;35:' : export LS_COLORS
 
 eval "$(dircolors ~/.dircolors)";
->>>>>>> 2e2cd43ae0118db1571556a0d8496866d1c616a9
