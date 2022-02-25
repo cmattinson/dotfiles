@@ -18,4 +18,5 @@ set termguicolors
 set scrolloff=8
 set noshowmode
 set clipboard=unnamedplus
+highlight LineNr guibg=none guifg=#FF9E64
 
