@@ -1,4 +1,4 @@
-set guicursor=
+set guicursor=i:block
 set relativenumber
 set nu
 set nohlsearch
@@ -18,5 +18,7 @@ set termguicolors
 set scrolloff=8
 set noshowmode
 set clipboard=unnamedplus
-highlight LineNr guibg=none guifg=#FF9E64
+
+"orange highlight LineNr guibg=none guifg=#FF9E64
+highlight LineNr guibg=none guifg=#72CCE8
 
