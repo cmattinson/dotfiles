@@ -20,6 +20,7 @@ Plug 'cocopon/iceberg.vim'
 Plug 'arcticicestudio/nord-vim'
 Plug 'tpope/vim-fugitive'
 Plug 'sonph/onehalf', { 'rtp': 'vim' }
+Plug 'ap/vim-buftabline'
 call plug#end()
 
 let g:tokyonight_style = "storm"

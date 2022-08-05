@@ -21,4 +21,4 @@ set clipboard=unnamedplus
 
 "orange highlight LineNr guibg=none guifg=#FF9E64
 highlight LineNr guibg=none guifg=#0x72CCE8
-
+highlight TabLine guibg=none guifg=#0xAEB6BF
