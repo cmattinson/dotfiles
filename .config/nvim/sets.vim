@@ -1,4 +1,4 @@
-set guicursor=i:block
+set guicursor=a:block
 set relativenumber
 set nu
 set nohlsearch
@@ -20,5 +20,5 @@ set noshowmode
 set clipboard=unnamedplus
 
 "orange highlight LineNr guibg=none guifg=#FF9E64
-highlight LineNr guibg=none guifg=#72CCE8
+highlight LineNr guibg=none guifg=#0x72CCE8
 

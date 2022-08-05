@@ -13,11 +13,13 @@ Plug 'preservim/nerdtree'
 Plug 'neovim/nvim-lspconfig'
 Plug 'hrsh7th/nvim-compe'
 Plug 'marko-cerovac/material.nvim'
-Plug 'darrikonn/vim-gofmt', { 'do': ':GoUpdateBinaries' }
 Plug 'savq/melange'
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'sainnhe/sonokai'
 Plug 'cocopon/iceberg.vim'
 Plug 'arcticicestudio/nord-vim'
+Plug 'tpope/vim-fugitive'
+Plug 'sonph/onehalf', { 'rtp': 'vim' }
 call plug#end()
 
 let g:tokyonight_style = "storm"
@@ -138,4 +140,6 @@ end
 vim.api.nvim_set_keymap("i", "<S-Tab>", "v:lua.s_tab_complete()", {expr = true})
 vim.api.nvim_set_keymap("s", "<S-Tab>", "v:lua.s_tab_complete()", {expr = true})
 vim.api.nvim_set_keymap("i", "<CR>", "compe#confirm({ 'keys': '<CR>', 'select': v:true })", { expr = true })
+
+require('telescope').setup{ defaults = { file_ignore_patterns = {"node_modules"} } }
 EOF
