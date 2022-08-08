@@ -30,7 +30,7 @@ let g:tokyonight_italic_comments = 0
 let g:material_style = "palenight"
 
 let g:buftabline_show = 1
-let g:buftabline_numbers = 2
+let g:buftabline_numbers = 0
 
 let g:sonokai_style = "andromeda"
 let g:sonokai_enable_italic = 0
