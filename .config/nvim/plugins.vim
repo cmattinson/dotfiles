@@ -21,9 +21,14 @@ Plug 'arcticicestudio/nord-vim'
 Plug 'tpope/vim-fugitive'
 Plug 'sonph/onehalf', { 'rtp': 'vim' }
 Plug 'ap/vim-buftabline'
+Plug 'B4mbus/oxocarbon-lua.nvim'
+Plug 'sainnhe/edge'
+Plug 'projekt0n/github-nvim-theme'
 call plug#end()
 
-let g:tokyonight_style = "storm"
+let g:oxocarbon_lua_disable_italic = 1
+
+let g:tokyonight_style = "night"
 let g:tokyonight_italic_functions = 0
 let g:tokyonight_italic_keywords = 0
 let g:tokyonight_italic_comments = 0
@@ -35,7 +40,14 @@ let g:buftabline_numbers = 0
 let g:sonokai_style = "andromeda"
 let g:sonokai_enable_italic = 0
 let g:sonokai_disable_italic_comment = 1
-colorscheme tokyonight
+
+" VimScript
+let g:github_comment_style = "NONE"
+let g:github_keyword_style = "NONE"
+let g:github_function_style = "NONE"
+let g:github_variable_style = "NONE"
+
+colorscheme github_*
 
 let g:compe = {}
 let g:compe.enabled = v:true
@@ -67,7 +79,7 @@ lua << EOF
 require('lualine').setup({
   options = {
     icons_enabled = true,
-    theme = 'ayu_dark',
+    theme = 'palenight',
     component_separators = { left = '', right = ''},
     section_separators = { left = '', right = ''},
     disabled_filetypes = {},
