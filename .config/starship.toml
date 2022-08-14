@@ -1,0 +1,15 @@
+add_newline = false
+
+[package]
+disabled=true
+
+[directory]
+truncate_to_repo = false
+style = "bold #8ADEF0"
+
+[username]
+show_always = true
+format = "[$user](bold #A45EE5) in "
+
+[cmd_duration]
+disabled = true
