@@ -8,7 +8,7 @@ export ZSH="/home/chris/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="half-life"
+ZSH_THEME="dracula"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -124,6 +124,7 @@ alias subl="/mnt/c/Program\ Files/'Sublime Text'/subl.exe"
 alias oracle="ssh -i ~/oracle_private.key ubuntu@132.226.24.23"
 alias website="cd ~/workspace/website"
 alias dynamic="cd ~/workspace/camms-portal-dynamic"
+alias shc="nvim ~/.config/starship.toml"
 
 alias chrome="/mnt/c/Program\ Files\/Google/Chrome/Application/chrome.exe"
 
@@ -145,3 +146,7 @@ export DB_PASSWORD="admin"
 export DB_NAME="olympus"
 
 export DISPLAY=$(route.exe print | grep 0.0.0.0 | head -1 | awk '{print $4}'):0.0
+
+export SPACESHIP_BATTERY_SHOW=false
+
+eval "$(starship init zsh)"
