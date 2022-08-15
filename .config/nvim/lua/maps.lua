@@ -6,10 +6,22 @@ end
 map('n', '<C-p>', ':Telescope find_files<CR>')
 map('n', '<C-b>', ':NERDTreeToggle<CR>')
 
+-- Move to next match and center cursor
+map('n', 'n', 'nzz')
+map('n', 'N', 'Nzz')
+
+-- Navigate between buffers
 map('n', '<C-PageUp>', ':bprev<CR>')
 map('n', '<C-PageDown>', ':bnext<CR>')
+
+-- Close current buffer
 map('n', '<C-X>', ':bd<CR>')
 
+-- Add blank lines above or below in normal mode
+map('n', '<leader>o', 'o<ESC>')
+map('n', '<leader>O', 'O<ESC>')
+
+-- Jump between buffers
 map('n', '<leader>1', '<Plug>BufTabLine.Go(1)')
 map('n', '<leader>2', '<Plug>BufTabLine.Go(2)')
 map('n', '<leader>3', '<Plug>BufTabLine.Go(3)')

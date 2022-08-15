@@ -22,6 +22,8 @@ require('packer').startup(
         use 'tpope/vim-fugitive'
         use 'ap/vim-buftabline'
         use 'navarasu/onedark.nvim'
+        use 'yong1le/darkplus.nvim'
+        use 'RRethy/nvim-base16'
 end
 )
 
@@ -46,9 +48,8 @@ g.github_variable_style = "NONE"
 g.github_transparent = "true"
 
 require('onedark').setup  {
-    -- Main options --
     style = 'cool', -- Default theme style. Choose between 'dark', 'darker', 'cool', 'deep', 'warm', 'warmer' and 'light'
-    transparent = true,  -- Show/hide background
+    transparent = true,
     code_style = {
         comments = 'none',
         keywords = 'none',
@@ -88,12 +89,6 @@ require('lualine').setup({
   tabline = {},
   extensions = {}
 })
-
-require'nvim-treesitter.configs'.setup {
-  highlight = {
-    enable = true,
-  },
-}
 
 require'lspconfig'.gopls.setup{}
 
