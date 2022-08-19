@@ -32,3 +32,15 @@ map('n', '<leader>7', '<Plug>BufTabLine.Go(7)')
 map('n', '<leader>8', '<Plug>BufTabLine.Go(8)')
 map('n', '<leader>9', '<Plug>BufTabLine.Go(9)')
 map('n', '<leader>0', '<Plug>BufTabLine.Go(10)')
+
+map('n', '<C-_>', ':CommentToggle<CR>')
+vim.cmd('vnoremap <C-_> :CommentToggle<CR>')
+
+map('n', '<A-j>', ':m .+1<CR>==')
+map('n', '<A-k>', ':m .-2<CR>==')
+
+map('i', '<A-j>', '<Esc>:m .+1<CR>==gi')
+map('i', '<A-k>', '<Esc>:m .-2<CR>==gi')
+
+map('v', '<A-j>', ":m '>+1<CR>gv=gv")
+map('v', '<A-k>', ":m '<-2<CR>gv=gv")
