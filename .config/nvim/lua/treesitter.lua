@@ -4,7 +4,7 @@ if not status_ok then
 end
 
 configs.setup({
-	ensure_installed = { "rust", "go", "javascript", "lua" },
+	ensure_installed = { "rust", "go", "javascript", "lua", "toml" },
 	sync_install = false,
 	ignore_install = { "" },
 	highlight = {

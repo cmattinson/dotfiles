@@ -1,10 +1,13 @@
 require("packer").startup(function()
 	use("wbthomason/packer.nvim")
+	use({ "williamboman/mason.nvim" })
+	use("williamboman/mason-lspconfig.nvim")
+
+	-- Utils
 	use("nvim-lua/plenary.nvim")
 	use("tpope/vim-fugitive")
 	use("preservim/nerdtree")
 	use("nvim-telescope/telescope.nvim")
-	use("kyazdani42/nvim-web-devicons")
 	use("terrortylor/nvim-comment")
 	use("nvim-lualine/lualine.nvim")
 	use({
@@ -14,14 +17,37 @@ require("packer").startup(function()
 			ts_update()
 		end,
 	})
+	use("ap/vim-buftabline")
+	use({ "sindrets/diffview.nvim", requires = "nvim-lua/plenary.nvim" })
+	use({
+		"windwp/nvim-autopairs",
+		config = function()
+			require("nvim-autopairs").setup({})
+		end,
+	})
+
+	-- Icons
+	use("kyazdani42/nvim-web-devicons")
+
+	-- Formatting
 	use("sbdchd/neoformat")
 	use({ "prettier/vim-prettier", run = "npm install --frozen-lockfile --production" })
-	use("neovim/nvim-lspconfig")
-	use("hrsh7th/nvim-compe")
-	use({ "fatih/vim-go", run = ":GoUpdateBinaries" })
-	use("ap/vim-buftabline")
 	use({ "mhartington/formatter.nvim" })
 
+	-- LSP
+	use("neovim/nvim-lspconfig")
+	use("nvim-lua/lsp_extensions.nvim")
+	use({ "fatih/vim-go", run = ":GoUpdateBinaries" })
+	use("rust-lang/rust.vim")
+	use("simrat39/rust-tools.nvim")
+	use("hrsh7th/nvim-cmp")
+	use("hrsh7th/cmp-nvim-lsp")
+	use("hrsh7th/cmp-vsnip")
+	use("hrsh7th/cmp-path")
+	use("hrsh7th/cmp-buffer")
+	use("hrsh7th/vim-vsnip")
+
+	-- Colorschemes
 	use("navarasu/onedark.nvim")
 	use("folke/tokyonight.nvim")
 	use("yong1le/darkplus.nvim")
@@ -30,4 +56,5 @@ require("packer").startup(function()
 	use({ "shaunsingh/oxocarbon.nvim", run = "./install.sh" })
 	use("rktjmp/lush.nvim")
 	use("nocksock/bloop.nvim")
+	use("sainnhe/edge")
 end)
