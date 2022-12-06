@@ -130,6 +130,7 @@ alias cammsc="cd ~/workspace/camms"
 alias n8="nvm use 8.9.3"
 alias n14="nvm use 14.16.0"
 alias rust="cd ~/workspace/rust"
+alias nt="cd /mnt/c/Users/cmatt/Documents/notes"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
