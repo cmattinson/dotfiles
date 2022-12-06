@@ -11,6 +11,9 @@ map("n", "<C-b>", ":NERDTreeToggle<CR>")
 map("n", "n", "nzz")
 map("n", "N", "Nzz")
 
+map("n", "<C-u>", "<C-u>zz")
+map("n", "<C-d>", "<C-d>zz")
+
 -- Navigate between buffers
 map("n", "<C-PageUp>", ":bprev<CR>")
 map("n", "<C-PageDown>", ":bnext<CR>")
