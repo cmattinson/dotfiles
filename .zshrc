@@ -114,7 +114,7 @@ alias deploy_internal="rsync -a --info=progress2 -e 'ssh -i ~/ubuntuserver.pem' 
 alias nvim="nvm use 14.16.0 && nvim"
 alias grepr="grep -rHni --exclude-dir=node_modules --exclude-dir=app --exclude=index.js"
 alias rg="rg -i"
-alias nvc="cd ~/.config/nvim && nvim"
+alias nvc="cd ~/.config/nvim && nvim ."
 alias nvp="cd ~/.local/share/nvim/"
 alias psql="sudo -u postgres psql"
 alias goose="goose postgres 'user=chris password=admin dbname=olympus sslmode=disable'"
@@ -154,3 +154,5 @@ export DISPLAY=$(route.exe print | grep 0.0.0.0 | head -1 | awk '{print $4}'):0.
 export SPACESHIP_BATTERY_SHOW=false
 
 eval "$(starship init zsh)"
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
