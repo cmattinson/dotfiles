@@ -5,21 +5,21 @@ disabled=true
 
 [username]
 show_always = true
-format = "[$user](bold #eb6f92) in "
+format = "[$user](bold 167) in "
 
 [directory]
 truncate_to_repo = false
-style = "bold #f6c177"
+style = "bold 109"
 
 [git_branch]
-style = "bold #9ccfd8"
+style = "bold 175"
 
 [git_status]
-style = "bold #eb6f92"
+style = "bold 108"
 
 [cmd_duration]
 disabled = true
 
 [nodejs]
-style = "bold #c4a7e7"
+style = "bold 142"
 
