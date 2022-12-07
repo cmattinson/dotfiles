@@ -13,4 +13,4 @@ vim.cmd([[
         let g:everforest_background = 'medium'
         " For better performance
         let g:everforest_better_performance = 1
-        colorscheme everforest]])
+        ]])
