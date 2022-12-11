@@ -1,0 +1,29 @@
+add_newline = false
+
+[package]
+disabled=true
+
+[username]
+show_always = true
+format = "[$user](bold #31748f) in "
+
+[directory]
+truncate_to_repo = false
+style = "bold #ebbcba"
+
+[git_branch]
+style = "bold #c4a7e7"
+
+[git_status]
+style = "bold 203"
+
+[cmd_duration]
+disabled = true
+
+[nodejs]
+style = "bold #9ccfd8"
+
+[character]
+success_symbol = "[❯](bold #9ccfd8)" 
+error_symbol = "[❯](bold 203)"
+
