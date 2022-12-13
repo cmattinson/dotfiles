@@ -22,3 +22,5 @@ vim.o.ignorecase = true
 vim.o.autoindent = true
 vim.o.smartcase = true
 vim.g.rustfmt_autosave = true
+vim.cmd("set completeopt=menu,menuone,noselect")
+vim.cmd("set updatetime=300")
