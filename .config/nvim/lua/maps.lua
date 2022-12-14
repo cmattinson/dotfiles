@@ -42,3 +42,6 @@ map("n", "<leader>F", ":FormatWrite<CR>")
 map("n", "<leader>do", ":DiffviewOpen<CR>")
 map("n", "<leader>dc", ":DiffviewClose<CR>")
 map("n", "<leader>df", ":DiffviewToggleFiles<CR>")
+
+map("n", "<C-Left>", "<Plug>(cokeline-switch-prev)", { silent = true })
+map("n", "<C-Right>", "<Plug>(cokeline-switch-next)", { silent = true })

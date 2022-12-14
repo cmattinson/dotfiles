@@ -16,16 +16,19 @@ require("packer").startup(function()
 			ts_update()
 		end,
 	})
-	use({ "akinsho/bufferline.nvim", tag = "v3.*", requires = "nvim-tree/nvim-web-devicons" })
 	use({
 		"windwp/nvim-autopairs",
 		config = function()
 			require("nvim-autopairs").setup({})
 		end,
 	})
+	use({
+		"noib3/nvim-cokeline",
+		requires = "kyazdani42/nvim-web-devicons", -- If you want devicons
+	})
 
-	-- Icons
-	use("kyazdani42/nvim-web-devicons")
+    --Icons
+    use("kyazdani42/nvim-web-devicons")
 
 	-- Formatting
 	use({ "prettier/vim-prettier", run = "npm install --frozen-lockfile --production" })
