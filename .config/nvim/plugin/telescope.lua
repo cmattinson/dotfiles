@@ -1,9 +1,11 @@
+local actions = require("telescope.actions")
+
 require("telescope").setup({
 	defaults = {
-		file_ignore_patterns = { "node_modules" },
+		file_ignore_patterns = { "node_modules", "tests" },
 		{ mappings = {
 			i = {
-				["<C-q>"] = require("telescope.actions").smart_add_to_qflist,
+				["<C-q>"] = actions.smart_add_to_qflist,
 			},
 		} },
 	},

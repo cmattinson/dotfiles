@@ -2,9 +2,11 @@ local function map(m, k, v)
 	vim.keymap.set(m, k, v, { silent = true })
 end
 
+vim.g.mapleader = " "
+
 map("n", "<C-p>", ":Telescope find_files<CR>")
 map("n", "<leader>g", ":Telescope git_files<CR>")
-map("n", "<C-f>", ":Telescope live_grep<CR>")
+map("n", "<C-f>", ":lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>")
 map("n", "<C-b>", ":NvimTreeToggle<CR>")
 
 -- Move to next match and center cursor
@@ -39,9 +41,10 @@ map("v", "<A-k>", ":m '<-2<CR>gv=gv")
 map("n", "<leader>f", ":Format<CR>")
 map("n", "<leader>F", ":FormatWrite<CR>")
 
-map("n", "<leader>do", ":DiffviewOpen<CR>")
-map("n", "<leader>dc", ":DiffviewClose<CR>")
-map("n", "<leader>df", ":DiffviewToggleFiles<CR>")
-
 map("n", "<C-Left>", "<Plug>(cokeline-switch-prev)", { silent = true })
 map("n", "<C-Right>", "<Plug>(cokeline-switch-next)", { silent = true })
+
+map("n", "<leader>lg", ":LazyGit<CR>")
+
+map("n", "<A-Up>", ":cprev<CR>");
+map("n", "<A-Down>", ":cnext<CR>");

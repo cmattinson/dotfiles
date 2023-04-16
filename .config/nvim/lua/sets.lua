@@ -20,7 +20,10 @@ vim.o.showmode = false
 vim.o.clipboard = "unnamedplus"
 vim.o.ignorecase = true
 vim.o.autoindent = true
+vim.o.smartindent = true
 vim.o.smartcase = true
 vim.g.rustfmt_autosave = true
 vim.cmd("set completeopt=menu,menuone,noselect")
 vim.cmd("set updatetime=300")
+vim.cmd("set cursorline")
+vim.cmd("set cursorlineopt=number")

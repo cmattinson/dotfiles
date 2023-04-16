@@ -1,25 +1,26 @@
 add_newline = false
 
-[package]
-disabled=true
-
 [username]
 show_always = true
-format = "[$user](bold 167) in "
+format = "[$user](bold #bb9af7) in "
 
 [directory]
 truncate_to_repo = false
-style = "bold 109"
+style = "bold #ff9e64"
 
 [git_branch]
-style = "bold 175"
+style = "bold #73daca"
 
 [git_status]
-style = "bold 108"
+style = "bold #db4b4b"
 
 [cmd_duration]
 disabled = true
 
 [nodejs]
-style = "bold 142"
+style = "bold #1abc9c"
+
+[character]
+success_symbol = "[❯](bold #9ccfd8)" 
+error_symbol = "[❯](bold 203)"
 
