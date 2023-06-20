@@ -48,3 +48,5 @@ map("n", "<leader>lg", ":LazyGit<CR>")
 
 map("n", "<A-Up>", ":cprev<CR>");
 map("n", "<A-Down>", ":cnext<CR>");
+
+map("n", "<leader>dr", ":e src/lib/rules/index.js<CR>:<leader>db");

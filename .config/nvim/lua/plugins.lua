@@ -4,12 +4,13 @@ require("packer").startup(function()
 	use("williamboman/mason-lspconfig.nvim")
 
 	-- Utils
-	use("nvim-lua/plenary.nvim")
 	use({ "nvim-tree/nvim-tree.lua", requires = { "nvim-tree/nvim-web-devicons", tag = "nightly" } })
 	use({
 		"nvim-telescope/telescope.nvim",
+		tag = "0.1.2",
 		requires = {
 			{ "nvim-telescope/telescope-live-grep-args.nvim" },
+			{ "nvim-lua/plenary.nvim" },
 		},
 		config = function()
 			require("telescope").load_extension("live_grep_args")
@@ -63,4 +64,16 @@ require("packer").startup(function()
 	use("rose-pine/neovim")
 	use("NTBBloodbath/doom-one.nvim")
 	use("folke/tokyonight.nvim")
+
+	-- Debugging
+	use("mfussenegger/nvim-dap")
+	use("mxsdev/nvim-dap-vscode-js")
+	use({ "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" } })
+	use("theHamsta/nvim-dap-virtual-text")
+	use("nvim-telescope/telescope-dap.nvim")
+	use({
+		"microsoft/vscode-js-debug",
+		opt = true,
+		run = "npm install --legacy-peer-deps && npx gulp vsDebugServerBundle && mv dist out",
+	})
 end)

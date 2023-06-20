@@ -20,11 +20,12 @@ alias clean="rm -rf ~/workspace/camms-portal/app/*"
 alias test="npx jest"
 alias internal_uat="ssh -i ~/ubuntuserver.pem ubuntu@172.31.40.79"
 alias deploy_internal="rsync -a --info=progress2 -e 'ssh -i ~/ubuntuserver.pem' ~/workspace/camms-portal ubuntu@172.31.40.79:/home/ubuntu/camms-portal-import"
-alias nvim="nvm use 14.16.0 && nvim"
+alias nvim="nvim"
 alias grep="grep --color=auto"
 alias grepr="grep -rHni --exclude-dir=node_modules --exclude-dir=app --exclude=index.js"
 alias nvc="cd ~/.config/nvim && nvim ."
 alias nvp="cd ~/.local/share/nvim/"
+alias .nv="cd ~/.config/nvim"
 alias psql="sudo -u postgres psql"
 alias goose="goose postgres 'user=chris password=admin dbname=olympus sslmode=disable'"
 alias subl="/mnt/c/Program\ Files/'Sublime Text'/subl.exe"
@@ -76,3 +77,5 @@ eval "$(starship init zsh)"
 function colormap() {
   for i in {0..255}; do print -Pn "%K{$i}  %k%F{$i}${(l:3::0:)i}%f " ${${(M)$((i%6)):#3}:+$'\n'}; done
 }
+
+set +H
