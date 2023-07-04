@@ -2,23 +2,23 @@ add_newline = false
 
 [username]
 show_always = true
-format = "[$user](bold #bb9af7) in "
+format = "[$user](bold #ff7b72) in "
 
 [directory]
 truncate_to_repo = false
-style = "bold #ff9e64"
+style = "bold #d2a8ff"
 
 [git_branch]
-style = "bold #73daca"
+style = "bold #79c0ff"
 
 [git_status]
-style = "bold #db4b4b"
+style = "bold #f85149"
 
 [cmd_duration]
 disabled = true
 
 [nodejs]
-style = "bold #1abc9c"
+style = "bold #a9ff68"
 
 [character]
 success_symbol = "[❯](bold #9ccfd8)" 

@@ -8,6 +8,7 @@ map("n", "<C-p>", ":Telescope find_files<CR>")
 map("n", "<leader>g", ":Telescope git_files<CR>")
 map("n", "<C-f>", ":lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>")
 map("n", "<C-b>", ":NvimTreeToggle<CR>")
+map("n", "<leader>tb", ":Telescope buffers<CR>")
 
 -- Move to next match and center cursor
 map("n", "n", "nzz")

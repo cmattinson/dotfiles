@@ -50,20 +50,18 @@ require("packer").startup(function()
 	use("hrsh7th/nvim-cmp")
 	use("hrsh7th/cmp-nvim-lsp")
 	use("hrsh7th/cmp-buffer")
+	use("rust-lang/rust.vim")
+	use("simrat39/rust-tools.nvim")
 	-- use("nvim-lua/lsp_extensions.nvim")
 	-- use({ "fatih/vim-go", run = ":GoUpdateBinaries" })
-	-- use("rust-lang/rust.vim")
-	-- use("simrat39/rust-tools.nvim")
 	-- use("hrsh7th/cmp-vsnip")
 	-- use("hrsh7th/cmp-path")
 	-- use("hrsh7th/vim-vsnip")
 
 	-- Colorschemes
-	use("navarasu/onedark.nvim")
-	use("rktjmp/lush.nvim")
-	use("rose-pine/neovim")
-	use("NTBBloodbath/doom-one.nvim")
 	use("folke/tokyonight.nvim")
+	use("projekt0n/github-nvim-theme")
+	use("EdenEast/nightfox.nvim")
 
 	-- Debugging
 	use("mfussenegger/nvim-dap")
@@ -76,4 +74,5 @@ require("packer").startup(function()
 		opt = true,
 		run = "npm install --legacy-peer-deps && npx gulp vsDebugServerBundle && mv dist out",
 	})
+	use("ChristianChiarulli/neovim-codicons")
 end)
