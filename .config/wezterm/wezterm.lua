@@ -1,1 +1,0 @@
-/mnt/c/Users/cmatt/.wezterm.lua
