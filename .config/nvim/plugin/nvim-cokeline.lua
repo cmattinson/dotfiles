@@ -22,8 +22,11 @@ require("cokeline").setup({
 	components = {
 		{
 			text = function(buffer)
-				return (buffer.index ~= 1) and "▏" or ""
+				return (buffer.index ~= 1) and " ▏" or ""
 			end,
+			fg = function(buffer)
+				return "#ff7b72"
+			end
 		},
 		{
 			text = "  ",
