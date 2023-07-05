@@ -12,6 +12,7 @@ style = "bold #d2a8ff"
 style = "bold #79c0ff"
 
 [git_status]
+disabled = true
 style = "bold #f85149"
 
 [cmd_duration]
