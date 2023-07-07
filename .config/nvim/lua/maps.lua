@@ -47,9 +47,12 @@ map("n", "<C-Right>", "<Plug>(cokeline-switch-next)", { silent = true })
 
 map("n", "<leader>lg", ":LazyGit<CR>")
 
-map("n", "<A-Up>", ":cprev<CR>");
-map("n", "<A-Down>", ":cnext<CR>");
+map("n", "<A-Up>", ":cprev<CR>")
+map("n", "<A-Down>", ":cnext<CR>")
 
-map("n", "<leader>dr", ":e src/lib/rules/index.js<CR>:<leader>db");
+map("n", "<leader>db", ":lua require('dapui').toggle()<CR>")
+map("n", "<leader>dr", ":e src/lib/rules/index.js<CR>:lua require('dapui').toggle()<CR>")
 
 map("n", "<C-s>", ":call SynStack()<CR>")
+map("n", "<C-e>", ":lua require('dapui').eval()<CR>")
+

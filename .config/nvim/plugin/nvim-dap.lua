@@ -1,6 +1,13 @@
 local dap = require("dap")
 
 -- Set keymaps to control the debugger
+vim.fn.sign_define("DapBreakpoint", { text = "", texthl = "ErrorMsg", linehl = "", numhl = "" })
+vim.fn.sign_define("DapBreakpointCondition", { text = "", texthl = "WarningMsg", linehl = "", numhl = "" })
+vim.fn.sign_define("DapStopped", { text = "", texthl = "Question", linehl = "", numhl = "" })
+vim.fn.sign_define("DapLogPoint", { text = "", texthl = "", linehl = "", numhl = "" })
+vim.fn.sign_define("DapBreakpointRejected", { text = "", texthl = "", linehl = "", numhl = "" })
+
+vim.keymap.set("n", "<leader>dc", require("dap").clear_breakpoints)
 vim.keymap.set("n", "<F5>", require("dap").continue)
 vim.keymap.set("n", "<F1>", require("dap").step_into)
 vim.keymap.set("n", "<F2>", require("dap").step_over)
