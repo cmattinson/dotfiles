@@ -19,7 +19,7 @@ style = "bold #f85149"
 disabled = true
 
 [nodejs]
-style = "bold #a9ff68"
+style = "bold #09f7a0"
 
 [character]
 success_symbol = "[❯](bold #9ccfd8)" 
