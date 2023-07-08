@@ -2,6 +2,14 @@ local function map(m, k, v)
 	vim.keymap.set(m, k, v, { silent = true })
 end
 
+vim.cmd([[
+function! GetFileName()
+  return expand("%:t")->split('\.')[0]
+endfunc
+
+command! GetFileName         call GetFileName()
+]])
+
 vim.g.mapleader = " "
 
 map("n", "<C-p>", ":Telescope find_files<CR>")
@@ -51,8 +59,11 @@ map("n", "<A-Up>", ":cprev<CR>")
 map("n", "<A-Down>", ":cnext<CR>")
 
 map("n", "<leader>db", ":lua require('dapui').toggle()<CR>")
-map("n", "<leader>dr", ":e src/lib/rules/index.js<CR>:lua require('dapui').toggle()<CR>")
+map(
+	"n",
+	"<leader>dr",
+	":execute 'e '.'+/Rules.prototype.'.GetFileName().' src/lib/rules/index.js'<CR>:lua require('dapui').toggle()<CR>"
+)
 
 map("n", "<C-s>", ":call SynStack()<CR>")
 map("n", "<C-e>", ":lua require('dapui').eval()<CR>")
-
