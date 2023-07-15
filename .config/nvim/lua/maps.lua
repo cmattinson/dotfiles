@@ -67,3 +67,7 @@ map(
 
 map("n", "<C-s>", ":call SynStack()<CR>")
 map("n", "<C-e>", ":lua require('dapui').eval()<CR>")
+
+map("n", "-", require("oil").open, { desc = "Open parent directory" })
+
+map("n", "<leader>jr<CR>", ":e src/lib/rules/index.js")
