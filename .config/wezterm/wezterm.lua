@@ -57,7 +57,7 @@ config.keys = {
 for i = 1, 8 do
 	table.insert(config.keys, {
 		key = tostring(i),
-		mods = "ALT",
+		mods = "SUPER",
 		action = act.ActivateTab(i - 1),
 	})
 end

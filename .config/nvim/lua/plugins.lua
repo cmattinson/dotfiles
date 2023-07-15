@@ -44,8 +44,8 @@ require("packer").startup(function()
 	use("kyazdani42/nvim-web-devicons")
 
 	-- Formatting
-	use({ "prettier/vim-prettier", run = "npm install --frozen-lockfile --production" })
 	use({ "mhartington/formatter.nvim" })
+	use("sbdchd/neoformat")
 
 	-- LSP
 	use("neovim/nvim-lspconfig")
