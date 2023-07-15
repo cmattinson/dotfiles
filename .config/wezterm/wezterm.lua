@@ -10,10 +10,9 @@ end
 
 config.front_end = "WebGpu"
 config.disable_default_key_bindings = true
-config.default_domain = "WSL:Ubuntu-20.04"
 config.color_scheme = "Framer (base16)"
-config.font = wezterm.font("Hasklig Semibold")
-config.font_size = 12.5 
+-- config.font = wezterm.font("Hasklig Semibold")
+config.font_size = 16
 config.tab_bar_at_bottom = true
 
 config.keys = {

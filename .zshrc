@@ -48,7 +48,7 @@ alias wts="nvim /mnt/c/Users/cmatt/AppData/Local/Packages/Microsoft.WindowsTermi
 alias .z="nvim ~/.zshrc"
 alias .sz="source ~/.zshrc"
 alias gd="cd /mnt/c/Users/cmatt/Documents/Workspace/godot"
-alias wtc="nvim /mnt/c/Users/cmatt/.wezterm.lua"
+alias wtc="nvim ~/.config/wezterm/wezterm.lua"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
@@ -67,7 +67,7 @@ export DB_USERNAME="chris"
 export DB_PASSWORD="admin"
 export DB_NAME="olympus"
 
-export DISPLAY=$(route.exe print | grep 0.0.0.0 | head -1 | awk '{print $4}'):0.0
+# export DISPLAY=$(route.exe print | grep 0.0.0.0 | head -1 | awk '{print $4}'):0.0
 
 export SPACESHIP_BATTERY_SHOW=false
 
