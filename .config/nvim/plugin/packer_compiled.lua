@@ -74,6 +74,11 @@ end
 time([[try_loadstring definition]], false)
 time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
+  ["bufferize.vim"] = {
+    loaded = true,
+    path = "/home/chris/.local/share/nvim/site/pack/packer/start/bufferize.vim",
+    url = "https://github.com/AndrewRadev/bufferize.vim"
+  },
   ["cmp-buffer"] = {
     loaded = true,
     path = "/home/chris/.local/share/nvim/site/pack/packer/start/cmp-buffer",
@@ -98,6 +103,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/chris/.local/share/nvim/site/pack/packer/start/github-nvim-theme",
     url = "https://github.com/projekt0n/github-nvim-theme"
+  },
+  ["kanagawa.nvim"] = {
+    loaded = true,
+    path = "/home/chris/.local/share/nvim/site/pack/packer/start/kanagawa.nvim",
+    url = "https://github.com/rebelot/kanagawa.nvim"
   },
   ["lazygit.nvim"] = {
     loaded = true,
@@ -124,10 +134,10 @@ _G.packer_plugins = {
     path = "/home/chris/.local/share/nvim/site/pack/packer/start/neovim-codicons",
     url = "https://github.com/ChristianChiarulli/neovim-codicons"
   },
-  ["nightfox.nvim"] = {
+  nvim = {
     loaded = true,
-    path = "/home/chris/.local/share/nvim/site/pack/packer/start/nightfox.nvim",
-    url = "https://github.com/EdenEast/nightfox.nvim"
+    path = "/home/chris/.local/share/nvim/site/pack/packer/start/nvim",
+    url = "https://github.com/catppuccin/nvim"
   },
   ["nvim-cmp"] = {
     loaded = true,
@@ -183,6 +193,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/chris/.local/share/nvim/site/pack/packer/start/nvim-web-devicons",
     url = "https://github.com/kyazdani42/nvim-web-devicons"
+  },
+  ["oil.nvim"] = {
+    loaded = true,
+    path = "/home/chris/.local/share/nvim/site/pack/packer/start/oil.nvim",
+    url = "https://github.com/stevearc/oil.nvim"
   },
   ["packer.nvim"] = {
     loaded = true,

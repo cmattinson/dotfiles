@@ -37,6 +37,8 @@ require("packer").startup(function()
 		requires = { "nvim-tree/nvim-web-devicons" },
 	})
 	use("tpope/vim-sleuth")
+	use("stevearc/oil.nvim")
+	use("AndrewRadev/bufferize.vim")
 
 	--Icons
 	use("kyazdani42/nvim-web-devicons")
@@ -61,7 +63,8 @@ require("packer").startup(function()
 	-- Colorschemes
 	use("folke/tokyonight.nvim")
 	use("projekt0n/github-nvim-theme")
-	use("EdenEast/nightfox.nvim")
+	use("catppuccin/nvim")
+	use("rebelot/kanagawa.nvim")
 
 	-- Debugging
 	use("mfussenegger/nvim-dap")
