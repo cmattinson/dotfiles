@@ -12,12 +12,8 @@ command! GetFileName         call GetFileName()
 
 vim.g.mapleader = " "
 
-map("n", "<C-p>", ":Telescope find_files<CR>")
-map("n", "<leader>g", ":Telescope git_files<CR>")
-map("n", "<C-f>", ":lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>")
 map("n", "<C-b>", ":NvimTreeToggle<CR>")
-map("n", "<leader>tb", ":Telescope buffers<CR>")
-map("n", "<leader>p", ":Neoformat prettier<CR>")
+map("n", "<leader>p", ":Format<CR>")
 
 -- Move to next match and center cursor
 map("n", "n", "nzz")
@@ -38,8 +34,8 @@ map("n", "<leader>o", "o<ESC>")
 map("n", "<leader>O", "O<ESC>")
 
 -- Comment lines with C-/ in normal and visual mode
-map("n", "<C-_>", ":CommentToggle<CR>")
-vim.cmd("vnoremap <C-_> :CommentToggle<CR>")
+map("n", "<C-/>", ":CommentToggle<CR>")
+vim.cmd("vnoremap <C-/> :CommentToggle<CR>")
 
 -- Move lines up or down
 map("n", "<A-j>", ":m .+1<CR>==")
@@ -71,4 +67,10 @@ map("n", "<C-e>", ":lua require('dapui').eval()<CR>")
 
 map("n", "-", require("oil").open, { desc = "Open parent directory" })
 
-map("n", "<leader>jr<CR>", ":e src/lib/rules/index.js")
+map(
+	"n",
+	"<leader>jr",
+	":execute 'e '.'+/Rules.prototype.'.GetFileName().' src/lib/rules/index.js'<CR>"
+)
+
+map("n", "<leader>nc", ":NotifierClear<CR>")

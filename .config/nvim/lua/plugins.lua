@@ -39,13 +39,14 @@ require("packer").startup(function()
 	use("tpope/vim-sleuth")
 	use("stevearc/oil.nvim")
 	use("AndrewRadev/bufferize.vim")
+	use("folke/trouble.nvim")
+	use({ "folke/noice.nvim", requires = { "MunifTanjim/nui.nvim", "rcarriga/nvim-notify" } })
 
 	--Icons
 	use("kyazdani42/nvim-web-devicons")
 
 	-- Formatting
 	use({ "mhartington/formatter.nvim" })
-	use("sbdchd/neoformat")
 
 	-- LSP
 	use("neovim/nvim-lspconfig")
@@ -63,12 +64,14 @@ require("packer").startup(function()
 	-- Colorschemes
 	use("folke/tokyonight.nvim")
 	use("projekt0n/github-nvim-theme")
-	use("catppuccin/nvim")
-	use("rebelot/kanagawa.nvim")
+	use("sainnhe/edge")
+	use("sainnhe/sonokai")
+	use("olimorris/onedarkpro.nvim")
+	use("EdenEast/nightfox.nvim")
+	use("navarasu/onedark.nvim")
 
 	-- Debugging
-	use("mfussenegger/nvim-dap")
-	use("mxsdev/nvim-dap-vscode-js")
+	use({ "mxsdev/nvim-dap-vscode-js", requires = { "mfussenegger/nvim-dap" } })
 	use({ "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" } })
 	use("theHamsta/nvim-dap-virtual-text")
 	use("nvim-telescope/telescope-dap.nvim")

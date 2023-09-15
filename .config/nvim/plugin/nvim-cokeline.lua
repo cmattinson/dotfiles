@@ -3,14 +3,15 @@ local get_hex = require("cokeline/utils").get_hex
 require("cokeline").setup({
 	show_if_buffers_are_at_least = 2,
 	buffers = {
-		new_buffers_position = "number"
+		new_buffers_position = "number",
 	},
 	default_hl = {
 		fg = function(buffer)
-			return buffer.is_focused and get_hex("SpecialComment", "fg") or get_hex("Comment", "fg")
+			return buffer.is_focused and get_hex("ModeMsg", "fg") or get_hex("Comment", "fg")
 		end,
 		bg = "NONE",
 	},
+	fill_hl = "NONE",
 	sidebar = {
 		filetype = "NvimTree",
 		components = {
@@ -25,8 +26,8 @@ require("cokeline").setup({
 				return (buffer.index ~= 1) and " ▏" or ""
 			end,
 			fg = function(buffer)
-				return "#ff7b72"
-			end
+				return "#d38aea"
+			end,
 		},
 		{
 			text = "  ",

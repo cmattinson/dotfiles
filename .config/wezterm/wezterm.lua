@@ -10,9 +10,9 @@ end
 
 config.front_end = "WebGpu"
 config.disable_default_key_bindings = true
-config.color_scheme = "Framer (base16)"
--- config.font = wezterm.font("Hasklig Semibold")
-config.font_size = 16
+config.color_scheme = "Hurtado"
+config.font = wezterm.font("SFMono Nerd Font", { weight = "Medium" })
+config.font_size = 18
 config.tab_bar_at_bottom = true
 
 config.keys = {
@@ -21,25 +21,24 @@ config.keys = {
 	{ key = "L", mods = "CTRL|SHIFT", action = act.ShowLauncher },
 	{ key = "-", mods = "CTRL", action = act.DecreaseFontSize },
 	{ key = "=", mods = "CTRL", action = act.IncreaseFontSize },
-	{ key = "|", mods = "ALT|SHIFT", action = act.SplitHorizontal },
-	{ key = "%", mods = "ALT|SHIFT", action = act.SplitVertical },
+	{ key = "|", mods = "CMD|SHIFT", action = act.SplitHorizontal },
+	{ key = "%", mods = "CMD|SHIFT", action = act.SplitVertical },
 
 	{ key = "t", mods = "CTRL", action = act.SpawnTab("CurrentPaneDomain") },
-	{ key = "LeftArrow", mods = "ALT|SHIFT", action = act.AdjustPaneSize({ "Left", 5 }) },
-	{ key = "RightArrow", mods = "ALT|SHIFT", action = act.AdjustPaneSize({ "Right", 5 }) },
-	{ key = "UpArrow", mods = "ALT|SHIFT", action = act.AdjustPaneSize({ "Up", 5 }) },
-	{ key = "DownArrow", mods = "ALT|SHIFT", action = act.AdjustPaneSize({ "Down", 5 }) },
-	{ key = "LeftArrow", mods = "CTRL", action = act.ActivatePaneDirection("Left") },
-	{ key = "RightArrow", mods = "CTRL", action = act.ActivatePaneDirection("Right") },
-	{ key = "UpArrow", mods = "CTRL", action = act.ActivatePaneDirection("Up") },
-	{ key = "DownArrow", mods = "CTRL", action = act.ActivatePaneDirection("Down") },
-	{ key = "PageDown", mods = "ALT", action = act.ActivateTabRelative(1) },
-	{ key = "PageUp", mods = "ALT", action = act.ActivateTabRelative(-1) },
-	{ key = "PageDown", mods = "ALT|SHIFT", action = act.MoveTabRelative(1) },
-	{ key = "PageUp", mods = "ALT|SHIFT", action = act.MoveTabRelative(-1) },
+	{ key = "LeftArrow", mods = "CMD|SHIFT", action = act.AdjustPaneSize({ "Left", 5 }) },
+	{ key = "RightArrow", mods = "CMD|SHIFT", action = act.AdjustPaneSize({ "Right", 5 }) },
+	{ key = "UpArrow", mods = "CMD|SHIFT", action = act.AdjustPaneSize({ "Up", 5 }) },
+	{ key = "DownArrow", mods = "CMD|SHIFT", action = act.AdjustPaneSize({ "Down", 5 }) },
+	{ key = "LeftArrow", mods = "CMD", action = act.ActivatePaneDirection("Left") },
+	{ key = "RightArrow", mods = "CMD", action = act.ActivatePaneDirection("Right") },
+	{ key = "UpArrow", mods = "CMD", action = act.ActivatePaneDirection("Up") },
+	{ key = "DownArrow", mods = "CMD", action = act.ActivatePaneDirection("Down") },
+	{ key = "PageDown", mods = "CMD", action = act.ActivateTabRelative(1) },
+	{ key = "PageUp", mods = "CMD", action = act.ActivateTabRelative(-1) },
+	{ key = "PageDown", mods = "CMD|SHIFT", action = act.MoveTabRelative(1) },
+	{ key = "PageUp", mods = "CMD|SHIFT", action = act.MoveTabRelative(-1) },
 	{ key = "F", mods = "CTRL|SHIFT", action = act.ToggleFullScreen },
 	{ key = "v", mods = "CTRL", action = act.PasteFrom("Clipboard") },
-
 	{
 		key = "R",
 		mods = "CTRL|SHIFT",
@@ -52,12 +51,13 @@ config.keys = {
 			end),
 		}),
 	},
+	{ key = "h", mods = "CMD", action = act.HideApplication },
 }
 
 for i = 1, 8 do
 	table.insert(config.keys, {
 		key = tostring(i),
-		mods = "SUPER",
+		mods = "CMD",
 		action = act.ActivateTab(i - 1),
 	})
 end

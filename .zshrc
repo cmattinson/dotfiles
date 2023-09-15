@@ -21,8 +21,10 @@ alias refresh="node service --refreshrules"
 alias inspect="sudo "$(which node)" --inspect service"
 alias test="npx jest"
 alias internal_uat="ssh -i ~/ubuntuserver.pem ubuntu@172.31.40.79"
+alias chris_int="ssh chris@172.31.40.79"
 alias deploy_internal="rsync -a --info=progress2 -e 'ssh -i ~/ubuntuserver.pem' ~/workspace/camms-portal ubuntu@172.31.40.79:/home/ubuntu/camms-portal-import"
 alias nvim="nvim"
+alias nvim-upgrade="brew upgrade neovim --fetch-HEAD"
 alias grep="grep --color=auto"
 alias grepr="grep -rHni --exclude-dir=node_modules --exclude-dir=app --exclude=index.js"
 alias nvc="cd ~/.config/nvim && nvim ."
@@ -31,7 +33,7 @@ alias .nv="cd ~/.config/nvim"
 alias psql="sudo -u postgres psql"
 alias goose="goose postgres 'user=chris password=admin dbname=olympus sslmode=disable'"
 alias subl="/mnt/c/Program\ Files/'Sublime Text'/subl.exe"
-alias oracle="ssh -i ~/oracle_private.key ubuntu@132.226.24.23"
+alias oracle="ssh ubuntu@129.146.22.41"
 alias website="cd ~/workspace/website"
 alias dynamic="cd ~/workspace/camms-portal-dynamic"
 alias shc="nvim ~/.config/starship.toml"
@@ -40,7 +42,7 @@ alias chrome="/mnt/c/Program\ Files\/Google/Chrome/Application/chrome.exe"
 alias start-camms="cmd.exe /c 'wt.exe'; split-pane -V camms && npm run service"
 alias n8="nvm use 8.9.3"
 alias n14="nvm use 14.16.0"
-alias nlts="nvm use 18.14.0"
+alias nlts="nvm use 18.17.0"
 alias rust="cd ~/workspace/rust"
 alias nt="cd /mnt/c/Users/cmatt/Documents/notes"
 alias .config="cd ~/.config"
@@ -80,3 +82,8 @@ function colormap() {
 }
 
 set +H
+export PATH="/opt/homebrew/opt/gnu-getopt/bin:$PATH"
+
+PATH="$PATH:/Applications/WezTerm.app/Contents/MacOS"
+export PATH
+
