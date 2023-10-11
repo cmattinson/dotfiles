@@ -1,4 +1,4 @@
-local get_hex = require("cokeline/utils").get_hex
+local get_hl = require("cokeline.hlgroups").get_hl_attr
 
 require("cokeline").setup({
 	show_if_buffers_are_at_least = 2,
@@ -7,7 +7,7 @@ require("cokeline").setup({
 	},
 	default_hl = {
 		fg = function(buffer)
-			return buffer.is_focused and get_hex("ModeMsg", "fg") or get_hex("Comment", "fg")
+			return buffer.is_focused and get_hl("ModeMsg", "fg") or get_hl("Comment", "fg")
 		end,
 		bg = "NONE",
 	},

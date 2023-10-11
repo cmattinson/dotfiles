@@ -13,8 +13,14 @@ require("formatter").setup({
 		javascript = {
 			require("formatter.filetypes.javascript").prettier,
 		},
+		graphql = {
+			require("formatter.filetypes.javascript").prettier,
+		},
 		javascriptreact = {
 			require("formatter.filetypes.javascriptreact").prettier,
+		},
+		sql = {
+			require("formatter.filetypes.sql").prettier,
 		},
 		["*"] = {
 			-- "formatter.filetypes.any" defines default configurations for any

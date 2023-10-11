@@ -47,6 +47,7 @@ require("packer").startup(function()
 
 	-- Formatting
 	use({ "mhartington/formatter.nvim" })
+	use({ "stevearc/conform.nvim" })
 
 	-- LSP
 	use("neovim/nvim-lspconfig")

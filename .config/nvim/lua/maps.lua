@@ -13,7 +13,7 @@ command! GetFileName         call GetFileName()
 vim.g.mapleader = " "
 
 map("n", "<C-b>", ":NvimTreeToggle<CR>")
-map("n", "<leader>p", ":Format<CR>")
+map("n", "<leader>p", ":Conform<CR>")
 
 -- Move to next match and center cursor
 map("n", "n", "nzz")
@@ -67,10 +67,6 @@ map("n", "<C-e>", ":lua require('dapui').eval()<CR>")
 
 map("n", "-", require("oil").open, { desc = "Open parent directory" })
 
-map(
-	"n",
-	"<leader>jr",
-	":execute 'e '.'+/Rules.prototype.'.GetFileName().' src/lib/rules/index.js'<CR>"
-)
+map("n", "<leader>jr", ":execute 'e '.'+/Rules.prototype.'.GetFileName().' src/lib/rules/index.js'<CR>")
 
 map("n", "<leader>nc", ":NotifierClear<CR>")
