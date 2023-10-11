@@ -9,7 +9,10 @@ alias camms="cd ~/workspace/method1/camms-portal"
 alias cammsc="cd ~/workspace/method1/camms"
 alias dash="cd ~/workspace/method1/camms-dashboards"
 alias build="cd ~/workspace/method1/camms-portal-build"
+alias browse="cd ~/workspace/method1/browse"
+alias bms="cd ~/workspace/method1/bms-browse"
 alias repo="cd ~/workspace/github.com/cmattinson/repose"
+alias pack="cd ~/.local/share/nvim/site/pack/packer"
 alias oly="cd ~/workspace/olympus"
 alias olys="cd ~/workspace/olympus/server"
 alias olyc="cd ~/workspace/olympus/client"
@@ -86,4 +89,5 @@ export PATH="/opt/homebrew/opt/gnu-getopt/bin:$PATH"
 
 PATH="$PATH:/Applications/WezTerm.app/Contents/MacOS"
 export PATH
+export PATH="$PATH:`yarn global bin`"
 
