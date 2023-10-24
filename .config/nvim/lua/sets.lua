@@ -23,9 +23,8 @@ vim.o.autoindent = true
 vim.o.smartindent = true
 vim.o.smartcase = true
 vim.g.rustfmt_autosave = true
-vim.cmd("set completeopt=menu,menuone,noselect")
-vim.cmd("set updatetime=300")
-vim.cmd("set cursorline")
-vim.cmd("set cursorlineopt=number")
-vim.cmd("let base16colorspace=256")
-vim.lsp.set_log_level("off")
+vim.o.updatetime = 250
+vim.o.timeoutlen = 300
+vim.o.completeopt = "menuone,noselect"
+vim.o.cursorline = true
+vim.g.mapleader = " "

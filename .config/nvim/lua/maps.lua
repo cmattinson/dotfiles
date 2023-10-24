@@ -10,11 +10,6 @@ endfunc
 command! GetFileName         call GetFileName()
 ]])
 
-vim.g.mapleader = " "
-
-map("n", "<C-b>", ":NvimTreeToggle<CR>")
-map("n", "<leader>p", ":Conform<CR>")
-
 -- Move to next match and center cursor
 map("n", "n", "nzz")
 map("n", "N", "Nzz")
@@ -33,24 +28,12 @@ map("n", "<C-X>", ":bd<CR>")
 map("n", "<leader>o", "o<ESC>")
 map("n", "<leader>O", "O<ESC>")
 
--- Comment lines with C-/ in normal and visual mode
-map("n", "<C-/>", ":CommentToggle<CR>")
-vim.cmd("vnoremap <C-/> :CommentToggle<CR>")
-
 -- Move lines up or down
 map("n", "<A-j>", ":m .+1<CR>==")
 map("n", "<A-k>", ":m .-2<CR>==")
 
 map("v", "<A-j>", ":m '>+1<CR>gv=gv")
 map("v", "<A-k>", ":m '<-2<CR>gv=gv")
-
-map("n", "<leader>f", ":Format<CR>")
-map("n", "<leader>F", ":FormatWrite<CR>")
-
-map("n", "<C-Left>", "<Plug>(cokeline-switch-prev)", { silent = true })
-map("n", "<C-Right>", "<Plug>(cokeline-switch-next)", { silent = true })
-
-map("n", "<leader>lg", ":LazyGit<CR>")
 
 map("n", "<A-Up>", ":cprev<CR>")
 map("n", "<A-Down>", ":cnext<CR>")

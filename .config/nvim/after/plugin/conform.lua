@@ -1,8 +1,8 @@
 require("conform").setup({
+	log_level = vim.log.levels.NONE,
 	formatters_by_ft = {
 		lua = { "stylua" },
-		python = { "isort", "black" },
-		javascript = { "prettierd", "injected" },
+		javascript = { "prettier", "injected" },
 		sql = { "sleek" },
 	},
 	formatters = {
@@ -21,6 +21,11 @@ vim.api.nvim_create_user_command("Conform", function(args)
 			["end"] = { args.line2, end_line:len() },
 		}
 	end
-	require("conform").format({ async = true, lsp_fallback = true, range = range })
-	require("conform.formatters.injected").options.ignore_errors = false
+	require("conform").format({ async = true, lsp_fallback = true, range = range }, function(err)
+		if err ~= nil then
+			vim.api.nvim_echo({ { vim.inspect(err) } }, true, {})
+		end
+	end)
 end, { range = true })
+
+vim.keymap.set("n", "<leader>p", vim.cmd.Conform)

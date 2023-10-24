@@ -1,5 +1,8 @@
 local get_hl = require("cokeline.hlgroups").get_hl_attr
 
+vim.keymap.set("n", "<C-Left>", "<Plug>(cokeline-switch-prev)", { silent = true })
+vim.keymap.set("n", "<C-Right>", "<Plug>(cokeline-switch-next)", { silent = true })
+
 require("cokeline").setup({
 	show_if_buffers_are_at_least = 2,
 	buffers = {
@@ -7,7 +10,7 @@ require("cokeline").setup({
 	},
 	default_hl = {
 		fg = function(buffer)
-			return buffer.is_focused and get_hl("ModeMsg", "fg") or get_hl("Comment", "fg")
+			return buffer.is_focused and get_hl("Directory", "fg") or get_hl("Comment", "fg")
 		end,
 		bg = "NONE",
 	},
