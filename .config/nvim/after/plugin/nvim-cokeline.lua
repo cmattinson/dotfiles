@@ -48,7 +48,7 @@ require("cokeline").setup({
 		},
 		{
 			text = function(buffer)
-				return buffer.filename .. "  "
+				return buffer.unique_prefix .. buffer.filename .. "  "
 			end,
 			style = function(buffer)
 				return buffer.is_focused and "bold" or nil

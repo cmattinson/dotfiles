@@ -6,4 +6,4 @@ require("nvim_comment").setup({
 })
 
 vim.keymap.set("n", "<C-/>", vim.cmd.CommentToggle)
-vim.keymap.set("v", "<C-/>", vim.cmd.CommentToggle)
+vim.cmd("vnoremap <C-/> :CommentToggle<CR>")
