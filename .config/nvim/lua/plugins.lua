@@ -62,19 +62,23 @@ require("packer").startup(function()
 		"VonHeikemen/lsp-zero.nvim",
 		branch = "v3.x",
 		requires = {
-			{'williamboman/mason.nvim'},
-			{'williamboman/mason-lspconfig.nvim'},
+			{ "williamboman/mason.nvim" },
+			{ "williamboman/mason-lspconfig.nvim" },
 			{ "neovim/nvim-lspconfig" },
 			{ "hrsh7th/nvim-cmp" },
 			{ "hrsh7th/cmp-nvim-lsp" },
 			{ "L3MON4D3/LuaSnip" },
 		},
 	})
+	use("ray-x/go.nvim")
 
 	-- Colorschemes
 	use("folke/tokyonight.nvim")
 	use("projekt0n/github-nvim-theme")
 	use("navarasu/onedark.nvim")
+	use("RRethy/nvim-base16")
+	use("ellisonleao/gruvbox.nvim")
+	use("marko-cerovac/material.nvim")
 
 	-- Debugging
 	use({ "mxsdev/nvim-dap-vscode-js", requires = { "mfussenegger/nvim-dap" } })

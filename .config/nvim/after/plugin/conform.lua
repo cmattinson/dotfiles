@@ -1,9 +1,16 @@
 require("conform").setup({
 	log_level = vim.log.levels.NONE,
 	formatters_by_ft = {
-		lua = { "stylua" },
+		css = { "prettier" },
+		go = { "gofmt" },
+		html = { "prettier" },
 		javascript = { "prettier", "injected" },
+		javascriptreact = { "prettier", "injected" },
+		json = { "prettier" },
+		lua = { "stylua" },
+		rust = { "rustfmt" },
 		sql = { "sleek" },
+		yaml = { "yamlfmt" },
 	},
 	formatters = {
 		sleek = {

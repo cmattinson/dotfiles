@@ -10,7 +10,7 @@ require("cokeline").setup({
 	},
 	default_hl = {
 		fg = function(buffer)
-			return buffer.is_focused and get_hl("Directory", "fg") or get_hl("Comment", "fg")
+			return buffer.is_focused and get_hl("SpecialKey", "fg") or get_hl("Comment", "fg")
 		end,
 		bg = "NONE",
 	},

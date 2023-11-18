@@ -53,3 +53,6 @@ map("n", "-", require("oil").open, { desc = "Open parent directory" })
 map("n", "<leader>jr", ":execute 'e '.'+/Rules.prototype.'.GetFileName().' src/lib/rules/index.js'<CR>")
 
 map("n", "<leader>nc", ":NotifierClear<CR>")
+
+map("n", "<A-,>", ":vertical resize -10<CR>")
+map("n", "<A-.>", ":vertical resize +10<CR>")
