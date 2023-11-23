@@ -11,8 +11,8 @@ end
 config.front_end = "WebGpu"
 config.disable_default_key_bindings = true
 config.color_scheme = "Hurtado"
-config.font = wezterm.font("SFMono Nerd Font", { weight = "Medium" })
-config.font_size = 18
+config.font = wezterm.font("Hasklug Nerd Font Mono", { weight = "Medium" })
+config.font_size = 20
 config.tab_bar_at_bottom = true
 
 config.keys = {
@@ -22,8 +22,7 @@ config.keys = {
 	{ key = "-", mods = "CTRL", action = act.DecreaseFontSize },
 	{ key = "=", mods = "CTRL", action = act.IncreaseFontSize },
 	{ key = "|", mods = "CMD|SHIFT", action = act.SplitHorizontal },
-	{ key = "%", mods = "CMD|SHIFT", action = act.SplitVertical },
-
+	{ key = "-", mods = "CMD|SHIFT", action = act.SplitVertical },
 	{ key = "t", mods = "CTRL", action = act.SpawnTab("CurrentPaneDomain") },
 	{ key = "LeftArrow", mods = "CMD|SHIFT", action = act.AdjustPaneSize({ "Left", 5 }) },
 	{ key = "RightArrow", mods = "CMD|SHIFT", action = act.AdjustPaneSize({ "Right", 5 }) },
@@ -61,10 +60,6 @@ for i = 1, 8 do
 		action = act.ActivateTab(i - 1),
 	})
 end
-
-config.launch_menu = {
-	{ label = "CAMMS Development", cwd = "~/workspace/method1/camms-portal" },
-}
 
 wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_width)
 	local pane = tab.active_pane
