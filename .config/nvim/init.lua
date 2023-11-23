@@ -1,9 +1,7 @@
-require("plugins")
-require("sets")
-require("maps")
-require("opts")
-require("treesitter")
-require("quickfixopenall")
-require("sequelizetographql")
-require("fixautomodel")
-require("synstack")
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+
+require("plugins.lazy")
+require("config.keymaps")
+require("config.sets")
+require("functions.fixautomodel")
