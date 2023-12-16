@@ -1,5 +1,6 @@
 return {
 	"folke/noice.nvim",
+	enabled = false,
 	event = "VeryLazy",
 	dependencies = {
 		"MunifTanjim/nui.nvim",
@@ -32,9 +33,9 @@ return {
 			},
 			messages = {
 				view = "notify",
-				view_error = "notify",
+				view_error = "mini",
 				view_history = "messages",
-				view_search = false,
+				view_search = "virtualtext",
 				view_warn = "notify",
 			},
 			views = {
@@ -54,6 +55,35 @@ return {
 					},
 					win_options = {
 						winhighlight = { Normal = "Normal", FloatBorder = "DiagnosticInfo" },
+					},
+				},
+				mini = {
+					backend = "mini",
+					relative = "editor",
+					align = "message-right",
+					timeout = 8000,
+					reverse = true,
+					focusable = false,
+					position = {
+						row = -1,
+						col = -45,
+						-- col = 0,
+					},
+					size = "auto",
+					border = {
+						style = "none",
+					},
+					zindex = 60,
+					win_options = {
+						winbar = "",
+						foldenable = false,
+						winblend = 30,
+						winhighlight = {
+							Normal = "NoiceMini",
+							IncSearch = "",
+							CurSearch = "",
+							Search = "",
+						},
 					},
 				},
 			},

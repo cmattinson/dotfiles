@@ -25,15 +25,12 @@ return {
 				javascript = { "prettier", "injected" },
 				javascriptreact = { "prettier", "injected" },
 				json = { "prettier" },
+				kotlin = { "ktlint" },
 				lua = { "stylua" },
 				rust = { "rustfmt" },
-				sql = { "sleek" },
+				sql = { "sqlfluff" },
 				yaml = { "yamlfmt" },
-			},
-			formatters = {
-				sleek = {
-					command = "sleek",
-				},
+				zig = { "zigfmt" },
 			},
 			notify_on_error = false,
 		})

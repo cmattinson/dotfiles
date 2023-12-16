@@ -2,6 +2,7 @@ return {
 	"marko-cerovac/material.nvim",
 	lazy = false,
 	priority = 10000,
+	enabled = false,
 	init = function()
 		local colors = require("material.colors")
 
@@ -50,6 +51,9 @@ return {
 				["@property.javascript"] = { fg = colors.main.blue },
 				DiagnosticHint = { fg = "#80cbc4" },
 				DiagnosticHintSign = { fg = "#80cbc4" },
+				DiagnosticUnderlineErrors = { fg = "None" },
+				["@field.zig"] = { fg = colors.main.blue },
+				["zig"] = { fg = colors.main.blue },
 			},
 		})
 

@@ -2,7 +2,7 @@ return {
 	"terrortylor/nvim-comment",
 	dependencies = { "JoosepAlviste/nvim-ts-context-commentstring" },
 	lazy = true,
-	keys = "<C-/>",
+	event = "BufEnter",
 	config = function()
 		require("nvim_comment").setup({
 			comment_empty = false,

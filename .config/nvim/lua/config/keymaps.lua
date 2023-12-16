@@ -28,13 +28,6 @@ map("n", "<C-X>", ":bd<CR>")
 map("n", "<leader>o", "o<ESC>")
 map("n", "<leader>O", "O<ESC>")
 
--- Move lines up or down
-map("n", "<A-j>", ":m .+1<CR>==")
-map("n", "<A-k>", ":m .-2<CR>==")
-
-map("v", "<A-j>", ":m '>+1<CR>gv=gv")
-map("v", "<A-k>", ":m '<-2<CR>gv=gv")
-
 map("n", "<A-Up>", ":cprev<CR>")
 map("n", "<A-Down>", ":cnext<CR>")
 

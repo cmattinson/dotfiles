@@ -21,6 +21,8 @@ return {
 			},
 		})
 
+		require("telescope").load_extension("live_grep_args")
+
 		vim.keymap.set("n", "<leader>g", require("telescope.builtin").git_files, { desc = "Search [G]it [F]iles" })
 		vim.keymap.set("n", "<C-p>", require("telescope.builtin").find_files, { desc = "[S]earch [F]iles" })
 		vim.keymap.set("n", "<leader>sh", require("telescope.builtin").help_tags, { desc = "[S]earch [H]elp" })
@@ -30,8 +32,9 @@ return {
 			require("telescope.builtin").grep_string,
 			{ desc = "[S]earch current [W]ord" }
 		)
-		vim.keymap.set("n", "<C-f>", require("telescope.builtin").live_grep, { desc = "[S]earch by [G]rep" })
+		vim.keymap.set("n", "<C-f>", require("telescope").extensions.live_grep_args.live_grep_args, { desc = "[S]earch by [G]rep" })
 		vim.keymap.set("n", "<leader>ht", ":Telescope help_tags<CR>")
 		vim.keymap.set("n", "<leader>hl", ":Telescope highlights<CR>")
+		vim.keymap.set("n", "<leader>co", ":Telescope colorscheme<CR>")
 	end,
 }

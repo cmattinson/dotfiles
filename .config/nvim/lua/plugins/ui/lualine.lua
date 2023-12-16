@@ -3,9 +3,6 @@ return {
 	lazy = true,
 	event = "BufEnter",
 	config = function()
-		local lazy_status = require("lazy.status")
-		local colors = require("material.colors")
-
 		require("lualine").setup({
 			options = {
 				icons_enabled = true,
@@ -31,12 +28,7 @@ return {
 					},
 				},
 				lualine_c = { "filename" },
-				lualine_w = {
-					{ lazy_status.updates, cond = lazy_status.has_updates, color = { fg = colors.main.orange } },
-				},
 				lualine_x = {
-					"encoding",
-					"fileformat",
 					"filetype",
 				},
 				lualine_y = { "progress" },

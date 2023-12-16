@@ -14,7 +14,7 @@ return {
 			},
 			default_hl = {
 				fg = function(buffer)
-					return buffer.is_focused and get_hl("lualine_a_normal", "fg") or get_hl("Comment", "fg")
+					return buffer.is_focused and get_hl("Normal", "fg") or get_hl("Comment", "fg")
 				end,
 				bg = "NONE",
 			},
