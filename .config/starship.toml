@@ -2,26 +2,32 @@ add_newline = false
 
 [username]
 show_always = true
-format = "[$user](bold #ff5370) in "
+format = "[$user](#d59192) in "
 
 [directory]
 truncate_to_repo = false
-style = "bold #c792ea"
+style = "#b99be5"
 
 [git_branch]
-style = "bold #89ddff"
+style = "#a8a1be"
 
 [git_status]
 disabled = true
-style = "bold #ff5370"
+style = "#eb6f92"
+
+[package]
+style = "#cbaa88"
 
 [cmd_duration]
 disabled = true
 
 [nodejs]
-style = "bold #09f7a0"
+style = "#939374"
+
+[docker_context]
+disabled = true
 
 [character]
-success_symbol = "[❯](bold #9ccfd8)" 
-error_symbol = "[❯](bold 203)"
+success_symbol = "[❯](#9ccfd8)" 
+error_symbol = "[❯](203)"
 
