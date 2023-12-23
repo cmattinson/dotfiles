@@ -1,27 +1,37 @@
 local wezterm = require("wezterm")
 local act = wezterm.action
-local mux = wezterm.mux
 
 local config = {}
-
-local BACKGROUND_COLOR = "#0F0F0F"
-
 if wezterm.config_builder then
 	config = wezterm.config_builder()
 end
 
+local BACKGROUND_COLOR = "#0F0F0F"
+local FONTS = {
+	Commit = "CommitMono Nerd Font",
+	Cove = "CaskaydiaCove Nerd Font",
+	Fira = "FiraCode Nerd Font",
+	Hack = "Hack Nerd Font",
+	Hasklug = "Hasklug Nerd Font",
+	Iosevka = "Iosevka Nerd Font",
+	Meslo = "MesloLGS Nerd Font",
+	Monaco = "Monaco Nerd Font",
+	Roboto = "RobotoMono Nerd Font",
+	Roman = "CodeNewRoman Nerd Font",
+	Sauce = "SauceCodePro Nerd Font",
+}
+config.font = wezterm.font(FONTS.Monaco, { weight = "Regular" })
+config.font_size = 21
+
 config.front_end = "WebGpu"
 config.disable_default_key_bindings = true
-config.color_scheme = "N0tch2k (Gogh)"
+config.color_scheme = "Nordic"
 
 config.window_background_gradient = {
 	colors = {
 		BACKGROUND_COLOR,
 	},
 }
-
-config.font = wezterm.font("Hasklug Nerd Font", { weight = "Medium" })
-config.font_size = 21
 
 config.keys = {
 	{ key = "-", mods = "CMD|SHIFT", action = act.SplitVertical },
@@ -32,7 +42,6 @@ config.keys = {
 	{ key = "DownArrow", mods = "CMD|SHIFT", action = act.AdjustPaneSize({ "Down", 5 }) },
 	{ key = "L", mods = "CTRL|SHIFT", action = wezterm.action.EmitEvent("toggle-ligature") },
 	{ key = "F", mods = "CTRL|SHIFT", action = act.ToggleFullScreen },
-	-- { key = "L", mods = "CTRL|SHIFT", action = act.ShowLauncher },
 	{ key = "LeftArrow", mods = "CMD", action = act.ActivatePaneDirection("Left") },
 	{ key = "LeftArrow", mods = "CMD|SHIFT", action = act.AdjustPaneSize({ "Left", 5 }) },
 	{ key = "P", mods = "CTRL|SHIFT", action = act.ActivateCommandPalette },
@@ -89,16 +98,17 @@ local function get_current_working_dir(tab)
 	return current_dir == HOME_DIR and "." or string.gsub(current_dir, "(.*[/\\])(.*)", "%2")
 end
 
-config.window_decorations = "RESIZE"
 config.window_frame = {
 	active_titlebar_bg = BACKGROUND_COLOR,
+	active_titlebar_fg = "white",
+	inactive_titlebar_bg = BACKGROUND_COLOR,
 }
 config.colors = {
 	tab_bar = {
 		inactive_tab_edge = BACKGROUND_COLOR,
 		active_tab = {
 			bg_color = BACKGROUND_COLOR,
-			fg_color = "#f6c177",
+			fg_color = "#dadada",
 		},
 		inactive_tab = {
 			bg_color = BACKGROUND_COLOR,

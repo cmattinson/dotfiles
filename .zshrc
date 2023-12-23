@@ -7,6 +7,8 @@ alias ls='ls --color=auto'
 alias ll='ls -lh --color=auto'
 alias camms="cd ~/workspace/method1/camms-portal"
 alias van="cd ~/workspace/vantix"
+alias ios="cd ~/workspace/ios"
+alias kmm="cd ~/workspace/kmm"
 alias svan="ssh vantixsystems@20.51.122.194"
 alias atms="cd ~/workspace/vantix/atms-administration"
 alias crm="cd ~/workspace/vantix/crm"
@@ -27,13 +29,16 @@ alias .config="cd ~/.config"
 alias .z="nvim ~/.zshrc"
 alias .sz="source ~/.zshrc"
 alias wtc="nvim ~/.config/wezterm/wezterm.lua"
+alias ffd="cd \$(fd --type d . ~/workspace | fzf)"
+alias ffc="nvim \$(fd --type f . ~/.config | fzf)"
+alias aoc="cd ~/workspace/rust/advent-of-code"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 fpath=($fpath "/home/chris/.zfunctions")
 
-cd $HOME/workspace/vantix/crm
+cd $HOME/workspace
 
 export GOROOT=/usr/local/go
 export GOPATH=$HOME/workspace/go
@@ -65,3 +70,15 @@ export PATH=$PATH:$DOTNET_ROOT
 export DOCKER_BUILDKIT=1
 source ~/config.sh
 [[ $commands[kubectl] ]] && source <(kubectl completion zsh) # add autocomplete permanently to your zsh shell
+export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
+export LDFLAGS="-L/opt/homebrew/opt/ruby/lib"
+export CPPFLAGS="-I/opt/homebrew/opt/ruby/include"
+export PKG_CONFIG_PATH="/opt/homebrew/opt/ruby/lib/pkgconfig"
+
+
+# bun completions
+[ -s "/Users/chris/.bun/_bun" ] && source "/Users/chris/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"

@@ -8,13 +8,13 @@ return {
 		vim.keymap.set("n", "<C-Right>", "<Plug>(cokeline-switch-next)", { silent = true })
 
 		require("cokeline").setup({
-			show_if_buffers_are_at_least = 2,
+			show_if_buffers_are_at_least = 1,
 			buffers = {
 				new_buffers_position = "number",
 			},
 			default_hl = {
 				fg = function(buffer)
-					return buffer.is_focused and get_hl("Normal", "fg") or get_hl("Comment", "fg")
+					return buffer.is_focused and get_hl("Normal", "fg") or "#424242"
 				end,
 				bg = "NONE",
 			},
@@ -52,7 +52,12 @@ return {
 				},
 				{
 					text = function(buffer)
-						return buffer.unique_prefix .. buffer.filename .. "  "
+						local chunks = {}
+						for chunk in string.gmatch(buffer.path, "([^/]+)") do
+							table.insert(chunks, chunk)
+						end
+
+						return buffer.unique_prefix .. buffer.filename .. " "
 					end,
 					style = function(buffer)
 						return buffer.is_focused and "bold" or nil

@@ -2,7 +2,7 @@ return {
 	"AlexvZyl/nordic.nvim",
 	lazy = false,
 	priority = 1000,
-	enabled = false,
+	enabled = true,
 	config = function()
 		require("nordic").setup({
 			bold_keywords = false,
