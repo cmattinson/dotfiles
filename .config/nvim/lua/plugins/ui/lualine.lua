@@ -17,15 +17,7 @@ return {
 				lualine_b = {
 					"branch",
 					"diff",
-					{
-						"diagnostics",
-						diagnostics_color = {
-							error = "DiagnosticError",
-							warn = "DiagnosticWarn",
-							info = "DiagnosticInfo",
-							hint = "DiagnosticHint",
-						},
-					},
+					"diagnostics",
 				},
 				lualine_c = { "filename" },
 				lualine_x = {

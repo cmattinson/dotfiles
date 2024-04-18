@@ -29,8 +29,12 @@ return {
 				lua = { "stylua" },
 				rust = { "rustfmt" },
 				sql = { "sqlfluff" },
+				typescript = { "prettier", "injected" },
 				yaml = { "yamlfmt" },
 				zig = { "zigfmt" },
+				cs = { "csharpier" },
+				java = { "google-java-format" },
+				python = { "black" },
 			},
 			notify_on_error = false,
 		})

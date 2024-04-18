@@ -3,44 +3,67 @@ return {
 	name = "rose-pine",
 	lazy = false,
 	priority = 10000,
-	enabled = false,
+	enabled = true,
 	config = function()
 		require("rose-pine").setup({
-			variant = "main",
-			dark_variant = "main",
-			bold_vert_split = false,
-			dim_nc_background = false,
-			disable_background = true,
-			disable_float_background = false,
-			disable_italics = true,
+			variant = "main", -- auto, main, moon, or dawn
+			dark_variant = "main", -- main, moon, or dawn
+			dim_inactive_windows = false,
+			extend_background_behind_borders = true,
+			enable = {
+				terminal = true,
+				legacy_highlights = true,
+				migrations = true,
+			},
+			styles = {
+				bold = false,
+				italic = false,
+				transparency = true,
+			},
 			groups = {
-				background = "base",
-				background_nc = "_experimental_nc",
-				panel = "surface",
-				panel_nc = "base",
-				border = "highlight_med",
-				comment = "muted",
+				border = "muted",
 				link = "iris",
-				punctuation = "subtle",
+				panel = "surface",
 				error = "love",
 				hint = "iris",
 				info = "foam",
+				note = "pine",
+				todo = "rose",
 				warn = "gold",
-				headings = {
-					h1 = "iris",
-					h2 = "foam",
-					h3 = "rose",
-					h4 = "gold",
-					h5 = "pine",
-					h6 = "foam",
-				},
+				git_add = "foam",
+				git_change = "rose",
+				git_delete = "love",
+				git_dirty = "rose",
+				git_ignore = "muted",
+				git_merge = "iris",
+				git_rename = "pine",
+				git_stage = "iris",
+				git_text = "rose",
+				git_untracked = "subtle",
+				h1 = "iris",
+				h2 = "foam",
+				h3 = "rose",
+				h4 = "gold",
+				h5 = "pine",
+				h6 = "foam",
 			},
 			highlight_groups = {
-				ColorColumn = { bg = "rose" },
-				CursorLine = { bg = "foam", blend = 10 },
-				StatusLine = { fg = "love", bg = "love", blend = 10 },
-				Search = { bg = "gold", inherit = false },
+				-- Comment = { fg = "foam" },
+				-- VertSplit = { fg = "muted", bg = "muted" },
 			},
+			before_highlight = function(group, highlight, palette)
+				if highlight.undercurl then
+					highlight.undercurl = false
+				end
+				if highlight.italic then
+					highlight.italic = false
+				end
+				--
+				-- Change palette colour
+				-- if highlight.fg == palette.pine then
+				--     highlight.fg = palette.foam
+				-- end
+			end,
 		})
 
 		vim.cmd("colorscheme rose-pine")

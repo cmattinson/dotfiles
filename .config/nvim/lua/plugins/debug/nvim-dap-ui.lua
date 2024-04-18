@@ -108,8 +108,10 @@ return {
 		vim.fn.sign_define("DapLogPoint", { text = "", texthl = "", linehl = "", numhl = "" })
 		vim.fn.sign_define("DapBreakpointRejected", { text = "", texthl = "", linehl = "", numhl = "" })
 
-		vim.keymap.set("n", "<leader>dc", require("dap").clear_breakpoints)
-		vim.keymap.set("n", "<F5>", require("dap").continue)
+		vim.keymap.set("n", "E", require("dapui").eval)
+		vim.keymap.set("n", "<leader>db", require("dapui").toggle)
+		vim.keymap.set("n", "<leader>da", require("dap").continue)
+		vim.keymap.set("n", "<leader>dcb", require("dap").clear_breakpoints)
 		vim.keymap.set("n", "<F1>", require("dap").step_into)
 		vim.keymap.set("n", "<F2>", require("dap").step_over)
 		vim.keymap.set("n", "<F3>", require("dap").step_out)

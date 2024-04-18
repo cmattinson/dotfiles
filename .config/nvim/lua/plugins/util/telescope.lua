@@ -32,7 +32,12 @@ return {
 			require("telescope.builtin").grep_string,
 			{ desc = "[S]earch current [W]ord" }
 		)
-		vim.keymap.set("n", "<C-f>", require("telescope").extensions.live_grep_args.live_grep_args, { desc = "[S]earch by [G]rep" })
+		vim.keymap.set(
+			"n",
+			"<C-f>",
+			require("telescope").extensions.live_grep_args.live_grep_args,
+			{ desc = "[S]earch by [G]rep" }
+		)
 		vim.keymap.set("n", "<leader>ht", ":Telescope help_tags<CR>")
 		vim.keymap.set("n", "<leader>hl", ":Telescope highlights<CR>")
 		vim.keymap.set("n", "<leader>co", ":Telescope colorscheme<CR>")

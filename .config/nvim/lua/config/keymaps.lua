@@ -17,6 +17,12 @@ map("n", "N", "Nzz")
 map("n", "<C-u>", "<C-u>zz")
 map("n", "<C-d>", "<C-d>zz")
 
+-- Join lines and stay in place
+map("n", "J", "mzJ`z")
+
+-- Keep pasting what has been copied
+map("x", "p", '"_dP')
+
 -- Navigate between buffers
 map("n", "<C-PageUp>", ":bprev<CR>")
 map("n", "<C-PageDown>", ":bnext<CR>")
@@ -31,19 +37,12 @@ map("n", "<leader>O", "O<ESC>")
 map("n", "<A-Up>", ":cprev<CR>")
 map("n", "<A-Down>", ":cnext<CR>")
 
-map("n", "<leader>db", ":lua require('dapui').toggle()<CR>")
-map(
-	"n",
-	"<leader>dr",
-	":execute 'e '.'+/Rules.prototype.'.GetFileName().' src/lib/rules/index.js'<CR>:lua require('dapui').toggle()<CR>"
-)
-
 map("n", "<C-s>", ":call SynStack()<CR>")
 map("n", "<C-e>", ":lua require('dapui').eval()<CR>")
 
 map("n", "-", require("oil").open, { desc = "Open parent directory" })
 
-map("n", "<leader>jr", ":execute 'e '.'+/Rules.prototype.'.GetFileName().' src/lib/rules/index.js'<CR>")
+map("n", "<leader>jr", ":e api-node/src/rules/index.js<CR>")
 
 map("n", "<leader>nc", ":NotifierClear<CR>")
 

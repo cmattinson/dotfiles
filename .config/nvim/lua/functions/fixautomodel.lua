@@ -1,11 +1,11 @@
 vim.cmd([[
-function! FixAutoModel(model, prefix, store, service)
-exe '%s/const Sequelize = require("sequelize");\nmodule.exports = function (sequelize, DataTypes) {\n.*return sequelize.define(/const ' . a:model . ' = '. a:store . '.define(/g'
+function! FixAutoModel(model)
+exe '%s/const Sequelize = require("sequelize");\nmodule.exports = function (sequelize, DataTypes) {\n.*return sequelize.define(/const ' . a:model . ' = crm.define(/g'
 :%s/};//g
 :%s/DataTypes/Sequelize/g
-exe ':%s/' . a:prefix . '\zs[A-Z]\ze/\l&/g'
-exe '%s/' . a:prefix . '//gI'
-exe ':file src/lib/services/' . a:service . '/models/' . a:model . '.model.js'
+" exe ':%s/' . a:prefix . '\zs[A-Z]\ze/\l&/g'
+" exe '%s/' . a:prefix . '//gI'
+exe ':file src/data/crm/models/' . a:model . '.model.js'
 :w
 endfunction
 ]])

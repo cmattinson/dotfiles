@@ -6,13 +6,14 @@ if wezterm.config_builder then
 	config = wezterm.config_builder()
 end
 
-local BACKGROUND_COLOR = "#0F0F0F"
+local BACKGROUND_COLOR = "#000000"
 local FONTS = {
 	Commit = "CommitMono Nerd Font",
 	Cove = "CaskaydiaCove Nerd Font",
 	Fira = "FiraCode Nerd Font",
 	Hack = "Hack Nerd Font",
 	Hasklug = "Hasklug Nerd Font",
+	Inconsolata = "Inconsolata Nerd Font",
 	Iosevka = "Iosevka Nerd Font",
 	Meslo = "MesloLGS Nerd Font",
 	Monaco = "Monaco Nerd Font",
@@ -20,12 +21,12 @@ local FONTS = {
 	Roman = "CodeNewRoman Nerd Font",
 	Sauce = "SauceCodePro Nerd Font",
 }
-config.font = wezterm.font(FONTS.Monaco, { weight = "Regular" })
+config.font = wezterm.font(FONTS.Fira, { weight = "Regular" })
 config.font_size = 21
 
 config.front_end = "WebGpu"
 config.disable_default_key_bindings = true
-config.color_scheme = "Nordic"
+config.color_scheme = "rose-pine"
 
 config.window_background_gradient = {
 	colors = {

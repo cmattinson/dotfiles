@@ -1,7 +1,6 @@
 return {
 	"VonHeikemen/lsp-zero.nvim",
-	lazy = true,
-	event = "BufRead",
+	lazy = false,
 	dependencies = {
 		"williamboman/mason-lspconfig.nvim",
 		"neovim/nvim-lspconfig",
@@ -19,11 +18,11 @@ return {
 			info = "",
 		})
 
-		lsp_zero.set_server_config({
-			on_init = function(client)
-				client.server_capabilities.semanticTokensProvider = nil
-			end,
-		})
+		-- lsp_zero.set_server_config({
+		-- 	on_init = function(client)
+		-- 		client.server_capabilities.semanticTokensProvider = nil
+		-- 	end,
+		-- })
 
 		lsp_zero.on_attach(function(client, bufnr)
 			local opts = { buffer = bufnr, remap = false }
