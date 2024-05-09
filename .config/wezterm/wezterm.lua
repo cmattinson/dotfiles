@@ -11,6 +11,7 @@ local FONTS = {
 	Commit = "CommitMono Nerd Font",
 	Cove = "CaskaydiaCove Nerd Font",
 	Fira = "FiraCode Nerd Font",
+	Geist = "GeistMono NF",
 	Hack = "Hack Nerd Font",
 	Hasklug = "Hasklug Nerd Font",
 	Inconsolata = "Inconsolata Nerd Font",
@@ -22,7 +23,7 @@ local FONTS = {
 	Sauce = "SauceCodePro Nerd Font",
 }
 config.font = wezterm.font(FONTS.Fira, { weight = "Regular" })
-config.font_size = 21
+config.font_size = 17.5
 
 config.front_end = "WebGpu"
 config.disable_default_key_bindings = true
