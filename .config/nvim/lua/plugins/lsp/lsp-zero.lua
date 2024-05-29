@@ -9,7 +9,19 @@ return {
 		"L3MON4D3/LuaSnip",
 	},
 	config = function()
-		local lsp_zero = require("lsp-zero")
+		local lsp_zero = require("lsp-zero").preset({
+			name = "recommended",
+			call_servers = "local",
+			setup_servers_on_start = true,
+			manage_nvim_cmp = {
+				set_sources = "recommended",
+				set_basic_mappings = false,
+				set_extra_mappings = false,
+				use_luasnip = true,
+				set_format = true,
+				documentation_window = true,
+			},
+		})
 
 		lsp_zero.set_sign_icons({
 			error = "",
@@ -76,6 +88,7 @@ return {
 				end,
 			},
 		})
+		require("lspconfig").gleam.setup({})
 
 		local cmp = require("cmp")
 		local cmp_select = { behavior = cmp.SelectBehavior.Select }
@@ -85,6 +98,7 @@ return {
 				{ name = "path" },
 				{ name = "nvim_lsp" },
 				{ name = "nvim_lua" },
+				{ name = "gleam" },
 				{ name = "luasnip" },
 			},
 			formatting = lsp_zero.cmp_format(),

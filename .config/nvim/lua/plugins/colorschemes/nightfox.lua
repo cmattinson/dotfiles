@@ -13,7 +13,7 @@ return {
 				dim_inactive = false,
 				module_default = true,
 				colorblind = {
-					enable = false,
+					enable = true,
 					simulate_only = false,
 					severity = {
 						protan = 0, -- Severity [0,1] for protan (red)
@@ -46,6 +46,6 @@ return {
 		})
 
 		-- setup must be called before loading
-		vim.cmd("colorscheme nightfox")
+		vim.cmd("colorscheme duskfox")
 	end,
 }

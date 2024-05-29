@@ -1,4 +1,4 @@
-vim.o.guicursor = "a:block"
+vim.o.guicursor = "a:block,i:ver25-Cursor"
 vim.o.relativenumber = true
 vim.o.nu = true
 vim.o.hlsearch = false

@@ -2,7 +2,7 @@ return {
 	"marko-cerovac/material.nvim",
 	lazy = false,
 	priority = 10000,
-	enabled = false,
+	enabled = true,
 	init = function()
 		local colors = require("material.colors")
 
@@ -42,7 +42,7 @@ return {
 			async_loading = true, -- Load parts of the theme asyncronously for faster startup (turned on by default)
 			custom_colors = nil, -- If you want to override the default colors, set this to a function
 			custom_highlights = {
-				CursorLineNr = { fg = colors.main.cyan },
+				CursorLineNr = { fg = colors.main.yellow },
 				["@keyword"] = { fg = colors.main.purple, italic = false },
 				["@keyword.coroutine"] = { fg = colors.main.purple, italic = false },
 				["@keyword.coroutine.javascript"] = { fg = colors.main.purple, italic = false },

@@ -3,7 +3,7 @@ return {
 	name = "rose-pine",
 	lazy = false,
 	priority = 10000,
-	enabled = true,
+	enabled = false,
 	config = function()
 		require("rose-pine").setup({
 			variant = "main", -- auto, main, moon, or dawn

@@ -2,27 +2,27 @@ add_newline = false
 
 [username]
 show_always = true
-format = "[$user](#82aaff) in "
+format = "[$user](#31748f) in "
 
 [directory]
 truncate_to_repo = false
-style = "#c792ea"
+style = "#c4a7e7"
 
 [git_branch]
-style = "#89ddff"
+style = "#ebbcba"
 
 [git_status]
 disabled = true
-style = "#ff5370"
+style = "#eb6f92"
 
 [package]
-style = "#ffcb6b"
+style = "#f6c177"
 
 [cmd_duration]
 disabled = true
 
 [nodejs]
-style = "#c3e88d"
+style = "#9ccfd8"
 
 [docker_context]
 disabled = true

@@ -6,28 +6,63 @@ if wezterm.config_builder then
 	config = wezterm.config_builder()
 end
 
-local BACKGROUND_COLOR = "#000000"
+local BACKGROUND_COLORS = {
+	Black = "#000000",
+	RosePine = "#191724",
+}
+
+local BACKGROUND_COLOR = BACKGROUND_COLORS.Black
 local FONTS = {
+	Blex = "BlexMono Nerd Font",
 	Commit = "CommitMono Nerd Font",
 	Cove = "CaskaydiaCove Nerd Font",
+	Envy = "EnvyCodeR Nerd Font",
 	Fira = "FiraCode Nerd Font",
 	Geist = "GeistMono NF",
 	Hack = "Hack Nerd Font",
 	Hasklug = "Hasklug Nerd Font",
+	IBM = "IBM Plex Mono",
 	Inconsolata = "Inconsolata Nerd Font",
 	Iosevka = "Iosevka Nerd Font",
 	Meslo = "MesloLGS Nerd Font",
-	Monaco = "Monaco Nerd Font",
+	Monaco = "Monaco",
+	MonacoNF = "Monaco Nerd Font",
+	Noto = "NotoMono Nerd Font",
 	Roboto = "RobotoMono Nerd Font",
 	Roman = "CodeNewRoman Nerd Font",
 	Sauce = "SauceCodePro Nerd Font",
+	Victor = "Victor Mono",
 }
-config.font = wezterm.font(FONTS.Fira, { weight = "Regular" })
-config.font_size = 17.5
+local FONT_WEIGHTS = {
+	Thin = "Thin",
+	ExtraLight = "ExtraLight",
+	Light = "Light",
+	DemiLight = "DemiLight",
+	Book = "Book",
+	Regular = "Regular",
+	Medium = "Medium",
+	DemiBold = "DemiBold",
+	Bold = "Bold",
+	ExtraBold = "ExtraBold",
+	Black = "Black",
+	ExtraBlack = "ExtraBlack",
+}
+
+config.font = wezterm.font(FONTS.Fira, { weight = FONT_WEIGHTS.Regular })
+config.font_size = 18
 
 config.front_end = "WebGpu"
 config.disable_default_key_bindings = true
-config.color_scheme = "rose-pine"
+config.color_scheme = "MaterialOcean"
+
+-- config.background = {
+-- 	{
+-- 		source = { File = "/Users/chris/Rainy-day-window-view-wallpaper-25.jpg" },
+-- 		opacity = 0.15,
+-- 	},
+-- }
+
+config.macos_window_background_blur = 20
 
 config.window_background_gradient = {
 	colors = {
