@@ -12,12 +12,19 @@ return {
 			defaults = {
 				file_ignore_patterns = { "node_modules", "tests" },
 				path_display = { "truncate" },
-				{ mappings = {
-					i = {
-						["<C-q>"] = trouble.open_with_trouble,
+				{
+					mappings = {
+						i = {
+							["<C-q>"] = require("trouble.sources.telescope").open,
+						},
 					},
-				} },
+				},
 				"--multiline",
+			},
+			extensions = {
+				["ui-select"] = {
+					require("telescope.themes").get_dropdown(),
+				},
 			},
 		})
 

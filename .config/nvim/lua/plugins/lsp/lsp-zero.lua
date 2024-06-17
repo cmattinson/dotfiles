@@ -2,11 +2,15 @@ return {
 	"VonHeikemen/lsp-zero.nvim",
 	lazy = false,
 	dependencies = {
+		"williamboman/mason.nvim",
 		"williamboman/mason-lspconfig.nvim",
 		"neovim/nvim-lspconfig",
+		"WhoIsSethDaniel/mason-tool-installer.nvim",
 		"hrsh7th/cmp-nvim-lsp",
 		"hrsh7th/nvim-cmp",
 		"L3MON4D3/LuaSnip",
+		"hrsh7th/cmp-buffer",
+		{ "j-hui/fidget.nvim", opts = {} },
 	},
 	config = function()
 		local lsp_zero = require("lsp-zero").preset({
@@ -23,27 +27,11 @@ return {
 			},
 		})
 
-		lsp_zero.set_sign_icons({
-			error = "",
-			warn = "",
-			hint = "󰌶",
-			info = "",
-		})
-
-		-- lsp_zero.set_server_config({
-		-- 	on_init = function(client)
-		-- 		client.server_capabilities.semanticTokensProvider = nil
-		-- 	end,
-		-- })
+		local capabilities = vim.lsp.protocol.make_client_capabilities()
+		capabilities = vim.tbl_deep_extend("force", capabilities, require("cmp_nvim_lsp").default_capabilities())
 
 		lsp_zero.on_attach(function(client, bufnr)
 			local opts = { buffer = bufnr, remap = false }
-
-			vim.lsp.handlers["textDocument/publishDiagnostics"] =
-				vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
-					underline = false,
-					float = true,
-				})
 
 			vim.keymap.set("n", "gd", function()
 				vim.lsp.buf.definition()
@@ -77,14 +65,38 @@ return {
 			end, opts)
 		end)
 
+		vim.diagnostic.config({
+			underline = true,
+			virtual_text = true,
+			float = true,
+		})
+
+		lsp_zero.set_sign_icons({
+			error = "",
+			warn = "",
+			hint = "󰌶",
+			info = "",
+		})
+
+		local servers = {
+			gopls = {},
+			rust_analyzer = {},
+			ocamllsp = {},
+			biome = {},
+			zls = {},
+			lua_ls = {},
+		}
+
+		local ensure_installed = vim.tbl_keys(servers or {})
+
 		require("mason").setup({})
+		require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
 		require("mason-lspconfig").setup({
-			ensure_installed = { "biome", "rust_analyzer" },
 			handlers = {
-				lsp_zero.default_setup,
-				lua_ls = function()
-					local lua_opts = lsp_zero.nvim_lua_ls()
-					require("lspconfig").lua_ls.setup(lua_opts)
+				function(server_name)
+					local server = servers[server_name] or {}
+					server.capabilities = vim.tbl_deep_extend("force", {}, capabilities, server.capabilities or {})
+					require("lspconfig")[server_name].setup(server)
 				end,
 			},
 		})
@@ -95,17 +107,16 @@ return {
 
 		cmp.setup({
 			sources = {
-				{ name = "path" },
 				{ name = "nvim_lsp" },
-				{ name = "nvim_lua" },
-				{ name = "gleam" },
-				{ name = "luasnip" },
+				{ name = "path" },
+				{ name = "buffer" },
+				{ name = "vim-dadbod-completion" },
 			},
 			formatting = lsp_zero.cmp_format(),
 			mapping = cmp.mapping.preset.insert({
-				["<Tab>"] = cmp.mapping.select_next_item(cmp_select),
-				["<S-Tab>"] = cmp.mapping.select_prev_item(cmp_select),
-				["<CR>"] = cmp.mapping.confirm({ select = true }),
+				["<C-n>"] = cmp.mapping.select_next_item(cmp_select),
+				["<C-p>"] = cmp.mapping.select_prev_item(cmp_select),
+				["<C-y>"] = cmp.mapping.confirm({ select = true }),
 				["<C-Space>"] = cmp.mapping.complete(),
 			}),
 		})

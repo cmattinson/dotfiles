@@ -33,7 +33,7 @@ return {
 				ocaml = { "ocamlformat" },
 				python = { "black" },
 				rust = { "rustfmt" },
-				sql = { "sqlfluff" },
+				sql = { "sql-formatter" },
 				typescript = { "prettier", "injected" },
 				yaml = { "yamlfmt" },
 				zig = { "zigfmt" },

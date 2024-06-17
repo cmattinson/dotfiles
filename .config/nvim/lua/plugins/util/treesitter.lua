@@ -1,7 +1,10 @@
 return {
 	"nvim-treesitter/nvim-treesitter",
 	build = ":TSUpdate",
+	dependencies = { "rescript-lang/tree-sitter-rescript" },
 	config = function()
+		require("nvim-treesitter.install").prefer_git = true
+
 		require("nvim-treesitter.configs").setup({
 			-- Add languages to be installed here that you want installed for treesitter
 			ensure_installed = {
@@ -10,6 +13,7 @@ return {
 				"go",
 				"javascript",
 				"lua",
+				"ocaml",
 				"python",
 				"rust",
 				"tsx",
@@ -18,7 +22,6 @@ return {
 				"vimdoc",
 				"zig",
 			},
-
 			-- Autoinstall languages that are not installed. Defaults to false (but you can change for yourself!)
 			auto_install = false,
 
@@ -78,5 +81,17 @@ return {
 				},
 			},
 		})
+
+		local parser_config = require("nvim-treesitter.parsers").get_parser_configs()
+		parser_config.rescript = {
+			install_info = {
+				url = "https://github.com/rescript-lang/tree-sitter-rescript",
+				branch = "main",
+				files = { "src/parser.c", "src/scanner.c" },
+				generate_requires_npm = false,
+				requires_generate_from_grammar = true,
+				use_makefile = true, -- macOS specific instruction
+			},
+		}
 	end,
 }

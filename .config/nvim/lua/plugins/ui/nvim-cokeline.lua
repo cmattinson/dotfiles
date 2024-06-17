@@ -1,12 +1,12 @@
 return {
 	"noib3/nvim-cokeline",
-	dependencies = { "nvim-tree/nvim-web-devicons" },
+	dependencies = { "nvim-tree/nvim-web-devicons", "tiagovla/scope.nvim" },
 	config = function()
+		require("scope").setup({})
 		local get_hl = require("cokeline.hlgroups").get_hl_attr
 
-		vim.keymap.set("n", "<C-Left>", "<Plug>(cokeline-switch-prev)", { silent = true })
-		vim.keymap.set("n", "<C-Right>", "<Plug>(cokeline-switch-next)", { silent = true })
-
+		vim.keymap.set("n", "<leader>p", "<Plug>(cokeline-switch-prev)", { silent = true })
+		vim.keymap.set("n", "<leader>n", "<Plug>(cokeline-switch-next)", { silent = true })
 		require("cokeline").setup({
 			show_if_buffers_are_at_least = 1,
 			buffers = {
@@ -70,6 +70,10 @@ return {
 				{
 					text = "  ",
 				},
+			},
+			tabs = {
+				placement = "right",
+				components = {},
 			},
 		})
 	end,
