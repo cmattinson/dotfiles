@@ -32,11 +32,12 @@ return {
 				},
 			},
 			messages = {
-				view = "notify",
+				enabled = true,
+				view = "mini",
 				view_error = "mini",
 				view_history = "messages",
 				view_search = "virtualtext",
-				view_warn = "notify",
+				view_warn = "mini",
 			},
 			views = {
 				popupmenu = {

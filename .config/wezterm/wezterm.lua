@@ -1,38 +1,43 @@
 local wezterm = require("wezterm")
 local act = wezterm.action
-
 local config = {}
+
 if wezterm.config_builder then
 	config = wezterm.config_builder()
 end
 
+config.color_scheme = "MaterialOcean"
 local BACKGROUND_COLORS = {
 	Black = "#000000",
 	RosePine = "#191724",
+	Material = "#111219",
 }
 
 local BACKGROUND_COLOR = BACKGROUND_COLORS.Black
-local FONTS = {
-	Blex = "BlexMono Nerd Font",
-	Commit = "CommitMono Nerd Font",
-	Cove = "CaskaydiaCove Nerd Font",
-	Envy = "EnvyCodeR Nerd Font",
-	Fira = "FiraCode Nerd Font",
-	Geist = "GeistMono NF",
-	Hack = "Hack Nerd Font",
-	Hasklug = "Hasklug Nerd Font",
-	IBM = "IBM Plex Mono",
-	Inconsolata = "Inconsolata Nerd Font",
-	Iosevka = "Iosevka Nerd Font",
-	Meslo = "MesloLGS Nerd Font",
-	Monaco = "Monaco",
-	MonacoNF = "Monaco Nerd Font",
-	Noto = "NotoMono Nerd Font",
-	Roboto = "RobotoMono Nerd Font",
-	Roman = "CodeNewRoman Nerd Font",
-	Sauce = "SauceCodePro Nerd Font",
-	Victor = "Victor Mono",
+
+config.window_frame = {
+	active_titlebar_bg = BACKGROUND_COLOR,
+	active_titlebar_fg = "white",
+	inactive_titlebar_bg = BACKGROUND_COLOR,
 }
+config.colors = {
+	tab_bar = {
+		inactive_tab_edge = BACKGROUND_COLOR,
+		active_tab = {
+			bg_color = BACKGROUND_COLOR,
+			fg_color = "#dadada",
+		},
+		inactive_tab = {
+			bg_color = BACKGROUND_COLOR,
+			fg_color = "#908caa",
+		},
+		new_tab = {
+			bg_color = BACKGROUND_COLOR,
+			fg_color = BACKGROUND_COLOR,
+		},
+	},
+}
+
 local FONT_WEIGHTS = {
 	Thin = "Thin",
 	ExtraLight = "ExtraLight",
@@ -48,23 +53,69 @@ local FONT_WEIGHTS = {
 	ExtraBlack = "ExtraBlack",
 }
 
-config.font = wezterm.font(FONTS.Fira, { weight = FONT_WEIGHTS.Regular })
-config.font_size = 18
+local HARFBUZZ = {
+	Blex = { "zero", "ss02", "liga" },
+	Cove = { "ss01", "ss02", "ss19" },
+	Commit = { "ss01", "ss02", "ss04", "cv02", "cv06", "cv10", "cv11" },
+	Fira = {
+		"cv14",
+		"ss02",
+		"ss03",
+		"ss08",
+	},
+	Geist = { "calt", "liga", "ss01", "ss03", "ss04" },
+	Monaspace = { "zero", "liga", "calt", "ss03", "ss05", "ss06", "ss07", "ss08", "ss09" },
+	Lilex = {
+		"calt",
+		"cv03",
+		"cv08",
+		"cv11",
+		"ss02",
+		"ss04",
+		"zero",
+	},
+}
+
+local FONTS = {
+	Argon = "Monaspace Argon",
+	Commit = "CommitMono Nerd Font",
+	Cove = "CaskaydiaCove Nerd Font",
+	Fira = "FiraCode Nerd Font",
+	Geist = "GeistMono Nerd Font",
+	Hack = "Hack Nerd Font",
+	Hasklug = "Hasklug Nerd Font",
+	Lilex = "Lilex Nerd Font",
+	Neon = "Monaspace Neon",
+	Rec = "RecMonoLinear Nerd Font",
+	Twilio = "Twilio Sans Mono",
+	Xenon = "Monaspace Xenon",
+}
+
+local FONT = {
+	family = FONTS.Fira,
+	harfbuzz_features = HARFBUZZ.Fira,
+	italic = false,
+	weight = FONT_WEIGHTS.Regular,
+}
+
+config.font = wezterm.font(FONT)
+config.font_size = 17
+config.font_rules = {
+	{
+		intensity = "Half",
+		font = wezterm.font(FONT),
+	},
+	{
+		italic = true,
+		font = wezterm.font(FONT),
+	},
+}
 
 config.front_end = "WebGpu"
 config.disable_default_key_bindings = true
-config.color_scheme = "MaterialOcean"
-
--- config.background = {
--- 	{
--- 		source = { File = "/Users/chris/Rainy-day-window-view-wallpaper-25.jpg" },
--- 		opacity = 0.15,
--- 	},
--- }
-
-config.macos_window_background_blur = 20
 
 config.window_background_gradient = {
+	orientation = "Vertical",
 	colors = {
 		BACKGROUND_COLOR,
 	},
@@ -120,9 +171,9 @@ wezterm.on("toggle-ligature", function(window, pane)
 	local overrides = window:get_config_overrides() or {}
 	if not overrides.harfbuzz_features then
 		-- If we haven't overridden it yet, then override with ligatures disabled
-		overrides.harfbuzz_features = { "calt=0", "clig=0", "liga=0" }
+		overrides.harfbuzz_features = { "ss01", "ss02", "ss03", "ss04", "ss05", "ss06", "ss07", "ss08", "calt" }
 	else
-		-- else we did already, and we should disable out override now
+		-- else we did already, and we should disable our override now
 		overrides.harfbuzz_features = nil
 	end
 	window:set_config_overrides(overrides)
@@ -134,30 +185,6 @@ local function get_current_working_dir(tab)
 
 	return current_dir == HOME_DIR and "." or string.gsub(current_dir, "(.*[/\\])(.*)", "%2")
 end
-
-config.window_frame = {
-	active_titlebar_bg = BACKGROUND_COLOR,
-	active_titlebar_fg = "white",
-	inactive_titlebar_bg = BACKGROUND_COLOR,
-}
-config.colors = {
-	tab_bar = {
-		inactive_tab_edge = BACKGROUND_COLOR,
-		active_tab = {
-			bg_color = BACKGROUND_COLOR,
-			fg_color = "#dadada",
-		},
-		inactive_tab = {
-			bg_color = BACKGROUND_COLOR,
-			fg_color = "#908caa",
-		},
-		new_tab = {
-			bg_color = BACKGROUND_COLOR,
-			fg_color = BACKGROUND_COLOR,
-		},
-	},
-	cursor_bg = "#848484",
-}
 
 config.tab_bar_at_bottom = true
 wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_width)

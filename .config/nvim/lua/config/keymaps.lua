@@ -40,7 +40,10 @@ map("n", "<A-Down>", ":cnext<CR>")
 map("n", "<C-s>", ":call SynStack()<CR>")
 map("n", "<C-e>", ":lua require('dapui').eval()<CR>")
 
-map("n", "-", require("oil").open, { desc = "Open parent directory" })
+map("n", "-", require("oil").open)
+
+map("n", "<leader>dp", vim.diagnostic.goto_prev)
+map("n", "<leader>dn", vim.diagnostic.goto_next)
 
 map("n", "<leader>jr", ":e api-node/src/rules/index.js<CR>")
 

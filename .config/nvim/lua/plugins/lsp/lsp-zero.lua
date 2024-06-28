@@ -27,6 +27,12 @@ return {
 			},
 		})
 
+        lsp_zero.set_server_config({
+            on_init = function(client)
+                client.server_capabilities.semanticTokensProvider = nil
+            end
+        })
+
 		local capabilities = vim.lsp.protocol.make_client_capabilities()
 		capabilities = vim.tbl_deep_extend("force", capabilities, require("cmp_nvim_lsp").default_capabilities())
 
@@ -96,6 +102,7 @@ return {
 				function(server_name)
 					local server = servers[server_name] or {}
 					server.capabilities = vim.tbl_deep_extend("force", {}, capabilities, server.capabilities or {})
+					server.capabilities.semanticTokensProvider = nil
 					require("lspconfig")[server_name].setup(server)
 				end,
 			},

@@ -18,23 +18,31 @@ return {
 
 		require("conform").setup({
 			log_level = vim.log.levels.ERROR,
+			formatters = {
+				odinfmt = {
+					inherit = false,
+					command = "odinfmt",
+					args = { "-stdin" },
+				},
+			},
 			formatters_by_ft = {
 				cs = { "csharpier" },
-				css = { "prettier" },
+				css = { "biome" },
 				gleam = { "gleam" },
 				go = { "gofmt" },
-				html = { "prettier" },
+				html = { "biome" },
 				java = { "google-java-format" },
-				javascript = { "prettier", "injected" },
-				javascriptreact = { "prettier", "injected" },
-				json = { "prettier" },
+				javascript = { "biome", "injected" },
+				javascriptreact = { "biome", "injected" },
+				json = { "biome" },
 				kotlin = { "ktlint" },
 				lua = { "stylua" },
 				ocaml = { "ocamlformat" },
+				odin = { "odinfmt" },
 				python = { "black" },
 				rust = { "rustfmt" },
 				sql = { "sql-formatter" },
-				typescript = { "prettier", "injected" },
+				typescript = { "biome", "injected" },
 				yaml = { "yamlfmt" },
 				zig = { "zigfmt" },
 			},
@@ -47,24 +55,6 @@ return {
 				require("conform").format({ bufnr = args.buf }, function(err)
 					if err ~= nil then
 						vim.notify(err, "error")
-						-- if string.find(string.lower(err), "prettier") then
-						-- 	vim.notify(err, "error")
-						-- else
-						-- 	local fields = split(err, ":")
-						-- 	for k, v in pairs(fields) do
-						-- 		print(v)
-						-- 		if
-						-- 			string.find(string.lower(v), "expected")
-						-- 			or string.find(string.lower(v), "unexpected")
-						-- 			or string.find(string.lower(v), "token")
-						-- 		then
-						-- 			vim.notify(v, "error", {
-						-- 				title = "Format errors",
-						-- 				timeout = 10000,
-						-- 			})
-						-- 		end
-						-- 	end
-						-- end
 					end
 				end)
 			end,

@@ -4,8 +4,12 @@ return {
 	priority = 10000,
 	enabled = false,
 	config = function()
+		require("mellifluous.config").prepare()
+		local cl = require("mellifluous.colors").get_colors()
+
 		require("mellifluous").setup({
 			dim_inactive = false,
+			-- mellifluous, alduin, mountain, tender, kanagawa_dragon
 			color_set = "mellifluous",
 			styles = {
 				comments = { italic = false },
@@ -13,17 +17,22 @@ return {
 				folds = { italic = false },
 				loops = { italic = false },
 				functions = { italic = false },
-				keywords = { italic = false },
+				keywords = { italic = false, fg = cl.red },
 				strings = { italic = false },
-				variables = { italic = false, fg = "#b2b2b2" },
+				variables = { italic = false, fg = cl.orange },
 				numbers = { italic = false },
 				booleans = { italic = false },
 				properties = { italic = false },
 				types = { italic = false },
 				operators = { italic = false },
 			},
+			highlight_overrides = {
+				dark = function(highlighter, colors)
+					highlighter.set("@variable.member", { fg = colors.orange:darkened(10) })
+				end,
+			},
 			transparent_background = {
-				enabled = true,
+				enabled = false,
 				floating_windows = true,
 				telescope = true,
 				file_tree = true,
@@ -39,11 +48,11 @@ return {
 			plugins = {
 				cmp = true,
 				nvim_tree = {
-					enabled = true,
+					enabled = false,
 					show_root = true,
 				},
 				telescope = {
-					enabled = true,
+					enabled = false,
 					nvchad_like = true,
 				},
 			},

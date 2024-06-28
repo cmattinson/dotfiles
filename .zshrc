@@ -6,8 +6,9 @@ export EDITOR=nvim
 alias .config="cd ~/.config"
 alias .sz="source ~/.zshrc"
 alias .z="nvim ~/.zshrc"
+alias .colors="cd ~/.config/color-scripts"
 alias algo="cd ~/workspace/algorithms"
-alias aoc="cd ~/workspace/rust/advent-of-code"
+alias aoc="cd ~/workspace/ocaml/advent-of-ocaml"
 alias atms="cd ~/workspace/vantix/atms-administration"
 alias base="cd ~/workspace/vantix/crm-base"
 alias camms="cd ~/workspace/method1/camms-portal"
@@ -17,7 +18,7 @@ alias crm="cd ~/workspace/vantix/crm"
 alias dash="cd ~/workspace/method1/camms-dashboards"
 alias dn="cd ~/workspace/vantix/crm/api-dotnet"
 alias ffc="nvim \$(fd --type f . ~/.config | fzf)"
-alias ffd="cd \$(fd --type d . ~/workspace | fzf)"
+alias ffd="cd \$(fd --type d . ~/workspace ~/Exercism | fzf)"
 alias grep="grep --color=auto"
 alias grepr="grep -rHni --exclude-dir=node_modules --exclude-dir=app --exclude=index.js"
 alias ios="cd ~/workspace/ios"
@@ -36,6 +37,11 @@ alias svan="ssh vantixsystems@20.51.122.194"
 alias van="cd ~/workspace/vantix"
 alias ws="cd ~/workspace"
 alias wtc="nvim ~/.config/wezterm/wezterm.lua"
+alias yd="cd ~/workspace/vantix/atms-yellowdog"
+alias ydc="cd ~/workspace/vantix/atms-yellowdog/src/yellowdog.react"
+alias mat="~/.config/color-scripts/material.sh"
+alias mel="~/.config/color-scripts/mellifluous.sh"
+alias ros="~/.config/color-scripts/rose-pine.sh"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
@@ -86,3 +92,13 @@ export PKG_CONFIG_PATH="/opt/homebrew/opt/ruby/lib/pkgconfig"
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
+
+# opam configuration
+[[ ! -r /Users/chris/.opam/opam-init/init.zsh ]] || source /Users/chris/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null
+
+# Created by `pipx` on 2024-06-17 22:32:14
+export PATH="$PATH:/Users/chris/.local/bin"
+export PATH="/opt/homebrew/opt/llvm@14/bin:$PATH"
+export PATH="/Users/chris/workspace/odin/compiler:$PATH"
+export PATH="/Users/chris/workspace/odin/ols:$PATH"
+
