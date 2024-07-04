@@ -3,56 +3,56 @@
 DISABLE_AUTO_TITLE="true"
 export EDITOR=nvim
 
-alias .config="cd ~/.config"
+alias .colors="cd ~/dotfiles/.config/color-scripts"
+alias .config="cd ~/dotfiles/.config"
 alias .sz="source ~/.zshrc"
-alias .z="nvim ~/.zshrc"
-alias .colors="cd ~/.config/color-scripts"
+alias .z="nvim ~/dotfiles/.zshrc"
 alias algo="cd ~/workspace/algorithms"
 alias aoc="cd ~/workspace/ocaml/advent-of-ocaml"
 alias atms="cd ~/workspace/vantix/atms-administration"
 alias base="cd ~/workspace/vantix/crm-base"
+alias bformat="npx @biomejs/biome format"
+alias blint="npx @biomejs/biome format"
 alias camms="cd ~/workspace/method1/camms-portal"
 alias chris_int="ssh chris@172.31.40.79"
 alias cl="cd ~/workspace/vantix/crm/client"
 alias crm="cd ~/workspace/vantix/crm"
 alias dash="cd ~/workspace/method1/camms-dashboards"
 alias dn="cd ~/workspace/vantix/crm/api-dotnet"
-alias ffc="nvim \$(fd --type f . ~/.config | fzf)"
-alias ffd="cd \$(fd --type d . ~/workspace ~/Exercism | fzf)"
+alias dot="cd ~/dotfiles"
+alias dra="~/.config/color-scripts/dragon.sh"
+alias ffd="cd \$(fd --type d . ~/dotfiles ~/workspace ~/Exercism | fzf)"
 alias grep="grep --color=auto"
 alias grepr="grep -rHni --exclude-dir=node_modules --exclude-dir=app --exclude=index.js"
 alias ios="cd ~/workspace/ios"
 alias kmm="cd ~/workspace/kmm"
 alias ll='ls -lh --color=auto'
 alias ls='ls --color=auto'
+alias mat="~/.config/color-scripts/material.sh"
+alias mel="~/.config/color-scripts/mellifluous.sh"
 alias nd="cd ~/workspace/vantix/crm/api-node"
 alias nsc="cd ~/Library/Application\ Support/nushell"
-alias nvc="cd ~/.config/nvim && nvim ."
+alias nvc="cd ~/dotfiles/.config/nvim && nvim ."
 alias nvim-upgrade="brew upgrade neovim --fetch-HEAD"
 alias oracle="ssh ubuntu@129.146.22.41"
 alias psql="sudo -u postgres psql"
+alias ros="~/.config/color-scripts/rose-pine.sh"
 alias rust="cd ~/workspace/rust"
-alias shc="nvim ~/.config/starship.toml"
+alias shc="nvim ~/dotfiles/.config/starship.toml"
 alias svan="ssh vantixsystems@20.51.122.194"
 alias van="cd ~/workspace/vantix"
+alias vim="nvim"
 alias ws="cd ~/workspace"
-alias wtc="nvim ~/.config/wezterm/wezterm.lua"
+alias wtc="nvim ~/dotfiles/.config/wezterm/wezterm.lua"
 alias yd="cd ~/workspace/vantix/atms-yellowdog"
 alias ydc="cd ~/workspace/vantix/atms-yellowdog/src/yellowdog.react"
-alias mat="~/.config/color-scripts/material.sh"
-alias mel="~/.config/color-scripts/mellifluous.sh"
-alias dra="~/.config/color-scripts/dragon.sh"
-alias ros="~/.config/color-scripts/rose-pine.sh"
-alias vim="nvim"
-alias bformat="npx @biomejs/biome format"
-alias blint="npx @biomejs/biome format"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 fpath=($fpath "/home/chris/.zfunctions")
 
-cd $HOME/workspace
+cd $HOME
 
 export GOROOT=/usr/local/go
 export GOPATH=$HOME/workspace/go

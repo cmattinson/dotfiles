@@ -21,6 +21,8 @@ config.window_frame = {
 	active_titlebar_fg = "white",
 	inactive_titlebar_bg = BACKGROUND_COLOR,
 }
+
+config.window_decorations = "RESIZE"
 config.colors = {
 	tab_bar = {
 		inactive_tab_edge = BACKGROUND_COLOR,
@@ -66,7 +68,7 @@ local HARFBUZZ = {
 		"ss03",
 		"ss08",
 	},
-	Geist = { "calt", "liga", "ss01", "ss03", "ss04" },
+	Geist = { "ss01", "ss03", "ss04", "ss08" },
 	Monaspace = { "zero", "liga", "calt", "ss03", "ss05", "ss06", "ss07", "ss08", "ss09" },
 	Lilex = {
 		"calt",
@@ -77,6 +79,7 @@ local HARFBUZZ = {
 		"ss04",
 		"zero",
 	},
+	Twilio = { "ss05" },
 }
 
 local FONTS = {
@@ -93,7 +96,6 @@ local FONTS = {
 
 local FONT = {
 	family = FONTS.Proggy,
-	-- harfbuzz_features = HARFBUZZ.Geist,
 	italic = false,
 	weight = FONT_WEIGHTS.Regular,
 }
