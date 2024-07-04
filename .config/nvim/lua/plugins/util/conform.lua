@@ -1,7 +1,7 @@
 return {
 	"stevearc/conform.nvim",
 	lazy = true,
-	event = "BufWritePre",
+	event = "BufEnter",
 	priority = 100,
 	config = function()
 		function split(s, sep)

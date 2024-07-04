@@ -1,5 +1,7 @@
 return {
 	"rcarriga/nvim-dap-ui",
+	lazy = true,
+	keys = "<leader>db",
 	dependencies = {
 		"mfussenegger/nvim-dap",
 		"jay-babu/mason-nvim-dap.nvim",

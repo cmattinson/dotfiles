@@ -1,9 +1,9 @@
 return {
 	"echasnovski/mini.nvim",
 	version = false,
-	lazy = false,
+	lazy = true,
+	event = "BufEnter",
 	config = function()
-		-- Editing
 		require("mini.jump").setup()
 		require("mini.move").setup()
 		require("mini.surround").setup()

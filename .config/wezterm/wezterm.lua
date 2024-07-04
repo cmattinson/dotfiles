@@ -9,6 +9,7 @@ end
 config.color_scheme = "MaterialOcean"
 local BACKGROUND_COLORS = {
 	Black = "#000000",
+	Rocket = "#161616",
 	RosePine = "#191724",
 	Material = "#111219",
 }
@@ -54,11 +55,13 @@ local FONT_WEIGHTS = {
 }
 
 local HARFBUZZ = {
-	Blex = { "zero", "ss02", "liga" },
 	Cove = { "ss01", "ss02", "ss19" },
 	Commit = { "ss01", "ss02", "ss04", "cv02", "cv06", "cv10", "cv11" },
 	Fira = {
+		"cv04",
+		"cv09",
 		"cv14",
+		"ss01",
 		"ss02",
 		"ss03",
 		"ss08",
@@ -77,29 +80,26 @@ local HARFBUZZ = {
 }
 
 local FONTS = {
-	Argon = "Monaspace Argon",
-	Commit = "CommitMono Nerd Font",
 	Cove = "CaskaydiaCove Nerd Font",
 	Fira = "FiraCode Nerd Font",
 	Geist = "GeistMono Nerd Font",
 	Hack = "Hack Nerd Font",
 	Hasklug = "Hasklug Nerd Font",
 	Lilex = "Lilex Nerd Font",
-	Neon = "Monaspace Neon",
-	Rec = "RecMonoLinear Nerd Font",
+	Proggy = "ProggyVector",
+	Terminess = "Terminess Nerd Font",
 	Twilio = "Twilio Sans Mono",
-	Xenon = "Monaspace Xenon",
 }
 
 local FONT = {
-	family = FONTS.Fira,
-	harfbuzz_features = HARFBUZZ.Fira,
+	family = FONTS.Proggy,
+	-- harfbuzz_features = HARFBUZZ.Geist,
 	italic = false,
 	weight = FONT_WEIGHTS.Regular,
 }
 
 config.font = wezterm.font(FONT)
-config.font_size = 17
+config.font_size = 14
 config.font_rules = {
 	{
 		intensity = "Half",
@@ -166,18 +166,6 @@ for i = 1, 8 do
 		action = act.ActivateTab(i - 1),
 	})
 end
-
-wezterm.on("toggle-ligature", function(window, pane)
-	local overrides = window:get_config_overrides() or {}
-	if not overrides.harfbuzz_features then
-		-- If we haven't overridden it yet, then override with ligatures disabled
-		overrides.harfbuzz_features = { "ss01", "ss02", "ss03", "ss04", "ss05", "ss06", "ss07", "ss08", "calt" }
-	else
-		-- else we did already, and we should disable our override now
-		overrides.harfbuzz_features = nil
-	end
-	window:set_config_overrides(overrides)
-end)
 
 local function get_current_working_dir(tab)
 	local current_dir = tab.active_pane.current_working_dir

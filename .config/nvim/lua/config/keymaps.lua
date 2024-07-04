@@ -11,11 +11,11 @@ command! GetFileName         call GetFileName()
 ]])
 
 -- Move to next match and center cursor
-map("n", "n", "nzz")
-map("n", "N", "Nzz")
+-- map("n", "n", "nzz")
+-- map("n", "N", "Nzz")
 
-map("n", "<C-u>", "<C-u>zz")
-map("n", "<C-d>", "<C-d>zz")
+-- map("n", "<C-u>", "<C-u>zz")
+-- map("n", "<C-d>", "<C-d>zz")
 
 -- Join lines and stay in place
 map("n", "J", "mzJ`z")
@@ -28,7 +28,7 @@ map("n", "<C-PageUp>", ":bprev<CR>")
 map("n", "<C-PageDown>", ":bnext<CR>")
 
 -- Close current buffer
-map("n", "<C-X>", ":bd<CR>")
+map("n", "<C-c>", ":bd<CR>")
 
 -- Add blank lines above or below in normal mode
 map("n", "<leader>o", "o<ESC>")

@@ -7,6 +7,7 @@ return {
 
 		vim.keymap.set("n", "<leader>p", "<Plug>(cokeline-switch-prev)", { silent = true })
 		vim.keymap.set("n", "<leader>n", "<Plug>(cokeline-switch-next)", { silent = true })
+
 		require("cokeline").setup({
 			show_if_buffers_are_at_least = 1,
 			buffers = {

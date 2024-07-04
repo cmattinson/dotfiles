@@ -28,6 +28,6 @@ style = "#c3e88d"
 disabled = true
 
 [character]
-success_symbol = "[❯](#9ccfd8)" 
-error_symbol = "[❯](203)"
+success_symbol = "[λ](#ffcb6b)" 
+error_symbol = "[λ](#ff5370)"
 

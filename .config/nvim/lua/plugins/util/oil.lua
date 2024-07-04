@@ -1,5 +1,7 @@
 return {
 	"stevearc/oil.nvim",
+	lazy = true,
+	keys = "-",
 	config = function()
 		require("oil").setup({
 			columns = {

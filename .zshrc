@@ -41,7 +41,11 @@ alias yd="cd ~/workspace/vantix/atms-yellowdog"
 alias ydc="cd ~/workspace/vantix/atms-yellowdog/src/yellowdog.react"
 alias mat="~/.config/color-scripts/material.sh"
 alias mel="~/.config/color-scripts/mellifluous.sh"
+alias dra="~/.config/color-scripts/dragon.sh"
 alias ros="~/.config/color-scripts/rose-pine.sh"
+alias vim="nvim"
+alias bformat="npx @biomejs/biome format"
+alias blint="npx @biomejs/biome format"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm

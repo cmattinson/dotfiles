@@ -1,5 +1,7 @@
 return {
 	"nvim-telescope/telescope.nvim",
+	lazy = true,
+	event = "BufEnter",
 	dependencies = { { "nvim-lua/plenary.nvim" }, { "nvim-telescope/telescope-live-grep-args.nvim" } },
 	config = function()
 		local actions = require("telescope.actions")
@@ -19,11 +21,20 @@ return {
 						},
 					},
 				},
+				layout_strategy = "horizontal",
+				layout_config = {
+					horizontal = { width = { size = 0.999, padding = 0 }, height = { size = 0.999, padding = 0 } },
+				},
 				"--multiline",
 			},
 			extensions = {
 				["ui-select"] = {
 					require("telescope.themes").get_dropdown(),
+				},
+			},
+			pickers = {
+				colorscheme = {
+					enable_preview = true,
 				},
 			},
 		})

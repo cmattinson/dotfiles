@@ -1,6 +1,7 @@
 return {
 	"VonHeikemen/lsp-zero.nvim",
-	lazy = false,
+	lazy = true,
+	event = "BufEnter",
 	dependencies = {
 		"williamboman/mason.nvim",
 		"williamboman/mason-lspconfig.nvim",
@@ -27,11 +28,11 @@ return {
 			},
 		})
 
-        lsp_zero.set_server_config({
-            on_init = function(client)
-                client.server_capabilities.semanticTokensProvider = nil
-            end
-        })
+		lsp_zero.set_server_config({
+			on_init = function(client)
+				client.server_capabilities.semanticTokensProvider = nil
+			end,
+		})
 
 		local capabilities = vim.lsp.protocol.make_client_capabilities()
 		capabilities = vim.tbl_deep_extend("force", capabilities, require("cmp_nvim_lsp").default_capabilities())

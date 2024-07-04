@@ -6,31 +6,29 @@ return {
 	init = function()
 		local colors = require("material.colors")
 
-		require("material").setup({
-			async_loading = true,
-			contrast = {
-				sidebars = true,
-				floating_windows = true,
-				cursor_line = false,
-				non_current_windows = false,
-				filetypes = {},
-			},
-			custom_colors = nil,
-			custom_highlights = {
+		local highlight_config = {
+			common = {
 				CursorLine = { link = "ColorColumn" },
-				CursorLineNr = { fg = colors.main.yellow },
-				DiagnosticHint = { fg = colors.main.purple },
-				DiagnosticHintSign = { fg = colors.main.purple },
 				DiagnosticUnderlineError = { undercurl = false },
 				DiagnosticUnderlineHint = { fg = colors.main.darkpurple, undercurl = false },
 				DiagnosticUnderlineInfo = { fg = colors.main.paleblue, undercurl = false },
 				DiagnosticUnderlineOK = { fg = colors.main.darkgreen, undercurl = false },
 				DiagnosticUnderlineWarn = { fg = colors.main.darkyellow, undercurl = false },
+			},
+			deep_ocean = {
+				Comment = { fg = colors.main.darkorange },
+				CursorLineNr = { fg = colors.main.yellow },
 				Exception = { fg = colors.main.red },
+				Function = { fg = colors.main.darkblue },
 				IncSearch = { underline = false, bg = colors.main.orange, fg = colors.main.black },
-				Search = { underline = false, bg = colors.main.purple, fg = colors.main.black },
-				WhichKeyDesc = { italic = false },
+				Identifier = { link = "Normal" },
+				NeogitDiffAddHighlight = { fg = colors.main.green },
 				MiniJump = { link = "@symbol" },
+				Search = { underline = false, bg = colors.main.purple, fg = colors.main.black },
+				TelescopeNormal = { link = "Normal" },
+				WhichKeyDesc = { italic = false },
+				["@comment.documentation"] = { link = "Comment" },
+				["@constant"] = { fg = colors.main.darkyellow },
 				["@field.zig"] = { fg = colors.main.blue },
 				["@keyword"] = { fg = colors.main.purple, italic = false },
 				["@keyword.coroutine"] = { fg = colors.main.purple, italic = false },
@@ -40,6 +38,21 @@ return {
 				["@type.jsdoc"] = { fg = colors.main.yellow },
 				["zig"] = { fg = colors.main.blue },
 			},
+		}
+
+		require("material").setup({
+			async_loading = true,
+			contrast = {
+				sidebars = true,
+				floating_windows = true,
+				cursor_line = true,
+				non_current_windows = false,
+				filetypes = {},
+			},
+			custom_colors = function(cl)
+				cl.main.muted = "#8f93a2"
+			end,
+			custom_highlights = vim.tbl_deep_extend("force", highlight_config.common, highlight_config.deep_ocean),
 			disable = {
 				background = true,
 				borders = false,
@@ -57,6 +70,7 @@ return {
 				"nvim-web-devicons",
 				"telescope",
 				"which-key",
+				"neogit",
 			},
 			styles = {
 				comments = { italic = false },
