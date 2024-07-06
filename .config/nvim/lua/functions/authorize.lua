@@ -1,7 +1,5 @@
-vim.cmd([[
-function! Authorize(permission)
-exe '%s/\(prototype.* =\) \(async.*\)/\1{\rauthorize: ["' . a:permission . '"],\rrule: \2'
-exe 'normal GI}'
-:w
-endfunction
-]])
+vim.api.nvim_create_user_command("Authorize", function(opts)
+	vim.cmd([[%s/\(prototype.* =\) \(async.*\)/\1{\rauthorize: ["]] .. opts.fargs[1] .. [["],\rrule: \2]])
+	vim.cmd("norm GI}")
+	vim.cmd("w")
+end, { nargs = 1 })

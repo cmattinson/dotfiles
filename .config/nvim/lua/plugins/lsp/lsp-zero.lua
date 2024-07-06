@@ -3,14 +3,17 @@ return {
 	lazy = true,
 	event = "BufEnter",
 	dependencies = {
-		"williamboman/mason.nvim",
-		"williamboman/mason-lspconfig.nvim",
 		"neovim/nvim-lspconfig",
-		"WhoIsSethDaniel/mason-tool-installer.nvim",
 		"hrsh7th/cmp-nvim-lsp",
-		"hrsh7th/nvim-cmp",
-		"L3MON4D3/LuaSnip",
 		"hrsh7th/cmp-buffer",
+		"hrsh7th/cmp-path",
+		"hrsh7th/nvim-cmp",
+		"hrsh7th/cmp-nvim-lua",
+		"L3MON4D3/LuaSnip",
+		"WhoIsSethDaniel/mason-tool-installer.nvim",
+		"https://git.sr.ht/~whynothugo/lsp_lines.nvim",
+		"williamboman/mason-lspconfig.nvim",
+		"williamboman/mason.nvim",
 		{ "j-hui/fidget.nvim", opts = {} },
 	},
 	config = function()
@@ -75,8 +78,11 @@ return {
 		vim.diagnostic.config({
 			underline = true,
 			virtual_text = true,
+			virtual_lines = false,
 			float = true,
 		})
+
+		vim.keymap.set("n", "<leader>dl", require("lsp_lines").toggle)
 
 		lsp_zero.set_sign_icons({
 			error = "",
@@ -118,6 +124,8 @@ return {
 				{ name = "nvim_lsp" },
 				{ name = "path" },
 				{ name = "buffer" },
+				{ name = "luasnip" },
+				{ name = "nvim_lua" },
 				{ name = "vim-dadbod-completion" },
 			},
 			formatting = lsp_zero.cmp_format(),
@@ -128,5 +136,7 @@ return {
 				["<C-Space>"] = cmp.mapping.complete(),
 			}),
 		})
+
+		require("lsp_lines").setup()
 	end,
 }

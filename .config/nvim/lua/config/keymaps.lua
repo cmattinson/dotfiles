@@ -51,3 +51,5 @@ map("n", "<leader>nc", ":NotifierClear<CR>")
 
 map("n", "<A-,>", ":vertical resize -10<CR>")
 map("n", "<A-.>", ":vertical resize +10<CR>")
+
+map("n", "<leader>sv", ":source $MYVIMRC<CR>")

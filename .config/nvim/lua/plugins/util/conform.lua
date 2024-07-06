@@ -24,6 +24,9 @@ return {
 					command = "odinfmt",
 					args = { "-stdin" },
 				},
+				sql_formatter = {
+					args = { "--config", "/Users/chris/sql-formatter.json" },
+				},
 			},
 			formatters_by_ft = {
 				cs = { "csharpier" },
@@ -41,7 +44,6 @@ return {
 				odin = { "odinfmt" },
 				python = { "black" },
 				rust = { "rustfmt" },
-				sql = { "sql-formatter" },
 				typescript = { "biome", "injected" },
 				yaml = { "yamlfmt" },
 				zig = { "zigfmt" },
