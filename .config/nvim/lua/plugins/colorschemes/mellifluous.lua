@@ -11,7 +11,7 @@ return {
 		require("mellifluous").setup({
 			dim_inactive = false,
 			-- mellifluous, alduin, mountain, tender, kanagawa_dragon
-			color_set = "kanagawa_dragon",
+			color_set = "mellifluous",
 			styles = {
 				comments = { italic = false },
 				conditionals = { italic = false },

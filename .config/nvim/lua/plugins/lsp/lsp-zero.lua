@@ -82,7 +82,10 @@ return {
 			float = true,
 		})
 
-		vim.keymap.set("n", "<leader>dl", require("lsp_lines").toggle)
+		vim.keymap.set("n", "<leader>dl", function()
+			local config = vim.diagnostic.config()
+			vim.diagnostic.config({ virtual_lines = not config.virtual_lines, virtual_text = not config.virtual_text })
+		end, { desc = "Toggle [d]iagnostic [l]ines" })
 
 		lsp_zero.set_sign_icons({
 			error = "",

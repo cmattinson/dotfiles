@@ -24,6 +24,11 @@ return {
 					command = "odinfmt",
 					args = { "-stdin" },
 				},
+				rescript = {
+					inherit = false,
+					command = "rescript",
+					args = { "format", "-stdin", ".res" },
+				},
 				sql_formatter = {
 					args = { "--config", "/Users/chris/sql-formatter.json" },
 				},
@@ -43,6 +48,7 @@ return {
 				ocaml = { "ocamlformat" },
 				odin = { "odinfmt" },
 				python = { "black" },
+				rescript = { "rescript" },
 				rust = { "rustfmt" },
 				typescript = { "biome", "injected" },
 				yaml = { "yamlfmt" },

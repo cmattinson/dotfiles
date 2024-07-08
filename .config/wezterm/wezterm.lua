@@ -68,7 +68,9 @@ local HARFBUZZ = {
 		"ss03",
 		"ss08",
 	},
+	Fragment = { "ss02", "ss03", "ss04" },
 	Geist = { "ss01", "ss03", "ss04", "ss08" },
+	Julia = { "zero", "cv04" },
 	Monaspace = { "zero", "liga", "calt", "ss03", "ss05", "ss06", "ss07", "ss08", "ss09" },
 	Lilex = {
 		"calt",
@@ -85,9 +87,11 @@ local HARFBUZZ = {
 local FONTS = {
 	Cove = "CaskaydiaCove Nerd Font",
 	Fira = "FiraCode Nerd Font",
+	Fragment = "Fragment Mono",
 	Geist = "GeistMono Nerd Font",
 	Hack = "Hack Nerd Font",
 	Hasklug = "Hasklug Nerd Font",
+	Julia = "JuliaMono",
 	Lilex = "Lilex Nerd Font",
 	Proggy = "ProggyVector",
 	Terminess = "Terminess Nerd Font",
@@ -101,7 +105,7 @@ local FONT = {
 }
 
 config.font = wezterm.font(FONT)
-config.font_size = 14
+config.font_size = 15
 config.font_rules = {
 	{
 		intensity = "Half",
