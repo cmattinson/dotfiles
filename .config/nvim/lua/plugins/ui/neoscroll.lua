@@ -14,11 +14,9 @@ return {
 		local keymap = {
 			["<C-u>"] = function()
 				neoscroll.ctrl_u({ duration = 150, easing = "quadratic" })
-				-- vim.cmd("norm! zz")
 			end,
 			["<C-d>"] = function()
 				neoscroll.ctrl_d({ duration = 150, easing = "quadratic" })
-				-- vim.cmd("norm! zz")
 			end,
 		}
 

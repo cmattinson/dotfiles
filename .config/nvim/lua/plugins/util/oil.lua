@@ -2,8 +2,8 @@ return {
 	"stevearc/oil.nvim",
 	lazy = true,
 	keys = "-",
-	config = function()
-		require("oil").setup({
+	opts = {
+		{
 			columns = {
 				"icon",
 			},
@@ -89,6 +89,6 @@ return {
 					winblend = 0,
 				},
 			},
-		})
-	end,
+		},
+	},
 }

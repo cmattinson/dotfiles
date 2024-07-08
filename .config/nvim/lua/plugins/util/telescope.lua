@@ -1,15 +1,9 @@
 return {
 	"nvim-telescope/telescope.nvim",
 	lazy = true,
-	event = "BufEnter",
+	event = "VimEnter",
 	dependencies = { { "nvim-lua/plenary.nvim" }, { "nvim-telescope/telescope-live-grep-args.nvim" } },
 	config = function()
-		local actions = require("telescope.actions")
-		local pickers = require("telescope.pickers")
-		local finders = require("telescope.finders")
-		local conf = require("telescope.config").values
-		local trouble = require("trouble.providers.telescope")
-
 		require("telescope").setup({
 			defaults = {
 				file_ignore_patterns = { "node_modules", "tests" },

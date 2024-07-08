@@ -1,6 +1,6 @@
 return {
 	"noib3/nvim-cokeline",
-	lazy = true,
+	event = "BufEnter",
 	dependencies = { "nvim-tree/nvim-web-devicons", "tiagovla/scope.nvim" },
 	config = function()
 		require("scope").setup({})
