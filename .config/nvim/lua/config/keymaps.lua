@@ -37,7 +37,7 @@ map("n", "<leader>O", "O<ESC>")
 map("n", "<A-Up>", ":cprev<CR>")
 map("n", "<A-Down>", ":cnext<CR>")
 
-map("n", "<C-s>", ":call SynStack()<CR>")
+map("i", "<C-s>", vim.lsp.buf.signature_help)
 map("n", "<C-e>", ":lua require('dapui').eval()<CR>")
 
 map("n", "-", require("oil").open)

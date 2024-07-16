@@ -90,7 +90,7 @@ return {
 				files = { "src/parser.c", "src/scanner.c" },
 				generate_requires_npm = false,
 				requires_generate_from_grammar = true,
-				use_makefile = true, -- macOS specific instruction
+				use_makefile = true,
 			},
 		}
 	end,

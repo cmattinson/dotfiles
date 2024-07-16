@@ -70,7 +70,8 @@ local HARFBUZZ = {
 	},
 	Fragment = { "ss02", "ss03", "ss04" },
 	Geist = { "ss01", "ss03", "ss04", "ss08" },
-	Julia = { "zero", "cv04" },
+	iA = { "ss03" },
+	Julia = { "ss01", "ss04", "cv04" },
 	Monaspace = { "zero", "liga", "calt", "ss03", "ss05", "ss06", "ss07", "ss08", "ss09" },
 	Lilex = {
 		"calt",
@@ -81,7 +82,7 @@ local HARFBUZZ = {
 		"ss04",
 		"zero",
 	},
-	Twilio = { "ss05" },
+	Twilio = { "calt=0", "ss05" },
 }
 
 local FONTS = {
@@ -91,11 +92,13 @@ local FONTS = {
 	Geist = "GeistMono Nerd Font",
 	Hack = "Hack Nerd Font",
 	Hasklug = "Hasklug Nerd Font",
+	iA = "iA Writer Mono S",
 	Julia = "JuliaMono",
 	Lilex = "Lilex Nerd Font",
 	Proggy = "ProggyVector",
 	Terminess = "Terminess Nerd Font",
 	Twilio = "Twilio Sans Mono",
+	Roboto = "RobotoMono Nerd Font",
 }
 
 local FONT = {
