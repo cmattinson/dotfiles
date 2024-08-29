@@ -103,6 +103,12 @@ return {
 			biome = {},
 			zls = {},
 			lua_ls = {},
+			tsserver = {
+				on_attach = function(client)
+					local ns = vim.lsp.diagnostic.get_namespace(client.id)
+					vim.diagnostic.disable(nil, ns)
+				end,
+			},
 		}
 
 		local ensure_installed = vim.tbl_keys(servers or {})

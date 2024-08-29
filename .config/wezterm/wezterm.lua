@@ -9,6 +9,7 @@ end
 config.color_scheme = "MaterialOcean"
 local BACKGROUND_COLORS = {
 	Black = "#000000",
+	White = "#FFFFFF",
 	Rocket = "#161616",
 	RosePine = "#191724",
 	Material = "#111219",
@@ -22,7 +23,6 @@ config.window_frame = {
 	inactive_titlebar_bg = BACKGROUND_COLOR,
 }
 
-config.window_decorations = "RESIZE"
 config.colors = {
 	tab_bar = {
 		inactive_tab_edge = BACKGROUND_COLOR,

@@ -28,7 +28,8 @@ alias ios="cd ~/workspace/ios"
 alias kmm="cd ~/workspace/kmm"
 alias ll='ls -lh --color=auto'
 alias ls='ls --color=auto'
-alias mat="~/.config/color-scripts/material.sh"
+alias matd="~/.config/color-scripts/material-dark.sh"
+alias matl="~/.config/color-scripts/material-light.sh"
 alias mel="~/.config/color-scripts/mellifluous.sh"
 alias nd="cd ~/workspace/vantix/crm/api-node"
 alias nsc="cd ~/Library/Application\ Support/nushell"
@@ -106,3 +107,4 @@ export PATH="/opt/homebrew/opt/llvm@14/bin:$PATH"
 export PATH="/Users/chris/workspace/odin/compiler:$PATH"
 export PATH="/Users/chris/workspace/odin/ols:$PATH"
 
+. /opt/homebrew/opt/asdf/libexec/asdf.sh
