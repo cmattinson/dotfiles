@@ -58,7 +58,6 @@ local FONT_WEIGHTS = {
 
 local HARFBUZZ = {
 	Cove = { "ss01", "ss02", "ss19" },
-	Commit = { "ss01", "ss02", "ss04", "cv02", "cv06", "cv10", "cv11" },
 	Fira = {
 		"calt=0",
 		"cv04",
@@ -69,40 +68,18 @@ local HARFBUZZ = {
 		"ss03",
 		"ss08",
 	},
-	Fragment = { "ss02", "ss03", "ss04" },
 	Geist = { "ss01", "ss03", "ss04", "ss08" },
-	Hasklug = { "calt=0" },
-	iA = { "ss03" },
-	Julia = { "ss01", "ss04", "cv04" },
-	Monaspace = { "zero", "liga", "calt", "ss03", "ss05", "ss06", "ss07", "ss08", "ss09" },
 	Sauce = { "zero", "ss04" },
-	Lilex = {
-		"calt",
-		"cv03",
-		"cv08",
-		"cv11",
-		"ss02",
-		"ss04",
-		"zero",
-	},
 	Twilio = { "calt=0", "ss05" },
 }
 
 local FONTS = {
 	Cove = "CaskaydiaCove Nerd Font",
 	Fira = "FiraCode Nerd Font",
-	Fragment = "Fragment Mono",
 	Geist = "GeistMono Nerd Font",
-	Hack = "Hack Nerd Font",
-	Hasklug = "Hasklug Nerd Font",
-	iA = "iA Writer Mono S",
-	Inconsolata = "Inconsolata Nerd Font",
-	Julia = "JuliaMono",
-	Lilex = "Lilex Nerd Font",
 	Proggy = "ProggyVector",
 	Sauce = "SauceCodePro Nerd Font",
 	SF = "SFMono Nerd Font",
-	Terminess = "Terminess Nerd Font",
 	Twilio = "Twilio Sans Mono",
 	Roboto = "RobotoMono Nerd Font",
 }
