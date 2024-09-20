@@ -60,6 +60,7 @@ local HARFBUZZ = {
 	Cove = { "ss01", "ss02", "ss19" },
 	Commit = { "ss01", "ss02", "ss04", "cv02", "cv06", "cv10", "cv11" },
 	Fira = {
+		"calt=0",
 		"cv04",
 		"cv09",
 		"cv14",
@@ -70,9 +71,11 @@ local HARFBUZZ = {
 	},
 	Fragment = { "ss02", "ss03", "ss04" },
 	Geist = { "ss01", "ss03", "ss04", "ss08" },
+	Hasklug = { "calt=0" },
 	iA = { "ss03" },
 	Julia = { "ss01", "ss04", "cv04" },
 	Monaspace = { "zero", "liga", "calt", "ss03", "ss05", "ss06", "ss07", "ss08", "ss09" },
+	Sauce = { "zero", "ss04" },
 	Lilex = {
 		"calt",
 		"cv03",
@@ -93,9 +96,12 @@ local FONTS = {
 	Hack = "Hack Nerd Font",
 	Hasklug = "Hasklug Nerd Font",
 	iA = "iA Writer Mono S",
+	Inconsolata = "Inconsolata Nerd Font",
 	Julia = "JuliaMono",
 	Lilex = "Lilex Nerd Font",
 	Proggy = "ProggyVector",
+	Sauce = "SauceCodePro Nerd Font",
+	SF = "SFMono Nerd Font",
 	Terminess = "Terminess Nerd Font",
 	Twilio = "Twilio Sans Mono",
 	Roboto = "RobotoMono Nerd Font",
@@ -108,7 +114,7 @@ local FONT = {
 }
 
 config.font = wezterm.font(FONT)
-config.font_size = 15
+config.font_size = 16
 config.font_rules = {
 	{
 		intensity = "Half",

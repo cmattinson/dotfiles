@@ -93,5 +93,24 @@ return {
 				use_makefile = true,
 			},
 		}
+		parser_config.reason = {
+			install_info = {
+				url = "https://github.com/reasonml-editor/tree-sitter-reason",
+				files = { "src/parser.c", "src/scanner.c" },
+				branch = "master",
+			},
+		}
+		parser_config.fsharp = {
+			install_info = {
+				url = "https://github.com/ionide/tree-sitter-fsharp",
+				branch = "main",
+				files = { "src/scanner.c", "src/parser.c" },
+				location = "fsharp",
+			},
+			requires_generate_from_grammar = false,
+			filetype = "fsharp",
+		}
+
+		vim.treesitter.language.add("reason", { filetype = "reason" })
 	end,
 }

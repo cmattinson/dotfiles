@@ -8,7 +8,7 @@ alias .config="cd ~/dotfiles/.config"
 alias .sz="source ~/.zshrc"
 alias .z="nvim ~/dotfiles/.zshrc"
 alias algo="cd ~/workspace/algorithms"
-alias aoc="cd ~/workspace/ocaml/advent-of-ocaml"
+alias aoc="cd ~/workspace/advent-of-code"
 alias atms="cd ~/workspace/vantix/atms-administration"
 alias base="cd ~/workspace/vantix/crm-base"
 alias bformat="npx @biomejs/biome format"
@@ -108,3 +108,4 @@ export PATH="/Users/chris/workspace/odin/compiler:$PATH"
 export PATH="/Users/chris/workspace/odin/ols:$PATH"
 
 . /opt/homebrew/opt/asdf/libexec/asdf.sh
+

@@ -16,7 +16,7 @@ return {
 		"williamboman/mason-lspconfig.nvim",
 		"williamboman/mason.nvim",
 		"ray-x/cmp-treesitter",
-		{ "j-hui/fidget.nvim", opts = {} },
+		-- { "j-hui/fidget.nvim", opts = {} },
 	},
 	config = function()
 		local lsp_zero = require("lsp-zero").preset({
@@ -103,6 +103,7 @@ return {
 			biome = {},
 			zls = {},
 			lua_ls = {},
+			rescriptls = {},
 			tsserver = {
 				on_attach = function(client)
 					local ns = vim.lsp.diagnostic.get_namespace(client.id)
@@ -126,6 +127,7 @@ return {
 			},
 		})
 		require("lspconfig").gleam.setup({})
+		require("lspconfig").fsautocomplete.setup({})
 
 		local cmp = require("cmp")
 		local cmp_select = { behavior = cmp.SelectBehavior.Select }
@@ -139,9 +141,12 @@ return {
 				{ name = "nvim_lua" },
 				{ name = "treesitter" },
 				{ name = "nvim_lsp_signature_help" },
+				{ name = "rescriptls" },
 			},
 			formatting = lsp_zero.cmp_format(),
 			mapping = cmp.mapping.preset.insert({
+				["<C-b>"] = cmp.mapping(cmp.mapping.scroll_docs(-4), { "i", "c" }),
+				["<C-f>"] = cmp.mapping(cmp.mapping.scroll_docs(4), { "i", "c" }),
 				["<C-n>"] = cmp.mapping.select_next_item(cmp_select),
 				["<C-p>"] = cmp.mapping.select_prev_item(cmp_select),
 				["<C-y>"] = cmp.mapping.confirm({ select = true }),

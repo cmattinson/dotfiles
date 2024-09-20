@@ -28,3 +28,8 @@ vim.o.timeoutlen = 300
 vim.o.completeopt = "menuone,noselect"
 vim.o.cursorline = true
 vim.cmd([[let &fcs='eob: ']])
+vim.filetype.add({
+	extension = {
+		re = "reason",
+	},
+})
