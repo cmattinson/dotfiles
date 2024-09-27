@@ -7,6 +7,7 @@ if wezterm.config_builder then
 end
 
 config.color_scheme = "MaterialOcean"
+
 local BACKGROUND_COLORS = {
 	Black = "#000000",
 	White = "#FFFFFF",
@@ -38,6 +39,13 @@ config.colors = {
 			bg_color = BACKGROUND_COLOR,
 			fg_color = BACKGROUND_COLOR,
 		},
+	},
+}
+
+config.window_background_gradient = {
+	orientation = "Vertical",
+	colors = {
+		BACKGROUND_COLOR,
 	},
 }
 
@@ -74,24 +82,63 @@ local HARFBUZZ = {
 }
 
 local FONTS = {
-	Cove = "CaskaydiaCove Nerd Font",
-	Fira = "FiraCode Nerd Font",
-	Geist = "GeistMono Nerd Font",
-	Proggy = "ProggyVector",
-	Sauce = "SauceCodePro Nerd Font",
-	SF = "SFMono Nerd Font",
-	Twilio = "Twilio Sans Mono",
-	Roboto = "RobotoMono Nerd Font",
+	Fira = {
+		family = "FiraCode Nerd Font",
+		italic = false,
+		weight = FONT_WEIGHTS.Regular,
+		harfbuzz_features = HARFBUZZ.Fira,
+	},
+	Geist = {
+		family = "GeistMono Nerd Font",
+		italic = false,
+		weight = FONT_WEIGHTS.Regular,
+		harfbuzz_features = HARFBUZZ.Geist,
+	},
+	Proggy = {
+		family = "ProggyVector",
+		italic = false,
+		weight = FONT_WEIGHTS.Regular,
+	},
+	Sometype = {
+		family = "Sometype Mono",
+		italic = false,
+		weight = FONT_WEIGHTS.Regular,
+	},
 }
 
-local FONT = {
-	family = FONTS.Proggy,
-	italic = false,
-	weight = FONT_WEIGHTS.Regular,
-}
+local FONT
+
+---@diagnostic disable-next-line: unused-function
+local fira = function()
+	FONT = FONTS.Fira
+	config.line_height = 1.0
+	config.font_size = 16
+end
+
+---@diagnostic disable-next-line: unused-function
+local geist = function()
+	FONT = FONTS.Geist
+	config.line_height = 1.0
+	config.font_size = 15
+end
+
+---@diagnostic disable-next-line: unused-function
+local proggy = function()
+	FONT = FONTS.Proggy
+	config.line_height = 1.0
+	config.font_size = 18
+end
+
+---@diagnostic disable-next-line: unused-function
+local someType = function()
+	FONT = FONTS.Sometype
+	config.line_height = 1.2
+	config.font_size = 16
+end
+
+proggy()
 
 config.font = wezterm.font(FONT)
-config.font_size = 16
 config.font_rules = {
 	{
 		intensity = "Half",
@@ -105,13 +152,6 @@ config.font_rules = {
 
 config.front_end = "WebGpu"
 config.disable_default_key_bindings = true
-
-config.window_background_gradient = {
-	orientation = "Vertical",
-	colors = {
-		BACKGROUND_COLOR,
-	},
-}
 
 config.keys = {
 	{ key = "-", mods = "CMD|SHIFT", action = act.SplitVertical },

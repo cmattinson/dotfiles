@@ -45,7 +45,7 @@ map("n", "-", require("oil").open)
 map("n", "<leader>dp", vim.diagnostic.goto_prev)
 map("n", "<leader>dn", vim.diagnostic.goto_next)
 
-map("n", "<leader>jr", ":e api-node/src/rules/index.js<CR>")
+map("n", "<leader>jr", ":e api/src/rules/index.js<CR>")
 
 map("n", "<leader>nc", ":NotifierClear<CR>")
 

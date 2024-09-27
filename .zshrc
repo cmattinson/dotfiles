@@ -31,7 +31,7 @@ alias ls='ls --color=auto'
 alias matd="~/.config/color-scripts/material-dark.sh"
 alias matl="~/.config/color-scripts/material-light.sh"
 alias mel="~/.config/color-scripts/mellifluous.sh"
-alias nd="cd ~/workspace/vantix/crm/api-node"
+alias nd="cd ~/workspace/vantix/crm/api"
 alias nsc="cd ~/Library/Application\ Support/nushell"
 alias nvc="cd ~/dotfiles/.config/nvim && nvim"
 alias nvim-upgrade="brew upgrade neovim --fetch-HEAD"
@@ -109,3 +109,8 @@ export PATH="/Users/chris/workspace/odin/ols:$PATH"
 
 . /opt/homebrew/opt/asdf/libexec/asdf.sh
 
+
+[ -f "/Users/chris/.ghcup/env" ] && . "/Users/chris/.ghcup/env" # ghcup-env
+
+# dune
+export PATH="/Users/chris/.dune/bin:$PATH"

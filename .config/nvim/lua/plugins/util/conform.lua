@@ -50,6 +50,7 @@ return {
 				python = { "black" },
 				rescript = { "rescript" },
 				rust = { "rustfmt" },
+				sql = { "sql_formatter" },
 				typescript = { "biome", "injected" },
 				yaml = { "yamlfmt" },
 				zig = { "zigfmt" },
