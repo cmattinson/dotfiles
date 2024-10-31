@@ -86,6 +86,11 @@ return {
 					color = "#ffaff3",
 					name = "gleam",
 				},
+				["purs"] = {
+					icon = "",
+					color = "#eeffff",
+					name = "purescript",
+				},
 			},
 		})
 	end,

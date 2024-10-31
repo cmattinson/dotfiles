@@ -31,5 +31,6 @@ vim.cmd([[let &fcs='eob: ']])
 vim.filetype.add({
 	extension = {
 		re = "reason",
+		purs = "purescript",
 	},
 })

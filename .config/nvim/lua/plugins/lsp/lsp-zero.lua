@@ -16,7 +16,6 @@ return {
 		"williamboman/mason-lspconfig.nvim",
 		"williamboman/mason.nvim",
 		"ray-x/cmp-treesitter",
-		-- { "j-hui/fidget.nvim", opts = {} },
 	},
 	config = function()
 		local lsp_zero = require("lsp-zero").preset({
@@ -84,6 +83,11 @@ return {
 			float = true,
 		})
 
+		vim.keymap.set("n", "<leader>vt", function()
+			local config = vim.diagnostic.config()
+			vim.diagnostic.config({ virtual_lines = false, virtual_text = not config.virtual_text })
+		end, { desc = "Toggle [v]irtual [t]ext" })
+
 		vim.keymap.set("n", "<leader>dl", function()
 			local config = vim.diagnostic.config()
 			vim.diagnostic.config({ virtual_lines = not config.virtual_lines, virtual_text = not config.virtual_text })
@@ -128,6 +132,8 @@ return {
 		})
 		require("lspconfig").gleam.setup({})
 		require("lspconfig").fsautocomplete.setup({})
+		require("lspconfig").sourcekit.setup({})
+		require("lspconfig").purescriptls.setup({})
 
 		local cmp = require("cmp")
 		local cmp_select = { behavior = cmp.SelectBehavior.Select }

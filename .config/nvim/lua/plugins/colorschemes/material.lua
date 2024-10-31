@@ -46,6 +46,11 @@ return {
 				["@type.jsdoc"] = { fg = colors.main.yellow },
 				["@variable.jsdoc"] = { link = "Comment" },
 				["zig"] = { fg = colors.main.blue },
+				["@type.gleam"] = { fg = colors.main.yellow },
+				["@type.builtin"] = { fg = colors.main.yellow },
+				["@type.javascript"] = { fg = colors.main.yellow },
+				["@module"] = { fg = colors.main.purple },
+				["@type"] = { fg = colors.main.yellow },
 			},
 		}
 

@@ -112,5 +112,6 @@ return {
 		}
 
 		vim.treesitter.language.add("reason", { filetype = "reason" })
+		vim.treesitter.language.add("purescript", { filetype = "purs" })
 	end,
 }
