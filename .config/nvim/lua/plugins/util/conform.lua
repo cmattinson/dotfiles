@@ -32,6 +32,11 @@ return {
 				sql_formatter = {
 					args = { "--config", "/Users/chris/sql-formatter.json" },
 				},
+				refmt = {
+					inherit = false,
+					command = "refmt",
+					args = {},
+				},
 			},
 			formatters_by_ft = {
 				cs = { "csharpier" },
@@ -50,9 +55,10 @@ return {
 				odin = { "odinfmt" },
 				python = { "black" },
 				purescript = { "purs-tidy" },
+				reason = { "refmt" },
 				rescript = { "rescript" },
 				rust = { "rustfmt" },
-				sql = { "sql_formatter" },
+				-- sql = { "sql_formatter" },
 				typescript = { "biome", "injected" },
 				yaml = { "yamlfmt" },
 				zig = { "zigfmt" },

@@ -16,7 +16,7 @@ return {
 							command = vim.fn.exepath("node-debug2-adapter"),
 							request = "attach",
 							processId = function()
-								require("dap.utils").pick_process({ filter = "service.js" })
+								require("dap.utils").pick_process()
 							end,
 						},
 					}

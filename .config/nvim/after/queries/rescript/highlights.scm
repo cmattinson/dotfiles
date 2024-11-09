@@ -11,3 +11,9 @@
 (call_expression
     (value_identifier) @function)
 
+((value_identifier_path
+  (module_identifier_path)
+  (value_identifier) @function)
+ (arguments))
+
+

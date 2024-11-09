@@ -99,6 +99,7 @@ return {
 				files = { "src/parser.c", "src/scanner.c" },
 				branch = "master",
 			},
+			filetype = "reason",
 		}
 		parser_config.fsharp = {
 			install_info = {
