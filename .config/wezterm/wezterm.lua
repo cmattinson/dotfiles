@@ -42,11 +42,23 @@ config.colors = {
 	},
 }
 
+config.inactive_pane_hsb = {
+	saturation = 1.0,
+	brightness = 1.0,
+}
+
 config.window_background_gradient = {
 	orientation = "Vertical",
 	colors = {
 		BACKGROUND_COLOR,
 	},
+}
+
+config.window_padding = {
+	left = "0cell",
+	right = "0cell",
+	top = "0cell",
+	bottom = "0cell",
 }
 
 local FONT_WEIGHTS = {
@@ -64,89 +76,34 @@ local FONT_WEIGHTS = {
 	ExtraBlack = "ExtraBlack",
 }
 
-local HARFBUZZ = {
-	Cove = { "ss01", "ss02", "ss19" },
-	Fira = {
-		"calt=0",
-		"cv04",
-		"cv09",
-		"cv14",
-		"ss01",
-		"ss02",
-		"ss03",
-		"ss08",
-	},
-	Geist = { "ss01", "ss03", "ss04", "ss08" },
-	Sauce = { "zero", "ss04" },
-	Twilio = { "calt=0", "ss05" },
-}
-
 local FONTS = {
-	Fira = {
-		family = "FiraCode Nerd Font",
-		italic = false,
-		weight = FONT_WEIGHTS.Regular,
-		harfbuzz_features = HARFBUZZ.Fira,
-	},
-	Geist = {
-		family = "GeistMono Nerd Font",
-		italic = false,
-		weight = FONT_WEIGHTS.Regular,
-		harfbuzz_features = HARFBUZZ.Geist,
-	},
 	Proggy = {
-		family = "ProggyVector",
-		italic = false,
-		weight = FONT_WEIGHTS.Regular,
-	},
-	Sometype = {
-		family = "Sometype Mono",
-		italic = false,
-		weight = FONT_WEIGHTS.Regular,
+		config = {
+			family = "ProggyVector",
+			italic = false,
+			weight = FONT_WEIGHTS.Regular,
+		},
+		opts = {
+			line_height = 1.1,
+			font_size = 17,
+		},
 	},
 }
 
-local FONT
+local FONT = FONTS.Proggy
 
----@diagnostic disable-next-line: unused-function
-local fira = function()
-	FONT = FONTS.Fira
-	config.line_height = 1.0
-	config.font_size = 16
-end
+config.font = wezterm.font(FONT.config)
+config.line_height = FONT.opts.line_height
+config.font_size = FONT.opts.font_size
 
----@diagnostic disable-next-line: unused-function
-local geist = function()
-	FONT = FONTS.Geist
-	config.line_height = 1.0
-	config.font_size = 15
-end
-
----@diagnostic disable-next-line: unused-function
-local proggy = function()
-	FONT = FONTS.Proggy
-	config.line_height = 1.0
-	config.font_size = 18
-end
-
----@diagnostic disable-next-line: unused-function
-local someType = function()
-	FONT = FONTS.Sometype
-	config.line_height = 1.2
-	config.font_size = 16
-end
-
-proggy()
-
-config.font = wezterm.font(FONT)
 config.font_rules = {
 	{
 		intensity = "Half",
-		font = wezterm.font(FONT),
+		font = wezterm.font(FONT.config),
 	},
 	{
 		italic = true,
-		font = wezterm.font(FONT),
+		font = wezterm.font(FONT.config),
 	},
 }
 
@@ -160,8 +117,8 @@ config.keys = {
 	{ key = "D", mods = "CTRL|SHIFT", action = act.ShowDebugOverlay },
 	{ key = "DownArrow", mods = "CMD", action = act.ActivatePaneDirection("Down") },
 	{ key = "DownArrow", mods = "CMD|SHIFT", action = act.AdjustPaneSize({ "Down", 5 }) },
-	{ key = "L", mods = "CTRL|SHIFT", action = wezterm.action.EmitEvent("toggle-ligature") },
 	{ key = "F", mods = "CTRL|SHIFT", action = act.ToggleFullScreen },
+	{ key = "L", mods = "CTRL|SHIFT", action = wezterm.action.EmitEvent("toggle-ligature") },
 	{ key = "LeftArrow", mods = "CMD", action = act.ActivatePaneDirection("Left") },
 	{ key = "LeftArrow", mods = "CMD|SHIFT", action = act.AdjustPaneSize({ "Left", 5 }) },
 	{ key = "P", mods = "CTRL|SHIFT", action = act.ActivateCommandPalette },

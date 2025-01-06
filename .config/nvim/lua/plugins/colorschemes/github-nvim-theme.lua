@@ -7,7 +7,6 @@ return {
 		-- Default options
 		require("github-theme").setup({
 			options = {
-				-- Compiled file's destination location
 				compile_path = vim.fn.stdpath("cache") .. "/github-theme",
 				compile_file_suffix = "_compiled",
 				hide_end_of_buffer = true,
@@ -36,7 +35,7 @@ return {
 				darken = {
 					floats = false,
 					sidebars = {
-						enabled = false,
+						enable = false,
 						list = {},
 					},
 				},

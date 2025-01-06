@@ -7,12 +7,12 @@ return {
 		"jay-babu/mason-nvim-dap.nvim",
 		"nvim-telescope/telescope-dap.nvim",
 		"nvim-neotest/nvim-nio",
+		"theHamsta/nvim-dap-virtual-text",
 	},
 	config = function()
 		local dap, dapui = require("dap"), require("dapui")
 
-		require("telescope").load_extension("dap")
-		require("dapui").setup({
+		dapui.setup({
 			controls = {
 				element = "repl",
 				enabled = true,
@@ -115,16 +115,16 @@ return {
 		vim.fn.sign_define("DapLogPoint", { text = "", texthl = "", linehl = "", numhl = "" })
 		vim.fn.sign_define("DapBreakpointRejected", { text = "", texthl = "", linehl = "", numhl = "" })
 
-		vim.keymap.set("n", "E", require("dapui").eval)
-		vim.keymap.set("n", "<leader>db", require("dapui").toggle)
-		vim.keymap.set("n", "<leader>da", require("dap").continue)
-		vim.keymap.set("n", "<leader>dcb", require("dap").clear_breakpoints)
-		vim.keymap.set("n", "<F1>", require("dap").step_into)
-		vim.keymap.set("n", "<F2>", require("dap").step_over)
-		vim.keymap.set("n", "<F3>", require("dap").step_out)
-		vim.keymap.set("n", "<leader>b", require("dap").toggle_breakpoint)
+		vim.keymap.set("n", "E", dapui.eval)
+		vim.keymap.set("n", "<leader>db", dapui.toggle)
+		vim.keymap.set("n", "<leader>da", dap.continue)
+		vim.keymap.set("n", "<leader>dcb", dap.clear_breakpoints)
+		vim.keymap.set("n", "<F1>", dap.step_into)
+		vim.keymap.set("n", "<F2>", dap.step_over)
+		vim.keymap.set("n", "<F3>", dap.step_out)
+		vim.keymap.set("n", "<leader>b", dap.toggle_breakpoint)
 		vim.keymap.set("n", "<leader>B", function()
-			require("dap").set_breakpoint(vim.fn.input("Breakpoint condition: "))
+			dap.set_breakpoint(vim.fn.input("Breakpoint condition: "))
 		end)
 	end,
 }

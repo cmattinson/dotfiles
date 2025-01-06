@@ -2,6 +2,7 @@ return {
 	"noib3/nvim-cokeline",
 	event = "BufEnter",
 	dependencies = { "nvim-tree/nvim-web-devicons", "tiagovla/scope.nvim" },
+	enabled = false,
 	config = function()
 		require("scope").setup({})
 		local get_hl = require("cokeline.hlgroups").get_hl_attr
@@ -90,6 +91,11 @@ return {
 					icon = "",
 					color = "#eeffff",
 					name = "purescript",
+				},
+				["odin"] = {
+					icon = "󰮔",
+					color = "#1E4677",
+					name = "odin",
 				},
 			},
 		})

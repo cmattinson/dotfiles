@@ -58,7 +58,7 @@ return {
 				reason = { "refmt" },
 				rescript = { "rescript" },
 				rust = { "rustfmt" },
-				-- sql = { "sql_formatter" },
+				sql = { "sql_formatter" },
 				typescript = { "biome", "injected" },
 				yaml = { "yamlfmt" },
 				zig = { "zigfmt" },

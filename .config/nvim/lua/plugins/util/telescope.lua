@@ -2,9 +2,17 @@ return {
 	"nvim-telescope/telescope.nvim",
 	lazy = true,
 	event = "VimEnter",
-	dependencies = { { "nvim-lua/plenary.nvim" }, { "nvim-telescope/telescope-live-grep-args.nvim" } },
+	dependencies = {
+		"nvim-lua/plenary.nvim",
+		"nvim-telescope/telescope-live-grep-args.nvim",
+		"nvim-telescope/telescope-dap.nvim",
+		"nvim-tree/nvim-web-devicons",
+	},
 	config = function()
-		require("telescope").setup({
+		local telescope = require("telescope")
+		local builtin = require("telescope.builtin")
+
+		telescope.setup({
 			defaults = {
 				file_ignore_patterns = { "node_modules" },
 				path_display = { "truncate" },
@@ -30,28 +38,22 @@ return {
 				colorscheme = {
 					enable_preview = true,
 				},
+				find_files = {
+					previewer = false,
+				},
 			},
 		})
 
-		require("telescope").load_extension("live_grep_args")
+		telescope.load_extension("dap")
+		telescope.load_extension("live_grep_args")
 
-		vim.keymap.set("n", "<leader>gf", require("telescope.builtin").git_files, { desc = "Search [G]it [F]iles" })
-		vim.keymap.set("n", "<C-p>", require("telescope.builtin").find_files, { desc = "[S]earch [F]iles" })
-		vim.keymap.set("n", "<leader>sh", require("telescope.builtin").help_tags, { desc = "[S]earch [H]elp" })
-		vim.keymap.set(
-			"n",
-			"<leader>sw",
-			require("telescope.builtin").grep_string,
-			{ desc = "[S]earch current [W]ord" }
-		)
-		vim.keymap.set(
-			"n",
-			"<C-f>",
-			require("telescope").extensions.live_grep_args.live_grep_args,
-			{ desc = "[S]earch by [G]rep" }
-		)
-		vim.keymap.set("n", "<leader>ht", ":Telescope help_tags<CR>")
-		vim.keymap.set("n", "<leader>hl", ":Telescope highlights<CR>")
-		vim.keymap.set("n", "<leader>co", ":Telescope colorscheme<CR>")
+		vim.keymap.set("n", "<leader>gf", builtin.git_files, { desc = "Search git files" })
+		vim.keymap.set("n", "<C-p>", builtin.find_files, { desc = "Search files" })
+		vim.keymap.set("n", "<leader>ht", builtin.help_tags, { desc = "Search help" })
+		vim.keymap.set("n", "<leader>hl", builtin.highlights, { desc = "Search highlight groups" })
+		vim.keymap.set("n", "<leader>sw", builtin.grep_string, { desc = "Search current word" })
+		vim.keymap.set("n", "<leader>co", builtin.colorscheme, { desc = "Search colorschemes" })
+		vim.keymap.set("n", "<C-f>", telescope.extensions.live_grep_args.live_grep_args, { desc = "Search by grep" })
+		vim.keymap.set("n", "<C-b>", builtin.buffers, { desc = "Search open buffers" })
 	end,
 }

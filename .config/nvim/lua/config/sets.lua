@@ -34,3 +34,4 @@ vim.filetype.add({
 		purs = "purescript",
 	},
 })
+vim.o.laststatus = 3

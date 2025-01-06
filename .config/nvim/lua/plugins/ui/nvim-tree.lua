@@ -1,6 +1,7 @@
 return {
 	"nvim-tree/nvim-tree.lua",
 	dependencies = { "nvim-tree/nvim-web-devicons" },
+	enabled = false,
 	lazy = true,
 	keys = "<C-b>",
 	config = function()

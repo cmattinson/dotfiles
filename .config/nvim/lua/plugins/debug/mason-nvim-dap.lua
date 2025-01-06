@@ -8,6 +8,9 @@ return {
 		require("mason-nvim-dap").setup({
 			ensure_installed = { "node-debug2-adapter" },
 			handlers = {
+				function(config)
+					require("mason-nvim-dap").default_setup(config)
+				end,
 				node2 = function(config)
 					config.configurations = {
 						{
@@ -21,9 +24,6 @@ return {
 						},
 					}
 
-					require("mason-nvim-dap").default_setup(config)
-				end,
-				function(config)
 					require("mason-nvim-dap").default_setup(config)
 				end,
 			},
