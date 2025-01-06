@@ -9,16 +9,9 @@ alias .sz="source ~/.zshrc"
 alias .z="nvim ~/dotfiles/.zshrc"
 alias algo="cd ~/workspace/algorithms"
 alias aoc="cd ~/workspace/advent-of-code"
-alias atms="cd ~/workspace/vantix/atms-administration"
-alias base="cd ~/workspace/vantix/crm-base"
 alias bformat="npx @biomejs/biome format"
 alias blint="npx @biomejs/biome format"
-alias camms="cd ~/workspace/method1/camms-portal"
 alias chris_int="ssh chris@172.31.40.79"
-alias cl="cd ~/workspace/vantix/crm/client"
-alias crm="cd ~/workspace/vantix/crm"
-alias dash="cd ~/workspace/method1/camms-dashboards"
-alias dn="cd ~/workspace/vantix/crm/api-dotnet"
 alias dot="cd ~/dotfiles"
 alias dra="~/.config/color-scripts/dragon.sh"
 alias ffd="cd \$(fd --type d . ~/dotfiles ~/workspace ~/Exercism | fzf)"
@@ -31,7 +24,6 @@ alias ls='ls --color=auto'
 alias matd="~/.config/color-scripts/material-dark.sh"
 alias matl="~/.config/color-scripts/material-light.sh"
 alias mel="~/.config/color-scripts/mellifluous.sh"
-alias nd="cd ~/workspace/vantix/crm/api"
 alias nsc="cd ~/Library/Application\ Support/nushell"
 alias nvc="cd ~/dotfiles/.config/nvim && nvim"
 alias nvim-upgrade="brew upgrade neovim --fetch-HEAD"
@@ -40,13 +32,11 @@ alias psql="sudo -u postgres psql"
 alias ros="~/.config/color-scripts/rose-pine.sh"
 alias rust="cd ~/workspace/rust"
 alias shc="nvim ~/dotfiles/.config/starship.toml"
-alias svan="ssh vantixsystems@20.51.122.194"
-alias van="cd ~/workspace/vantix"
 alias vim="nvim"
 alias ws="cd ~/workspace"
 alias wtc="nvim ~/dotfiles/.config/wezterm/wezterm.lua"
-alias yd="cd ~/workspace/vantix/atms-yellowdog"
-alias ydc="cd ~/workspace/vantix/atms-yellowdog/src/yellowdog.react"
+alias exe="cd ~/Exercism"
+alias gtc="nvim ~/dotfiles/.config/ghostty/config"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
@@ -98,9 +88,6 @@ export PKG_CONFIG_PATH="/opt/homebrew/opt/ruby/lib/pkgconfig"
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
 
-# opam configuration
-[[ ! -r /Users/chris/.opam/opam-init/init.zsh ]] || source /Users/chris/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null
-
 # Created by `pipx` on 2024-06-17 22:32:14
 export PATH="$PATH:/Users/chris/.local/bin"
 export PATH="/opt/homebrew/opt/llvm@14/bin:$PATH"
@@ -112,5 +99,12 @@ export PATH="/Users/chris/workspace/odin/ols:$PATH"
 
 [ -f "/Users/chris/.ghcup/env" ] && . "/Users/chris/.ghcup/env" # ghcup-env
 
-# dune
-export PATH="/Users/chris/.dune/bin:$PATH"
+
+
+# BEGIN opam configuration
+# This is useful if you're using opam as it adds:
+#   - the correct directories to the PATH
+#   - auto-completion for the opam binary
+# This section can be safely removed at any time if needed.
+[[ ! -r '/Users/chris/.opam/opam-init/init.zsh' ]] || source '/Users/chris/.opam/opam-init/init.zsh' > /dev/null 2> /dev/null
+# END opam configuration
