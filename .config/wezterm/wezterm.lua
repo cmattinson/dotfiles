@@ -6,10 +6,12 @@ if wezterm.config_builder then
 	config = wezterm.config_builder()
 end
 
-config.color_scheme = "MaterialOcean"
+config.color_scheme = "Nord (base16)"
 
 local BACKGROUND_COLORS = {
+	Ayu = "#0B0E14",
 	Black = "#000000",
+	Dark = "#0F1115",
 	White = "#FFFFFF",
 	Rocket = "#161616",
 	RosePine = "#191724",
@@ -54,13 +56,6 @@ config.window_background_gradient = {
 	},
 }
 
-config.window_padding = {
-	left = "0cell",
-	right = "0cell",
-	top = "0cell",
-	bottom = "0cell",
-}
-
 local FONT_WEIGHTS = {
 	Thin = "Thin",
 	ExtraLight = "ExtraLight",
@@ -85,7 +80,18 @@ local FONTS = {
 		},
 		opts = {
 			line_height = 1.1,
-			font_size = 17,
+			font_size = 18,
+		},
+	},
+	Menlo = {
+		config = {
+			family = "Menlo",
+			italic = false,
+			weight = FONT_WEIGHTS.Regular,
+		},
+		opts = {
+			line_height = 1.3,
+			font_size = 18,
 		},
 	},
 }

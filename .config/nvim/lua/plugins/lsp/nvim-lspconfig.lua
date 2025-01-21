@@ -14,6 +14,7 @@ return {
 			ocamllsp = {},
 			rescriptls = {},
 			rust_analyzer = {},
+			ols = {},
 			zls = {},
 		},
 	},

@@ -2,7 +2,7 @@ return {
 	"noib3/nvim-cokeline",
 	event = "BufEnter",
 	dependencies = { "nvim-tree/nvim-web-devicons", "tiagovla/scope.nvim" },
-	enabled = false,
+	enabled = true,
 	config = function()
 		require("scope").setup({})
 		local get_hl = require("cokeline.hlgroups").get_hl_attr

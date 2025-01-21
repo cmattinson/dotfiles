@@ -2,7 +2,7 @@ return {
 	"marko-cerovac/material.nvim",
 	lazy = false,
 	priority = 10000,
-	enabled = true,
+	enabled = false,
 	init = function()
 		local colors = require("material.colors")
 
@@ -32,6 +32,7 @@ return {
 				["@warning.rescript"] = { bold = false },
 			},
 			zig = {
+				["@type.zig"] = { fg = colors.main.yellow },
 				["@field.zig"] = { fg = colors.main.blue },
 			},
 		}
@@ -59,6 +60,7 @@ return {
 			SpecialChar = { link = "Cyan" },
 			TelescopeNormal = { link = "Normal" },
 			WhichKeyDesc = { italic = false },
+			VertSplit = { fg = colors.main.white },
 			["@annotation"] = { fg = colors.main.blue },
 			["@comment.documentation"] = { link = "Comment" },
 			["@constant"] = { fg = colors.main.darkyellow },
@@ -75,7 +77,7 @@ return {
 				sidebars = true,
 				floating_windows = true,
 				cursor_line = true,
-				non_current_windows = false,
+				non_current_windows = true,
 				filetypes = {},
 			},
 			custom_colors = function(cl)
@@ -86,7 +88,8 @@ return {
 				highlight_config,
 				language_config.ocaml,
 				language_config.javascript,
-				language_config.python
+				language_config.python,
+				language_config.zig
 			),
 			disable = {
 				background = true,
