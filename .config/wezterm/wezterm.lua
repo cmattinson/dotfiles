@@ -6,11 +6,12 @@ if wezterm.config_builder then
 	config = wezterm.config_builder()
 end
 
-config.color_scheme = "Nord (base16)"
+config.color_scheme = "MaterialOcean"
 
 local BACKGROUND_COLORS = {
 	Ayu = "#0B0E14",
 	Black = "#000000",
+	Blue = "#151825",
 	Dark = "#0F1115",
 	White = "#FFFFFF",
 	Rocket = "#161616",
@@ -72,15 +73,37 @@ local FONT_WEIGHTS = {
 }
 
 local FONTS = {
-	Proggy = {
+	Argon = {
 		config = {
-			family = "ProggyVector",
+			family = "Monaspace Argon",
 			italic = false,
 			weight = FONT_WEIGHTS.Regular,
+			harfbuzz_features = {
+				"'cv01' 2",
+				"ss03",
+				"ss07",
+				"ss09",
+				"calt",
+				"cv30",
+			},
 		},
 		opts = {
-			line_height = 1.1,
-			font_size = 18,
+			line_height = 1.4,
+			font_size = 19,
+		},
+	},
+	Fira = {
+		config = {
+			family = "FiraMono Nerd Font",
+			italic = false,
+			weight = FONT_WEIGHTS.Medium,
+			harfbuzz_features = {
+				"zero",
+			},
+		},
+		opts = {
+			line_height = 1.3,
+			font_size = 19,
 		},
 	},
 	Menlo = {
@@ -94,9 +117,70 @@ local FONTS = {
 			font_size = 18,
 		},
 	},
+	Proggy = {
+		config = {
+			family = "ProggyVector",
+			italic = false,
+			weight = FONT_WEIGHTS.Regular,
+		},
+		opts = {
+			line_height = 1.1,
+			font_size = 18,
+		},
+	},
+	Roboto = {
+		config = {
+			family = "RobotoMono Nerd Font",
+			italic = false,
+			weight = FONT_WEIGHTS.Medium,
+		},
+		opts = {
+			line_height = 1.1,
+			font_size = 19,
+		},
+	},
+	Roman = {
+		config = {
+			family = "CodeNewRoman Nerd Font",
+			italic = false,
+			weight = FONT_WEIGHTS.Medium,
+		},
+		opts = {
+			line_height = 1.3,
+			font_size = 19,
+		},
+	},
+	Sauce = {
+		config = {
+			family = "SauceCodePro Nerd Font",
+			italic = false,
+			weight = FONT_WEIGHTS.Medium,
+			harfbuzz_features = {
+				"zero",
+			},
+		},
+		opts = {
+			line_height = 1.2,
+			font_size = 19,
+		},
+	},
+	SF = {
+		config = {
+			family = "SFMono Nerd Font",
+			italic = false,
+			weight = FONT_WEIGHTS.Regular,
+			harfbuzz_features = {
+				"zero",
+			},
+		},
+		opts = {
+			line_height = 1.2,
+			font_size = 19,
+		},
+	},
 }
 
-local FONT = FONTS.Proggy
+local FONT = FONTS.Argon
 
 config.font = wezterm.font(FONT.config)
 config.line_height = FONT.opts.line_height
