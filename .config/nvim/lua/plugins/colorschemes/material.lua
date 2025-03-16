@@ -2,7 +2,7 @@ return {
 	"marko-cerovac/material.nvim",
 	lazy = false,
 	priority = 10000,
-	enabled = false,
+	enabled = true,
 	init = function()
 		local colors = require("material.colors")
 
@@ -18,10 +18,14 @@ return {
 			},
 			gleam = {
 				["@type.gleam"] = { fg = colors.main.yellow },
+				["@constructor.gleam"] = { fg = colors.main.yellow },
 			},
 			ocaml = {
 				["@constructor.ocaml"] = { fg = colors.main.yellow },
 				["@type.ocaml"] = { fg = colors.main.yellow },
+			},
+			odin = {
+				["@type.odin"] = { fg = colors.main.yellow },
 			},
 			python = {
 				["@string.documentation.python"] = { link = "Comment" },
@@ -30,6 +34,15 @@ return {
 				["@constant.builtin.rescript"] = { fg = colors.main.orange },
 				["@error.rescript"] = { bold = false },
 				["@warning.rescript"] = { bold = false },
+				["@constructor.rescript"] = { fg = colors.main.yellow },
+			},
+			swift = {
+				["@type.swift"] = { fg = colors.main.yellow },
+			},
+			typescript = {
+				["@type.typescript"] = { fg = colors.main.yellow },
+				["@module.typescript"] = { fg = colors.main.purple },
+				["@tag.builtin.tsx"] = { fg = colors.main.red },
 			},
 			zig = {
 				["@type.zig"] = { fg = colors.main.yellow },
@@ -39,14 +52,15 @@ return {
 
 		local highlight_config = {
 			CursorLine = { link = "ColorColumn" },
-			DiagnosticUnderlineError = { undercurl = false },
-			DiagnosticUnderlineHint = { undercurl = false },
-			DiagnosticUnderlineInfo = { undercurl = false },
-			DiagnosticUnderlineOK = { undercurl = false },
-			DiagnosticUnderlineWarn = { undercurl = false },
-			DiagnosticUnnecessary = { link = "Normal" },
+			DiagnosticUnderlineError = {},
+			DiagnosticUnderlineHint = {},
+			DiagnosticUnderlineInfo = {},
+			DiagnosticUnderlineOK = {},
+			DiagnosticUnderlineWarn = {},
+			DiagnosticUnnecessary = {},
 			Comment = { fg = colors.main.orange },
 			CursorLineNr = { fg = colors.main.yellow },
+			Error = { bold = false },
 			Exception = { fg = colors.main.red },
 			Function = { fg = colors.main.darkblue },
 			Identifier = { link = "Normal" },
@@ -61,6 +75,7 @@ return {
 			TelescopeNormal = { link = "Normal" },
 			WhichKeyDesc = { italic = false },
 			VertSplit = { fg = colors.main.white },
+			Underlined = {},
 			["@annotation"] = { fg = colors.main.blue },
 			["@comment.documentation"] = { link = "Comment" },
 			["@constant"] = { fg = colors.main.darkyellow },
@@ -69,6 +84,7 @@ return {
 			["@lsp.type.string"] = { fg = colors.main.yellow },
 			["@markup.heading"] = { bold = false },
 			["@type.builtin"] = { fg = colors.main.yellow },
+			["@type"] = { fg = colors.main.yellow },
 		}
 
 		require("material").setup({
@@ -86,9 +102,14 @@ return {
 			custom_highlights = vim.tbl_deep_extend(
 				"force",
 				highlight_config,
-				language_config.ocaml,
+				language_config.gleam,
 				language_config.javascript,
+				language_config.ocaml,
+				language_config.odin,
 				language_config.python,
+				language_config.rescript,
+				language_config.swift,
+				language_config.typescript,
 				language_config.zig
 			),
 			disable = {

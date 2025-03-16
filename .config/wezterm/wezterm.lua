@@ -80,16 +80,13 @@ local FONTS = {
 			weight = FONT_WEIGHTS.Regular,
 			harfbuzz_features = {
 				"'cv01' 2",
-				"ss03",
 				"ss07",
-				"ss09",
 				"calt",
-				"cv30",
 			},
 		},
 		opts = {
-			line_height = 1.4,
-			font_size = 19,
+			line_height = 1.2,
+			font_size = 18,
 		},
 	},
 	Fira = {
@@ -111,6 +108,22 @@ local FONTS = {
 			family = "Menlo",
 			italic = false,
 			weight = FONT_WEIGHTS.Regular,
+		},
+		opts = {
+			line_height = 1.3,
+			font_size = 18,
+		},
+	},
+	Neon = {
+		config = {
+			family = "Monaspace Neon",
+			italic = false,
+			weight = FONT_WEIGHTS.Regular,
+			harfbuzz_features = {
+				"'cv01' 2",
+				"ss07",
+				"calt",
+			},
 		},
 		opts = {
 			line_height = 1.3,
@@ -180,7 +193,7 @@ local FONTS = {
 	},
 }
 
-local FONT = FONTS.Argon
+local FONT = FONTS.Neon
 
 config.font = wezterm.font(FONT.config)
 config.line_height = FONT.opts.line_height

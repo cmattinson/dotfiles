@@ -9,12 +9,15 @@ return {
 			-- Add languages to be installed here that you want installed for treesitter
 			ensure_installed = {
 				"bash",
+				"c",
 				"go",
 				"elixir",
 				"javascript",
 				"lua",
+				"markdown",
 				"ocaml",
 				"python",
+				"query",
 				"rust",
 				"tsx",
 				"typescript",

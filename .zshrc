@@ -28,6 +28,7 @@ alias mel="~/.config/color-scripts/mellifluous.sh"
 alias nord="~/.config/color-scripts/nordic.sh"
 alias nsc="cd ~/Library/Application\ Support/nushell"
 alias nvc="cd ~/dotfiles/.config/nvim && nvim"
+alias dune-upgrade="curl -fsSL https://get.dune.build/install | sh"
 alias nvim-upgrade="brew upgrade neovim --fetch-HEAD"
 alias oracle="ssh ubuntu@129.146.22.41"
 alias psql="sudo -u postgres psql"
@@ -70,7 +71,6 @@ export PATH="/opt/homebrew/opt/gnu-getopt/bin:$PATH"
 
 PATH="$PATH:/Applications/WezTerm.app/Contents/MacOS"
 export PATH
-export PATH="$PATH:`yarn global bin`"
 export PATH=$PATH:/usr/local/share/dotnet
 export DOTNET_ROOT=/usr/local/share/dotnet
 export PATH=$PATH:$DOTNET_ROOT
@@ -101,12 +101,15 @@ export PATH="/Users/chris/workspace/odin/ols:$PATH"
 
 [ -f "/Users/chris/.ghcup/env" ] && . "/Users/chris/.ghcup/env" # ghcup-env
 
+export PATH="/Users/chris/.config/herd-lite/bin:$PATH"
+export PHP_INI_SCAN_DIR="/Users/chris/.config/herd-lite/bin:$PHP_INI_SCAN_DIR"
 
+# dune
+source $HOME/.local/share/dune/env/env.zsh
 
-# BEGIN opam configuration
-# This is useful if you're using opam as it adds:
-#   - the correct directories to the PATH
-#   - auto-completion for the opam binary
-# This section can be safely removed at any time if needed.
-[[ ! -r '/Users/chris/.opam/opam-init/init.zsh' ]] || source '/Users/chris/.opam/opam-init/init.zsh' > /dev/null 2> /dev/null
-# END opam configuration
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+
+# moonbit
+export PATH="$HOME/.moon/bin:$PATH"

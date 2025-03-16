@@ -82,6 +82,11 @@ return {
 
 		require("nvim-web-devicons").setup({
 			override_by_extension = {
+				["dune"] = {
+					icon = "",
+					color = "#ffffff",
+					name = "dune",
+				},
 				["gleam"] = {
 					icon = "󰦥",
 					color = "#ffaff3",
