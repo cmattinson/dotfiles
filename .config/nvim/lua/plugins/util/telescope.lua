@@ -8,6 +8,7 @@ return {
 		"nvim-telescope/telescope-dap.nvim",
 		"nvim-tree/nvim-web-devicons",
 	},
+	enabled = true,
 	config = function()
 		local telescope = require("telescope")
 		local builtin = require("telescope.builtin")

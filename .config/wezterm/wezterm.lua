@@ -80,27 +80,50 @@ local FONTS = {
 			weight = FONT_WEIGHTS.Regular,
 			harfbuzz_features = {
 				"'cv01' 2",
+				"ss03",
 				"ss07",
 				"calt",
+				"cv10",
+				"cv11",
 			},
 		},
 		opts = {
-			line_height = 1.2,
+			line_height = 1.4,
 			font_size = 18,
 		},
 	},
-	Fira = {
+	Berk = {
 		config = {
-			family = "FiraMono Nerd Font",
+			family = "Berkeley Mono Trial",
 			italic = false,
-			weight = FONT_WEIGHTS.Medium,
+			weight = FONT_WEIGHTS.Regular,
 			harfbuzz_features = {
-				"zero",
+				"'cv01' 2",
+				"ss03",
+				"ss07",
+				"calt",
+				"cv10",
+				"cv11",
+			},
+		},
+		opts = {
+			line_height = 1.4,
+			font_size = 17,
+		},
+	},
+	Iosevka = {
+		config = {
+			family = "Iosevka Berkeley",
+			italic = false,
+			weight = FONT_WEIGHTS.Regular,
+			stretch = "Normal",
+			harfbuzz_features = {
+				"cv03",
 			},
 		},
 		opts = {
 			line_height = 1.3,
-			font_size = 19,
+			font_size = 17,
 		},
 	},
 	Menlo = {
@@ -121,13 +144,14 @@ local FONTS = {
 			weight = FONT_WEIGHTS.Regular,
 			harfbuzz_features = {
 				"'cv01' 2",
+				"ss03",
 				"ss07",
 				"calt",
 			},
 		},
 		opts = {
-			line_height = 1.3,
-			font_size = 18,
+			line_height = 1.2,
+			font_size = 17,
 		},
 	},
 	Proggy = {
@@ -138,28 +162,17 @@ local FONTS = {
 		},
 		opts = {
 			line_height = 1.1,
-			font_size = 18,
+			font_size = 17,
 		},
 	},
 	Roboto = {
 		config = {
 			family = "RobotoMono Nerd Font",
 			italic = false,
-			weight = FONT_WEIGHTS.Medium,
+			weight = FONT_WEIGHTS.Regular,
 		},
 		opts = {
 			line_height = 1.1,
-			font_size = 19,
-		},
-	},
-	Roman = {
-		config = {
-			family = "CodeNewRoman Nerd Font",
-			italic = false,
-			weight = FONT_WEIGHTS.Medium,
-		},
-		opts = {
-			line_height = 1.3,
 			font_size = 19,
 		},
 	},
@@ -167,7 +180,7 @@ local FONTS = {
 		config = {
 			family = "SauceCodePro Nerd Font",
 			italic = false,
-			weight = FONT_WEIGHTS.Medium,
+			weight = FONT_WEIGHTS.Regular,
 			harfbuzz_features = {
 				"zero",
 			},
@@ -188,12 +201,13 @@ local FONTS = {
 		},
 		opts = {
 			line_height = 1.2,
-			font_size = 19,
+			font_size = 17,
 		},
 	},
 }
 
-local FONT = FONTS.Neon
+local FONT = FONTS.Iosevka
+-- local FONT = FONTS.Berk
 
 config.font = wezterm.font(FONT.config)
 config.line_height = FONT.opts.line_height
@@ -267,6 +281,7 @@ local function get_current_working_dir(tab)
 end
 
 config.tab_bar_at_bottom = true
+
 wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_width)
 	local pane = tab.active_pane
 	local title = basename(pane.foreground_process_name) .. " " .. pane.pane_id

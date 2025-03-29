@@ -86,6 +86,19 @@ return {
 		})
 
 		local parser_config = require("nvim-treesitter.parsers").get_parser_configs()
+
+		parser_config.moonbit = {
+			install_info = {
+				url = "https://github.com/moonbitlang/tree-sitter-moonbit",
+				branch = "main",
+				files = { "src/parser.c", "src/scanner.c" },
+				generate_requires_npm = false,
+				requires_generate_from_grammar = true,
+				use_makefile = true,
+			},
+			filetype = "moonbit",
+		}
+
 		parser_config.rescript = {
 			install_info = {
 				url = "https://github.com/rescript-lang/tree-sitter-rescript",
@@ -96,6 +109,7 @@ return {
 				use_makefile = true,
 			},
 		}
+
 		parser_config.reason = {
 			install_info = {
 				url = "https://github.com/reasonml-editor/tree-sitter-reason",
@@ -104,6 +118,7 @@ return {
 			},
 			filetype = "reason",
 		}
+
 		parser_config.fsharp = {
 			install_info = {
 				url = "https://github.com/ionide/tree-sitter-fsharp",
@@ -117,5 +132,6 @@ return {
 
 		vim.treesitter.language.add("reason", { filetype = "reason" })
 		vim.treesitter.language.add("purescript", { filetype = "purs" })
+		vim.treesitter.language.add("moonbit", { filetype = "moonbit" })
 	end,
 }
