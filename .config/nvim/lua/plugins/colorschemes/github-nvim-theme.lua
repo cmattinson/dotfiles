@@ -4,7 +4,6 @@ return {
 	priority = 10000,
 	enabled = false,
 	config = function()
-		-- Default options
 		require("github-theme").setup({
 			options = {
 				compile_path = vim.fn.stdpath("cache") .. "/github-theme",

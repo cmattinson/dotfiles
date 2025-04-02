@@ -1,6 +1,3 @@
--- TODO: Remove when https://github.com/neovim/neovim/issues/31675 fixed
-vim.hl = vim.highlight
-
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 

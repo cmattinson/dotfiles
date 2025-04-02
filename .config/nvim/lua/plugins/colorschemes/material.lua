@@ -78,7 +78,6 @@ return {
 			Underlined = {},
 			["@annotation"] = { fg = colors.main.blue },
 			["@comment.documentation"] = { link = "Comment" },
-			["@constant"] = { fg = colors.main.darkyellow },
 			["@keyword"] = { fg = colors.main.purple, italic = false },
 			["@keyword.coroutine"] = { fg = colors.main.purple, italic = false },
 			["@lsp.type.string"] = { fg = colors.main.yellow },
@@ -91,7 +90,7 @@ return {
 			async_loading = true,
 			contrast = {
 				sidebars = true,
-				floating_windows = true,
+				-- floating_windows = true,
 				cursor_line = true,
 				non_current_windows = true,
 				filetypes = {},

@@ -12,6 +12,7 @@ return {
 		local servers = {
 			basedpyright = {},
 			biome = {},
+			clangd = {},
 			cssls = {},
 			gleam = {},
 			gopls = {},
@@ -24,16 +25,18 @@ return {
 			rescriptls = {},
 			rust_analyzer = {},
 			sourcekit = {},
+			tailwindcss = {},
 			ts_ls = {},
 			zls = {},
 		}
 
 		vim.wo.signcolumn = "yes:1"
+
 		vim.diagnostic.config({
 			underline = true,
 			virtual_text = true,
 			virtual_lines = false,
-			float = true,
+			float = { border = "single" },
 			severity_sort = true,
 		})
 
@@ -97,6 +100,7 @@ return {
 				blink_capabilities,
 				config.capabilities or {}
 			)
+
 			server.capabilities.semanticTokensProvider = nil
 
 			lspconfig[lsp].setup(server)

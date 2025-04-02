@@ -72,11 +72,22 @@ local FONT_WEIGHTS = {
 	ExtraBlack = "ExtraBlack",
 }
 
+local FONT_STRETCH = {
+	UltraCondensed = "UltraCondensed",
+	ExtraCondensed = "ExtraCondensed",
+	Condensed = "Condensed",
+	SemiCondensed = "SemiCondensed",
+	Normal = "Normal",
+	SemiExpanded = "SemiExpanded",
+	Expanded = "Expanded",
+	ExtraExpanded = "ExtraExpanded",
+	UltraExpanded = "UltraExpanded",
+}
+
 local FONTS = {
 	Argon = {
 		config = {
 			family = "Monaspace Argon",
-			italic = false,
 			weight = FONT_WEIGHTS.Regular,
 			harfbuzz_features = {
 				"'cv01' 2",
@@ -88,23 +99,14 @@ local FONTS = {
 			},
 		},
 		opts = {
-			line_height = 1.4,
-			font_size = 18,
+			line_height = 1.3,
+			font_size = 16,
 		},
 	},
 	Berk = {
 		config = {
 			family = "Berkeley Mono Trial",
-			italic = false,
 			weight = FONT_WEIGHTS.Regular,
-			harfbuzz_features = {
-				"'cv01' 2",
-				"ss03",
-				"ss07",
-				"calt",
-				"cv10",
-				"cv11",
-			},
 		},
 		opts = {
 			line_height = 1.4,
@@ -114,12 +116,8 @@ local FONTS = {
 	Iosevka = {
 		config = {
 			family = "Iosevka Berkeley",
-			italic = false,
-			weight = FONT_WEIGHTS.Regular,
-			stretch = "Normal",
-			harfbuzz_features = {
-				"cv03",
-			},
+			weight = FONT_WEIGHTS.Medium,
+			stretch = FONT_STRETCH.Normal,
 		},
 		opts = {
 			line_height = 1.3,
@@ -129,7 +127,6 @@ local FONTS = {
 	Menlo = {
 		config = {
 			family = "Menlo",
-			italic = false,
 			weight = FONT_WEIGHTS.Regular,
 		},
 		opts = {
@@ -140,7 +137,6 @@ local FONTS = {
 	Neon = {
 		config = {
 			family = "Monaspace Neon",
-			italic = false,
 			weight = FONT_WEIGHTS.Regular,
 			harfbuzz_features = {
 				"'cv01' 2",
@@ -151,13 +147,12 @@ local FONTS = {
 		},
 		opts = {
 			line_height = 1.2,
-			font_size = 17,
+			font_size = 16,
 		},
 	},
 	Proggy = {
 		config = {
 			family = "ProggyVector",
-			italic = false,
 			weight = FONT_WEIGHTS.Regular,
 		},
 		opts = {
@@ -168,7 +163,6 @@ local FONTS = {
 	Roboto = {
 		config = {
 			family = "RobotoMono Nerd Font",
-			italic = false,
 			weight = FONT_WEIGHTS.Regular,
 		},
 		opts = {
@@ -179,7 +173,6 @@ local FONTS = {
 	Sauce = {
 		config = {
 			family = "SauceCodePro Nerd Font",
-			italic = false,
 			weight = FONT_WEIGHTS.Regular,
 			harfbuzz_features = {
 				"zero",
@@ -193,7 +186,6 @@ local FONTS = {
 	SF = {
 		config = {
 			family = "SFMono Nerd Font",
-			italic = false,
 			weight = FONT_WEIGHTS.Regular,
 			harfbuzz_features = {
 				"zero",
@@ -282,7 +274,7 @@ end
 
 config.tab_bar_at_bottom = true
 
-wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_width)
+wezterm.on("format-tab-title", function(tab, tabs, panes, conf, hover, max_width)
 	local pane = tab.active_pane
 	local title = basename(pane.foreground_process_name) .. " " .. pane.pane_id
 	local title = string.format(" %s  %s ~ %s  ", "❯", get_current_working_dir(tab))

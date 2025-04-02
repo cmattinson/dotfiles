@@ -44,6 +44,7 @@ return {
 				},
 			},
 			formatters_by_ft = {
+				c = { "clang-format" },
 				cs = { "csharpier" },
 				css = { "biome" },
 				elm = { "elm_format" },
