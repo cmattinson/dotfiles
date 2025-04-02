@@ -4,11 +4,11 @@ spacing = "term"
 serifs = "sans"
 noCvSs = false
 exportGlyphNames = false
-noLitigation = true
+noLigation = true
 
 [buildPlans.IosevkaBerkeley.variants.design]
 two = "curly-neck-serifless"
-three = "flat-top-serifless",
+three = "flat-top-serifless"
 four = "semi-open-serifless"
 five = "oblique-arched-serifless"
 six = "open-contour"
@@ -51,16 +51,14 @@ s = "serifless"
 t = "flat-hook-short-neck2"
 w = "straight-flat-top-serifless"
 y = "straight-serifless"
+tilde = "low"
+asterisk = "penta-mid"
+brace = "curly"
 at = "threefold"
 dollar = "through"
 percent = "rings-continuous-slash"
 question = "corner"
 lig-single-arrow-bar = "with-notch"
-
-[buildPlans.IosevkaBerkeley.weights.Light]
-shape = 300
-menu = 300
-css = 300
 
 [buildPlans.IosevkaBerkeley.weights.Regular]
 shape = 400
@@ -87,15 +85,15 @@ shape = 600
 menu = 5
 css = "normal"
 
+[buildPlans.IosevkaBerkeley.widths.SemiCondensed]
+shape = 548
+menu = 4
+css = "semi-condensed"
+
 [buildPlans.IosevkaBerkeley.widths.SemiExtended]
 shape = 658
 menu = 6
 css = "semi-expanded"
-
-[buildPlans.IosevkaBerkeley.widths.Extended]
-shape = 720
-menu = 7
-css = "expanded"
 
 [buildPlans.IosevkaBerkeley.slopes.Upright]
 angle = 0
