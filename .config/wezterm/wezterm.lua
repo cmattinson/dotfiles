@@ -6,44 +6,73 @@ if wezterm.config_builder then
 	config = wezterm.config_builder()
 end
 
-config.color_scheme = "MaterialOcean"
-
 local BACKGROUND_COLORS = {
 	Ayu = "#0B0E14",
 	Black = "#000000",
 	Blue = "#151825",
 	Dark = "#0F1115",
-	White = "#FFFFFF",
+	White = "#F2F0EF",
 	Rocket = "#161616",
 	RosePine = "#191724",
 	Material = "#111219",
+	Mocha = "#1E1E2E",
 }
 
 local BACKGROUND_COLOR = BACKGROUND_COLORS.Black
 
-config.window_frame = {
-	active_titlebar_bg = BACKGROUND_COLOR,
-	active_titlebar_fg = "white",
-	inactive_titlebar_bg = BACKGROUND_COLOR,
-}
+-- local catpuccin_theme = function()
+-- 	config.color_scheme = "MaterialOcean"
+-- 	config.window_frame = {
+-- 		active_titlebar_bg = BACKGROUND_COLOR,
+-- 		active_titlebar_fg = "white",
+-- 		inactive_titlebar_bg = BACKGROUND_COLOR,
+-- 	}
+-- 	config.colors = {
+-- 		tab_bar = {
+-- 			inactive_tab_edge = BACKGROUND_COLOR,
+-- 			active_tab = {
+-- 				bg_color = BACKGROUND_COLOR,
+-- 				fg_color = "white",
+-- 			},
+-- 			inactive_tab = {
+-- 				bg_color = BACKGROUND_COLOR,
+-- 				fg_color = "lightgray",
+-- 			},
+-- 			new_tab = {
+-- 				bg_color = BACKGROUND_COLOR,
+-- 				fg_color = BACKGROUND_COLOR,
+-- 			},
+-- 		},
+-- 	}
+-- end
 
-config.colors = {
-	tab_bar = {
-		inactive_tab_edge = BACKGROUND_COLOR,
-		active_tab = {
-			bg_color = BACKGROUND_COLOR,
-			fg_color = "#dadada",
+local material_ocean_scheme = function()
+	config.color_scheme = "MaterialOcean"
+	config.window_frame = {
+		active_titlebar_bg = BACKGROUND_COLOR,
+		active_titlebar_fg = "white",
+		inactive_titlebar_bg = BACKGROUND_COLOR,
+	}
+	config.colors = {
+		tab_bar = {
+			inactive_tab_edge = BACKGROUND_COLOR,
+			active_tab = {
+				bg_color = BACKGROUND_COLOR,
+				fg_color = "#dadada",
+			},
+			inactive_tab = {
+				bg_color = BACKGROUND_COLOR,
+				fg_color = "#908caa",
+			},
+			new_tab = {
+				bg_color = BACKGROUND_COLOR,
+				fg_color = BACKGROUND_COLOR,
+			},
 		},
-		inactive_tab = {
-			bg_color = BACKGROUND_COLOR,
-			fg_color = "#908caa",
-		},
-		new_tab = {
-			bg_color = BACKGROUND_COLOR,
-			fg_color = BACKGROUND_COLOR,
-		},
-	},
-}
+	}
+end
+
+material_ocean_scheme()
 
 config.inactive_pane_hsb = {
 	saturation = 1.0,
@@ -113,15 +142,29 @@ local FONTS = {
 			font_size = 17,
 		},
 	},
-	Iosevka = {
+	Fira = {
 		config = {
-			family = "Iosevka Berkeley",
-			weight = FONT_WEIGHTS.Medium,
-			stretch = FONT_STRETCH.Normal,
+			family = "FiraMono Nerd Font",
+			italic = false,
+			weight = FONT_WEIGHTS.Regular,
+			harfbuzz_features = {
+				"zero",
+			},
 		},
 		opts = {
 			line_height = 1.3,
 			font_size = 17,
+		},
+	},
+	Iosevka = {
+		config = {
+			family = "Iosevka Berkeley",
+			weight = FONT_WEIGHTS.Regular,
+			stretch = FONT_STRETCH.Normal,
+		},
+		opts = {
+			line_height = 1.3,
+			font_size = 16,
 		},
 	},
 	Menlo = {
@@ -166,8 +209,8 @@ local FONTS = {
 			weight = FONT_WEIGHTS.Regular,
 		},
 		opts = {
-			line_height = 1.1,
-			font_size = 19,
+			line_height = 1.2,
+			font_size = 17,
 		},
 	},
 	Sauce = {
@@ -199,7 +242,6 @@ local FONTS = {
 }
 
 local FONT = FONTS.Iosevka
--- local FONT = FONTS.Berk
 
 config.font = wezterm.font(FONT.config)
 config.line_height = FONT.opts.line_height

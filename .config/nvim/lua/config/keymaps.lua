@@ -34,8 +34,8 @@ map("n", "<C-c>", ":bd<CR>")
 map("n", "<leader>o", "o<ESC>")
 map("n", "<leader>O", "O<ESC>")
 
-map("n", "<A-Up>", ":cprev<CR>")
-map("n", "<A-Down>", ":cnext<CR>")
+map("n", "<A-p>", ":cprev<CR>")
+map("n", "<A-n>", ":cnext<CR>")
 
 map("i", "<C-s>", vim.lsp.buf.signature_help)
 map("n", "<C-e>", ":lua require('dapui').eval()<CR>")
@@ -51,5 +51,14 @@ map("n", "<leader>nc", ":NotifierClear<CR>")
 
 map("n", "<A-,>", ":vertical resize -10<CR>")
 map("n", "<A-.>", ":vertical resize +10<CR>")
+map("n", "<A-down>", ":horizontal resize +10<CR>")
+map("n", "<A-up>", ":horizontal resize -10<CR>")
 
 map("n", "<leader>sv", ":source $MYVIMRC<CR>")
+
+vim.keymap.set("n", "<leader>st", function()
+	vim.cmd.vnew()
+	vim.cmd.term()
+	vim.cmd.wincmd("J")
+	vim.api.nvim_win_set_height(0, 15)
+end)

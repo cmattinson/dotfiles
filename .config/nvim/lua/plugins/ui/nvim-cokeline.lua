@@ -98,9 +98,14 @@ return {
 					name = "purescript",
 				},
 				["odin"] = {
-					icon = "󰮔",
+					icon = "Ø",
 					color = "#1E4677",
 					name = "odin",
+				},
+				["mbt"] = {
+					icon = "🌙",
+					color = "#791f54",
+					name = "moonbit",
 				},
 			},
 		})

@@ -14,19 +14,50 @@ return {
 			biome = {},
 			clangd = {},
 			cssls = {},
+			elixirls = {
+				cmd = { "/opt/homebrew/bin/elixir-ls" },
+				filetypes = { "elixir" },
+				settings = {},
+			},
+			fsautocomplete = {
+				cmd = { "dotnet", "fsautocomplete" },
+			},
 			gleam = {},
 			gopls = {},
+			hls = {},
 			intelephense = {},
 			jdtls = {},
 			kotlin_language_server = {},
 			lua_ls = {},
-			ocamllsp = {},
+			ocamllsp = {
+				settings = {
+					codelens = { enable = true },
+				},
+			},
+			omnisharp = {},
 			ols = {},
 			rescriptls = {},
 			rust_analyzer = {},
-			sourcekit = {},
+			sourcekit = {
+				capabilities = {
+					textDocument = {
+						semanticTokens = {
+							dynamicRegistration = false,
+						},
+					},
+				},
+			},
 			tailwindcss = {},
-			ts_ls = {},
+			-- ts_ls = {},
+			vtsls = {
+				settings = {
+					typescript = {
+						inlayHints = {
+							functionLikeReturnType = { enabled = true },
+						},
+					},
+				},
+			},
 			zls = {},
 		}
 
@@ -42,13 +73,29 @@ return {
 
 		local on_attach = function(client, bufnr)
 			local buf_opts = { noremap = true, silent = true, buffer = bufnr }
-			client.server_capabilities.semanticTokensProvider = nil
+
+			if client.server_capabilities.semanticTokensProvider then
+				client.server_capabilities.semanticTokensProvider = nil
+			end
+
+			if client.server_capabilities.codeLensProvider then
+				vim.api.nvim_create_autocmd({ "CursorMoved" }, {
+					callback = function()
+						vim.lsp.codelens.refresh()
+					end,
+				})
+				vim.keymap.set("n", "<leader>cl", function()
+					vim.lsp.codelens.run()
+				end, buf_opts)
+			end
 
 			vim.keymap.set("n", "gd", function()
 				vim.lsp.buf.definition()
 			end, buf_opts)
 			vim.keymap.set("n", "H", function()
-				vim.lsp.buf.hover()
+				vim.lsp.buf.hover({
+					border = "single",
+				})
 			end, buf_opts)
 			vim.keymap.set("n", "<leader>vws", function()
 				vim.lsp.buf.workspace_symbol()
@@ -79,6 +126,10 @@ return {
 				local config = vim.diagnostic.config()
 				vim.diagnostic.config({ virtual_lines = false, virtual_text = not config.virtual_text })
 			end, { desc = "Toggle [v]irtual [t]ext" })
+
+			vim.keymap.set("n", "<leader>ih", function()
+				vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
+			end, { desc = "Toggle [i]nlay [h]ints" })
 
 			vim.keymap.set("n", "<leader>dl", function()
 				local config = vim.diagnostic.config()

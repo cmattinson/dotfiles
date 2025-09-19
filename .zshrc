@@ -11,7 +11,7 @@ alias algo="cd ~/workspace/algorithms"
 alias aoc="cd ~/workspace/advent-of-code"
 alias bformat="npx @biomejs/biome format"
 alias blint="npx @biomejs/biome format"
-alias biome-init="cp ~/dotfiles/biome.json ."
+alias biome-init="bun add -D -E @biomejs/biome && bunx --bun biome init"
 alias chris_int="ssh chris@172.31.40.79"
 alias dot="cd ~/dotfiles"
 alias dra="~/.config/color-scripts/dragon.sh"
@@ -31,7 +31,7 @@ alias nsc="cd ~/Library/Application\ Support/nushell"
 alias nvc="cd ~/dotfiles/.config/nvim && nvim"
 alias dune-upgrade="curl -fsSL https://get.dune.build/install | sh"
 alias nvim-upgrade="brew upgrade neovim --fetch-HEAD"
-alias oracle="ssh ubuntu@129.146.22.41"
+alias oracle="ssh ubuntu@129.153.99.130"
 alias psql="sudo -u postgres psql"
 alias ros="~/.config/color-scripts/rose-pine.sh"
 alias rust="cd ~/workspace/rust"
@@ -72,8 +72,8 @@ export PATH="/opt/homebrew/opt/gnu-getopt/bin:$PATH"
 
 PATH="$PATH:/Applications/WezTerm.app/Contents/MacOS"
 export PATH
-export PATH=$PATH:/usr/local/share/dotnet
-export DOTNET_ROOT=/usr/local/share/dotnet
+export PATH=$PATH:~/.asdf/shims/dotnet
+export DOTNET_ROOT=~/.asdf/shims/dotnet
 export PATH=$PATH:$DOTNET_ROOT
 export DOCKER_BUILDKIT=1
 source ~/config.sh
@@ -105,12 +105,29 @@ export PATH="/Users/chris/workspace/odin/ols:$PATH"
 export PATH="/Users/chris/.config/herd-lite/bin:$PATH"
 export PHP_INI_SCAN_DIR="/Users/chris/.config/herd-lite/bin:$PHP_INI_SCAN_DIR"
 
-# dune
-source $HOME/.local/share/dune/env/env.zsh
-
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 
 # moonbit
 export PATH="$HOME/.moon/bin:$PATH"
+
+
+# BEGIN opam configuration
+# This is useful if you're using opam as it adds:
+#   - the correct directories to the PATH
+#   - auto-completion for the opam binary
+# This section can be safely removed at any time if needed.
+[[ ! -r '/Users/chris/.opam/opam-init/init.zsh' ]] || source '/Users/chris/.opam/opam-init/init.zsh' > /dev/null 2> /dev/null
+# END opam configuration
+
+# dune
+source $HOME/.local/share/dune/env/env.zsh
+
+# pnpm
+export PNPM_HOME="/Users/chris/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end

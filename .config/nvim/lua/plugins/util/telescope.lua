@@ -8,7 +8,7 @@ return {
 		"nvim-telescope/telescope-dap.nvim",
 		"nvim-tree/nvim-web-devicons",
 	},
-	enabled = true,
+	enabled = false,
 	config = function()
 		local telescope = require("telescope")
 		local builtin = require("telescope.builtin")
@@ -55,6 +55,6 @@ return {
 		vim.keymap.set("n", "<leader>sw", builtin.grep_string, { desc = "Search current word" })
 		vim.keymap.set("n", "<leader>co", builtin.colorscheme, { desc = "Search colorschemes" })
 		vim.keymap.set("n", "<C-f>", telescope.extensions.live_grep_args.live_grep_args, { desc = "Search by grep" })
-		vim.keymap.set("n", "<C-s>", builtin.buffers, { desc = "Search open buffers" })
+		vim.keymap.set("n", "<C-b>", builtin.buffers, { desc = "Search open buffers" })
 	end,
 }

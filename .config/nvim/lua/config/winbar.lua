@@ -1,1 +1,1 @@
--- vim.o.winbar = [[%#Normal#%t  %l:%c]]
+-- vim.o.winbar = [[%#WinbarHl#%t  %l:%c]]

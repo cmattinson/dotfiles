@@ -19,4 +19,5 @@ require("lazy").setup({
 	{ import = "plugins.ui" },
 	{ import = "plugins.lsp" },
 	{ import = "plugins.debug" },
+	{ import = "plugins.leetcode" },
 }, { checker = { enabled = true, notify = false }, change_detection = { notify = false } })

@@ -4,21 +4,13 @@ return {
 	event = "BufEnter",
 	priority = 100,
 	config = function()
-		function split(s, sep)
-			local fields = {}
-
-			local sep = sep or " "
-			local pattern = string.format("([^%s]+)", sep)
-			string.gsub(s, pattern, function(c)
-				fields[#fields + 1] = c
-			end)
-
-			return fields
-		end
-
 		require("conform").setup({
 			log_level = vim.log.levels.ERROR,
 			formatters = {
+				fantomas = {
+					command = "dotnet",
+					args = { "fantomas", "." },
+				},
 				odinfmt = {
 					inherit = false,
 					command = "odinfmt",
@@ -34,6 +26,12 @@ return {
 					command = "ktfmt",
 					args = { "--kotlinlang-style", "**/*.kt" },
 				},
+				moon = {
+					inherit = false,
+					command = "moon",
+					stdin = false,
+					args = { "fmt", "$FILENAME", "--block-style", "false" },
+				},
 				sql_formatter = {
 					args = { "--config", "/Users/chris/sql-formatter.json" },
 				},
@@ -45,9 +43,10 @@ return {
 			},
 			formatters_by_ft = {
 				c = { "clang-format" },
-				cs = { "csharpier" },
 				css = { "biome" },
+				elixir = { "mix" },
 				elm = { "elm_format" },
+				fsharp = { "fantomas" },
 				gleam = { "gleam" },
 				go = { "gofmt" },
 				html = { "htmlbeautifier" },
@@ -57,8 +56,9 @@ return {
 				json = { "biome" },
 				kotlin = { "ktfmt" },
 				lua = { "stylua" },
+				moonbit = { "moon" },
 				ocaml = { "ocamlformat" },
-				odin = { "odinfmt" },
+				-- odin = { "odinfmt" },
 				php = { "pint" },
 				purescript = { "purs-tidy" },
 				python = { "black" },
@@ -66,6 +66,7 @@ return {
 				rescript = { "rescript" },
 				rust = { "rustfmt" },
 				sql = { "sql_formatter" },
+				swift = { "swift" },
 				typescript = { "biome", "injected" },
 				typescriptreact = { "biome", "injected" },
 				yaml = { "yamlfmt" },
