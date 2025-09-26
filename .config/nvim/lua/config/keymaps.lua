@@ -34,18 +34,17 @@ map("n", "<C-c>", ":bd<CR>")
 map("n", "<leader>o", "o<ESC>")
 map("n", "<leader>O", "O<ESC>")
 
+-- Navigate quickfix list
 map("n", "<A-p>", ":cprev<CR>")
 map("n", "<A-n>", ":cnext<CR>")
 
 map("i", "<C-s>", vim.lsp.buf.signature_help)
-map("n", "<C-e>", ":lua require('dapui').eval()<CR>")
+map("n", "<C-e>", require("dapui").eval)
 
 map("n", "-", require("oil").open)
 
 map("n", "<leader>dp", vim.diagnostic.goto_prev)
 map("n", "<leader>dn", vim.diagnostic.goto_next)
-
-map("n", "<leader>jr", ":e api/src/rules/index.js<CR>")
 
 map("n", "<leader>nc", ":NotifierClear<CR>")
 

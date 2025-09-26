@@ -154,18 +154,24 @@ return {
 
 			server.capabilities.semanticTokensProvider = nil
 
-			lspconfig[lsp].setup(server)
+			vim.lsp.enable(server)
 		end
 
-		local signs = {
-			{ name = "DiagnosticSignError", text = "" },
-			{ name = "DiagnosticSignWarn", text = " " },
-			{ name = "DiagnosticSignHint", text = "󰌶 " },
-			{ name = "DiagnosticSignInfo", text = " " },
-		}
-
-		for _, sign in ipairs(signs) do
-			vim.fn.sign_define(sign.name, { texthl = sign.name, text = sign.text, numhl = "" })
-		end
+		vim.diagnostic.config({
+			signs = {
+				text = {
+					[vim.diagnostic.severity.ERROR] = "",
+					[vim.diagnostic.severity.WARN] = " ",
+					[vim.diagnostic.severity.HINT] = "󰌶 ",
+					[vim.diagnostic.severity.INFO] = " ",
+				},
+				texthl = {
+					[vim.diagnostic.severity.ERROR] = "DiagnosticSignError",
+					[vim.diagnostic.severity.WARN] = "DiagnosticSignWarn",
+					[vim.diagnostic.severity.HINT] = "DiagnosticSignHint",
+					[vim.diagnostic.severity.INFO] = "DiagnosticSignInfo",
+				},
+			},
+		})
 	end,
 }
