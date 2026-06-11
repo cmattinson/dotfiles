@@ -1,9 +1,8 @@
 return {
 	"projekt0n/github-nvim-theme",
-	lazy = false,
+	event = "ColorScheme",
 	priority = 10000,
-	enabled = false,
-	config = function()
+	init = function()
 		require("github-theme").setup({
 			options = {
 				compile_path = vim.fn.stdpath("cache") .. "/github-theme",
@@ -45,6 +44,5 @@ return {
 			groups = {},
 		})
 
-		vim.cmd("colorscheme github_dark_tritanopia")
 	end,
 }

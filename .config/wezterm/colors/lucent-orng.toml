@@ -1,0 +1,41 @@
+[metadata]
+name = "Lucent Orng"
+
+[colors]
+foreground = "#eeeeee"
+background = "#2a1a15"
+cursor_bg = "#eeeeee"
+cursor_border = "#eeeeee"
+cursor_fg = "#2a1a15"
+selection_bg = "#3d2d26"
+selection_fg = "#eeeeee"
+split = "#ee7948"
+compose_cursor = "#EC5B2B"
+scrollbar_thumb = "#33231d"
+visual_bell = "#33231d"
+
+ansi = [
+  "#2a1a15",
+  "#e06c75",
+  "#7ec894",
+  "#e5c07b",
+  "#6ba1e6",
+  "#c678dd",
+  "#56b6c2",
+  "#eeeeee",
+]
+
+brights = [
+  "#808080",
+  "#e06c75",
+  "#98daa4",
+  "#f0cc8b",
+  "#8bb8f0",
+  "#d89aef",
+  "#7cccd8",
+  "#ffffff",
+]
+
+[colors.indexed]
+16 = "#EC5B2B"
+17 = "#ee7948"

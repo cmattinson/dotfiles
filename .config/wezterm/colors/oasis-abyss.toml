@@ -1,0 +1,41 @@
+[metadata]
+name = "Oasis Abyss Dark"
+
+[colors]
+foreground = "#F0EBE6"
+background = "#000000"
+cursor_bg = "#F0E68C"
+cursor_border = "#F0E68C"
+cursor_fg = "#000000"
+selection_bg = "#666666"
+selection_fg = "#F0EBE6"
+split = "#BDB76B"
+compose_cursor = "#FF9633"
+scrollbar_thumb = "#1C1C1C"
+visual_bell = "#141414"
+
+ansi = [
+  "#000000",
+  "#FF7979",
+  "#7FCF78",
+  "#F0E68C",
+  "#81C0FF",
+  "#C695FF",
+  "#68C0B6",
+  "#FFF7D7",
+]
+
+brights = [
+  "#605C4D",
+  "#FFA0A0",
+  "#A3E39A",
+  "#F8B471",
+  "#87CEEB",
+  "#D2ADFF",
+  "#8FD1C7",
+  "#F7F4E9",
+]
+
+[colors.indexed]
+16 = "#FF9633"
+17 = "#FF7979"

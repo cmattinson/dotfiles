@@ -1,3 +1,5 @@
+;extends
+
 ;; Interpolation
 
 (interpolator) @none
@@ -27,13 +29,13 @@
  (#any-of? @variable.parameter.builtin
            "self"))
 
-(tuple_pattern (lowercase_identifier) @variable)
-(constructor_pattern_argument . (lowercase_identifier) @variable .)
-(constructor_pattern_argument "=" (lowercase_identifier) @variable)
-(constructor_pattern_argument (label (lowercase_identifier) @variable))
-(case_clause (lowercase_identifier) @variable "=>")
-(matrix_case_clause (lowercase_identifier) @variable "=>")
-(let_expression (lowercase_identifier) @variable)
+; (tuple_pattern (lowercase_identifier) @variable)
+; (constructor_pattern_argument . (lowercase_identifier) @variable .)
+; (constructor_pattern_argument "=" (lowercase_identifier) @variable)
+; (constructor_pattern_argument (label (lowercase_identifier) @variable))
+; (case_clause (lowercase_identifier) @variable "=>")
+; (matrix_case_clause (lowercase_identifier) @variable "=>")
+; (let_expression (lowercase_identifier) @variable)
 
 (qualified_identifier (lowercase_identifier) @variable)
 ((qualified_identifier (lowercase_identifier) @variable.builtin)

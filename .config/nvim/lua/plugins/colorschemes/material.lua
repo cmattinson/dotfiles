@@ -36,6 +36,7 @@ return {
 			Function = { fg = colors.main.darkblue },
 			Identifier = { link = "Normal" },
 			IncSearch = { underline = false, bg = colors.main.orange, fg = colors.main.black },
+			LspCodeLens = { fg = colors.main.orange },
 			MiniIndentScopeSymbol = { fg = colors.main.cyan },
 			MiniJump = { link = "@symbol" },
 			NeogitDiffAddHighlight = { fg = colors.main.green },
@@ -70,10 +71,14 @@ return {
 			-- OCaml
 			["@constructor.ocaml"] = { fg = colors.main.yellow },
 			["@type.ocaml"] = { fg = colors.main.yellow },
+			["@attribute.ocaml"] = { link = "Normal" },
 			-- Odin
 			["@type.odin"] = { fg = colors.main.yellow },
+			["@module.odin"] = { fg = colors.main.purple },
 			-- Python
 			["@string.documentation.python"] = { link = "Comment" },
+			--- PureScript
+			["@constructor.purescript"] = { fg = colors.main.yellow },
 			-- ReScript
 			["@constant.builtin.rescript"] = { fg = colors.main.orange },
 			["@error.rescript"] = { bold = false },
@@ -144,6 +149,5 @@ return {
 		})
 
 		vim.g.material_style = material_style
-		vim.cmd("colorscheme material")
 	end,
 }

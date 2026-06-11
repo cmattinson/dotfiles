@@ -3,9 +3,10 @@ return {
 	dependencies = {
 		"saghen/blink.cmp",
 		"https://git.sr.ht/~whynothugo/lsp_lines.nvim",
+		"artemave/workspace-diagnostics.nvim",
+		"mfussenegger/nvim-lint",
 	},
 	config = function()
-		local lspconfig = require("lspconfig")
 		local blink = require("blink.cmp")
 		require("lsp_lines").setup()
 
@@ -17,11 +18,8 @@ return {
 			elixirls = {
 				cmd = { "/opt/homebrew/bin/elixir-ls" },
 				filetypes = { "elixir" },
-				settings = {},
 			},
-			fsautocomplete = {
-				cmd = { "dotnet", "fsautocomplete" },
-			},
+			fsautocomplete = { cmd = { "dotnet", "fsautocomplete" } },
 			gleam = {},
 			gopls = {},
 			hls = {},
@@ -31,19 +29,26 @@ return {
 			lua_ls = {},
 			ocamllsp = {
 				settings = {
-					codelens = { enable = true },
+					codelens = {
+						enable = true,
+						forNestedBindings = true,
+					},
+					inlayHints = {
+						hintPatternVariables = true,
+						hintLetBindings = true,
+						hintFunctionParams = true,
+					},
 				},
 			},
 			omnisharp = {},
 			ols = {},
+			purescriptls = {},
 			rescriptls = {},
 			rust_analyzer = {},
 			sourcekit = {
 				capabilities = {
 					textDocument = {
-						semanticTokens = {
-							dynamicRegistration = false,
-						},
+						semanticTokens = { dynamicRegistration = false },
 					},
 				},
 			},
@@ -61,8 +66,11 @@ return {
 			zls = {},
 		}
 
-		vim.wo.signcolumn = "yes:1"
+		require("lint").linters_by_ft = {
+			go = { "staticcheck" },
+		}
 
+		vim.wo.signcolumn = "yes"
 		vim.diagnostic.config({
 			underline = true,
 			virtual_text = true,
@@ -71,90 +79,87 @@ return {
 			severity_sort = true,
 		})
 
-		local on_attach = function(client, bufnr)
-			local buf_opts = { noremap = true, silent = true, buffer = bufnr }
+		local codelens_filetypes = { ocaml = true, rescript = true }
 
-			if client.server_capabilities.semanticTokensProvider then
+		local function on_attach(client, bufnr)
+			local buf_opts = { noremap = true, silent = true, buf = bufnr }
+
+			require("workspace-diagnostics").populate_workspace_diagnostics(client, bufnr)
+
+			if client and client.server_capabilities and client.server_capabilities.semanticTokensProvider then
 				client.server_capabilities.semanticTokensProvider = nil
 			end
 
-			if client.server_capabilities.codeLensProvider then
-				vim.api.nvim_create_autocmd({ "CursorMoved" }, {
-					callback = function()
-						vim.lsp.codelens.refresh()
-					end,
-				})
-				vim.keymap.set("n", "<leader>cl", function()
-					vim.lsp.codelens.run()
-				end, buf_opts)
+			if
+				codelens_filetypes[vim.bo[bufnr].filetype]
+				and client
+				and client.server_capabilities
+				and client.server_capabilities.codeLensProvider
+			then
+				vim.lsp.codelens.enable(true, { bufnr = bufnr })
+				vim.keymap.set("n", "<leader>cl", vim.lsp.codelens.run, buf_opts)
 			end
 
-			vim.keymap.set("n", "gd", function()
-				vim.lsp.buf.definition()
+			local map = vim.keymap.set
+			map("n", "gd", vim.lsp.buf.definition, buf_opts)
+			map("n", "H", function()
+				vim.lsp.buf.hover({ border = "single" })
 			end, buf_opts)
-			vim.keymap.set("n", "H", function()
-				vim.lsp.buf.hover({
-					border = "single",
-				})
-			end, buf_opts)
-			vim.keymap.set("n", "<leader>vws", function()
-				vim.lsp.buf.workspace_symbol()
-			end, buf_opts)
-			vim.keymap.set("n", "K", function()
-				vim.diagnostic.open_float()
-			end, buf_opts)
-			vim.keymap.set("n", "[d", function()
-				vim.diagnostic.goto_next()
-			end, buf_opts)
-			vim.keymap.set("n", "]d", function()
-				vim.diagnostic.goto_prev()
-			end, buf_opts)
-			vim.keymap.set("n", "<leader>ca", function()
-				vim.lsp.buf.code_action()
-			end, buf_opts)
-			vim.keymap.set("n", "<leader>vrr", function()
-				vim.lsp.buf.references()
-			end, buf_opts)
-			vim.keymap.set("n", "<leader>vrn", function()
-				vim.lsp.buf.rename()
-			end, buf_opts)
-			vim.keymap.set("i", "<C-h>", function()
-				vim.lsp.buf.signature_help()
-			end, buf_opts)
+			map("n", "<leader>vws", vim.lsp.buf.workspace_symbol, buf_opts)
+			map("n", "K", vim.diagnostic.open_float, buf_opts)
+			map("n", "[d", vim.diagnostic.goto_next, buf_opts)
+			map("n", "]d", vim.diagnostic.goto_prev, buf_opts)
+			map("n", "<leader>ca", vim.lsp.buf.code_action, buf_opts)
+			map("n", "<leader>vrr", vim.lsp.buf.references, buf_opts)
+			map("n", "<leader>vrn", vim.lsp.buf.rename, buf_opts)
+			map("i", "<C-h>", vim.lsp.buf.signature_help, buf_opts)
 
-			vim.keymap.set("n", "<leader>vt", function()
-				local config = vim.diagnostic.config()
-				vim.diagnostic.config({ virtual_lines = false, virtual_text = not config.virtual_text })
+			map("n", "<leader>vt", function()
+				local cfg = vim.diagnostic.config()
+				vim.diagnostic.config({ virtual_lines = false, virtual_text = not cfg.virtual_text })
 			end, { desc = "Toggle [v]irtual [t]ext" })
 
-			vim.keymap.set("n", "<leader>ih", function()
-				vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
-			end, { desc = "Toggle [i]nlay [h]ints" })
+			map("n", "<leader>ih", function()
+				if vim.lsp.inlay_hint and vim.lsp.inlay_hint.enable and vim.lsp.inlay_hint.is_enabled then
+					local enabled = vim.lsp.inlay_hint.is_enabled({ bufnr = bufnr }) or false
+					vim.lsp.inlay_hint.enable(not enabled, { bufnr = bufnr })
+				end
+			end, { desc = "Toggle [i]nlay [h]ints", noremap = true, silent = true })
 
-			vim.keymap.set("n", "<leader>dl", function()
-				local config = vim.diagnostic.config()
+			map("n", "<leader>dl", function()
+				local cfg = vim.diagnostic.config()
 				vim.diagnostic.config({
-					virtual_lines = not config.virtual_lines,
-					virtual_text = not config.virtual_text,
+					virtual_lines = not cfg.virtual_lines,
+					virtual_text = not cfg.virtual_text,
 				})
 			end, { desc = "Toggle [d]iagnostic [l]ines" })
 		end
 
 		local blink_capabilities = blink.get_lsp_capabilities()
-		for lsp, config in pairs(servers) do
-			local server = config or {}
-			server.on_attach = on_attach
-			server.capabilities = vim.tbl_deep_extend(
-				"force",
-				{},
-				vim.lsp.protocol.make_client_capabilities(),
-				blink_capabilities,
-				config.capabilities or {}
-			)
+		local enable_list = {}
 
-			server.capabilities.semanticTokensProvider = nil
+		for name, cfg in pairs(servers) do
+			local user_cfg = cfg or {}
+			local server_opts = vim.tbl_deep_extend("force", {
+				on_attach = on_attach,
+				capabilities = vim.tbl_deep_extend(
+					"force",
+					vim.lsp.protocol.make_client_capabilities(),
+					blink_capabilities,
+					user_cfg.capabilities or {}
+				),
+			}, user_cfg)
 
-			vim.lsp.enable(server)
+			local ok, err = pcall(vim.lsp.config, name, server_opts)
+			if not ok then
+				vim.notify(("vim.lsp.config failed for %s: %s"):format(name, tostring(err)), vim.log.levels.WARN)
+			else
+				table.insert(enable_list, name)
+			end
+		end
+
+		if #enable_list > 0 then
+			pcall(vim.lsp.enable, enable_list)
 		end
 
 		vim.diagnostic.config({

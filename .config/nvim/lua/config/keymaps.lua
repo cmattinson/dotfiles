@@ -2,14 +2,6 @@ local function map(m, k, v)
 	vim.keymap.set(m, k, v, { silent = true })
 end
 
-vim.cmd([[
-function! GetFileName()
-  return expand("%:t")->split('\.')[0]
-endfunc
-
-command! GetFileName         call GetFileName()
-]])
-
 -- Move to next match and center cursor
 -- map("n", "n", "nzz")
 -- map("n", "N", "Nzz")

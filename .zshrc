@@ -3,11 +3,15 @@
 DISABLE_AUTO_TITLE="true"
 export EDITOR=nvim
 
+# home-manager
+if [ -e "$HOME/.nix-profile/etc/profile.d/hm-session-vars.sh" ]; then
+  . "$HOME/.nix-profile/etc/profile.d/hm-session-vars.sh"
+fi
+
 alias .colors="cd ~/dotfiles/.config/color-scripts"
 alias .config="cd ~/dotfiles/.config"
 alias .sz="source ~/.zshrc"
 alias .z="nvim ~/dotfiles/.zshrc"
-alias algo="cd ~/workspace/algorithms"
 alias aoc="cd ~/workspace/advent-of-code"
 alias bformat="npx @biomejs/biome format"
 alias blint="npx @biomejs/biome format"
@@ -18,8 +22,6 @@ alias dra="~/.config/color-scripts/dragon.sh"
 alias ffd="cd \$(fd --type d . ~/dotfiles ~/workspace ~/Exercism | fzf)"
 alias grep="grep --color=auto"
 alias grepr="grep -rHni --exclude-dir=node_modules --exclude-dir=app --exclude=index.js"
-alias ios="cd ~/workspace/ios"
-alias kmm="cd ~/workspace/kmm"
 alias ll="ls -lh --color=auto"
 alias ls="ls --color=auto"
 alias ayu="~/.config/color-scripts/ayu-dark.sh"
@@ -29,11 +31,18 @@ alias mel="~/.config/color-scripts/mellifluous.sh"
 alias nord="~/.config/color-scripts/nordic.sh"
 alias nsc="cd ~/Library/Application\ Support/nushell"
 alias nvc="cd ~/dotfiles/.config/nvim && nvim"
-alias dune-upgrade="curl -fsSL https://get.dune.build/install | sh"
-alias nvim-upgrade="brew upgrade neovim --fetch-HEAD"
 alias oracle="ssh ubuntu@129.153.99.130"
 alias psql="sudo -u postgres psql"
 alias ros="~/.config/color-scripts/rose-pine.sh"
+alias catp="~/.config/color-scripts/catppuccin.sh"
+alias evf="~/.config/color-scripts/everforest.sh"
+alias gh="~/.config/color-scripts/github.sh"
+alias kana="~/.config/color-scripts/kanagawa.sh"
+alias kin="~/.config/color-scripts/kintsugi.sh"
+alias luc="~/.config/color-scripts/lucent-orng.sh"
+alias oas="~/.config/color-scripts/oasis.sh"
+alias tok="~/.config/color-scripts/tokyonight.sh"
+alias ves="~/.config/color-scripts/vesper.sh"
 alias rust="cd ~/workspace/rust"
 alias shc="nvim ~/dotfiles/.config/starship.toml"
 alias vim="nvim"
@@ -41,19 +50,18 @@ alias ws="cd ~/workspace"
 alias wtc="nvim ~/dotfiles/.config/wezterm/wezterm.lua"
 alias exe="cd ~/Exercism"
 alias gtc="nvim ~/dotfiles/.config/ghostty/config"
+alias nix-develop='nix develop -c zsh'
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 fpath=($fpath "/home/chris/.zfunctions")
 
-cd $HOME
+# cd $HOME
 
 export GOROOT=/usr/local/go
 export GOPATH=$HOME/workspace/go
 export GOBIN=$GOPATH/bin
 export PATH=$PATH:$GOROOT/bin
 export PATH=$PATH:$HOME/workspace/go/bin
+export PATH=$PATH:$HOME/.docker/bin
 
 # export DISPLAY=$(route.exe print | grep 0.0.0.0 | head -1 | awk '{print $4}'):0.0
 
@@ -61,7 +69,13 @@ export SPACESHIP_BATTERY_SHOW=false
 
 eval "$(starship init zsh)"
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+# fzf
+if [ -e "$HOME/.nix-profile/share/fzf" ]; then
+  source "$HOME/.nix-profile/share/fzf/key-bindings.zsh"
+  source "$HOME/.nix-profile/share/fzf/completion.zsh"
+fi
+
+
 
 function colormap() {
   for i in {0..255}; do print -Pn "%K{$i}  %k%F{$i}${(l:3::0:)i}%f " ${${(M)$((i%6)):#3}:+$'\n'}; done
@@ -72,9 +86,6 @@ export PATH="/opt/homebrew/opt/gnu-getopt/bin:$PATH"
 
 PATH="$PATH:/Applications/WezTerm.app/Contents/MacOS"
 export PATH
-export PATH=$PATH:~/.asdf/shims/dotnet
-export DOTNET_ROOT=~/.asdf/shims/dotnet
-export PATH=$PATH:$DOTNET_ROOT
 export DOCKER_BUILDKIT=1
 source ~/config.sh
 [[ $commands[kubectl] ]] && source <(kubectl completion zsh) # add autocomplete permanently to your zsh shell
@@ -97,37 +108,15 @@ export PATH="/opt/homebrew/opt/llvm@14/bin:$PATH"
 export PATH="/Users/chris/workspace/odin/compiler:$PATH"
 export PATH="/Users/chris/workspace/odin/ols:$PATH"
 
-. /opt/homebrew/opt/asdf/libexec/asdf.sh
-
-
-[ -f "/Users/chris/.ghcup/env" ] && . "/Users/chris/.ghcup/env" # ghcup-env
-
 export PATH="/Users/chris/.config/herd-lite/bin:$PATH"
 export PHP_INI_SCAN_DIR="/Users/chris/.config/herd-lite/bin:$PHP_INI_SCAN_DIR"
 
-#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="$HOME/.sdkman"
-[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+# opencode
+export PATH=/Users/chris/.opencode/bin:$PATH
+# The following lines have been added by Docker Desktop to enable Docker CLI completions.
+fpath=(/Users/chris/.docker/completions $fpath)
+autoload -Uz compinit
+compinit
+# End of Docker CLI completions
 
-# moonbit
-export PATH="$HOME/.moon/bin:$PATH"
-
-
-# BEGIN opam configuration
-# This is useful if you're using opam as it adds:
-#   - the correct directories to the PATH
-#   - auto-completion for the opam binary
-# This section can be safely removed at any time if needed.
-[[ ! -r '/Users/chris/.opam/opam-init/init.zsh' ]] || source '/Users/chris/.opam/opam-init/init.zsh' > /dev/null 2> /dev/null
-# END opam configuration
-
-# dune
-source $HOME/.local/share/dune/env/env.zsh
-
-# pnpm
-export PNPM_HOME="/Users/chris/Library/pnpm"
-case ":$PATH:" in
-  *":$PNPM_HOME:"*) ;;
-  *) export PATH="$PNPM_HOME:$PATH" ;;
-esac
-# pnpm end
+[ -f "/Users/chris/.ghcup/env" ] && . "/Users/chris/.ghcup/env" # ghcup-env

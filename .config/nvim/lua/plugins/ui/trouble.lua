@@ -3,6 +3,9 @@ return {
 	lazy = true,
 	cmd = "Trouble",
 	opts = {},
+	dependencies = {
+		"artemave/workspace-diagnostics.nvim",
+	},
 	keys = {
 		{
 			"<leader>xx",

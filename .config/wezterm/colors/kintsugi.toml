@@ -1,0 +1,41 @@
+[metadata]
+name = "Kintsugi"
+
+[colors]
+foreground = "#cacac2"
+background = "#131314"
+cursor_bg = "#d4a943"
+cursor_border = "#d4a943"
+cursor_fg = "#0e0e0e"
+selection_bg = "#47464c"
+selection_fg = "#dddddd"
+split = "#2a2a28"
+scrollbar_thumb = "#33352d"
+compose_cursor = "#dbad49"
+visual_bell = "#b8943a"
+
+ansi = [
+  "#131314",
+  "#b38f8f",
+  "#a3be8c",
+  "#ebcb8b",
+  "#6c7a8a",
+  "#b3a3d3",
+  "#6ac6f2",
+  "#dddddd",
+]
+
+brights = [
+  "#444444",
+  "#d9a6a6",
+  "#c3de9c",
+  "#fbe4a8",
+  "#8fa3b3",
+  "#d3a3d3",
+  "#8ac6f2",
+  "#ffffff",
+]
+
+[colors.indexed]
+16 = "#d4a943"
+17 = "#b8943a"

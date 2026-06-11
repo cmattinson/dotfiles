@@ -1,0 +1,28 @@
+add_newline = false
+
+[directory]
+truncate_to_repo = false
+style = "#be9db8"
+
+[git_branch]
+style = "#8fbcbb"
+
+[git_status]
+disabled = true
+style = "#c5727a"
+
+[package]
+style = "#d08770"
+
+[cmd_duration]
+disabled = true
+
+[nodejs]
+style = "#a3be8c"
+
+[docker_context]
+disabled = true
+
+[character]
+success_symbol = "[❯](#ebcb8b)" 
+error_symbol = "[❯](203)"

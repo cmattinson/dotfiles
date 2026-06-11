@@ -4,4 +4,5 @@ return {
 	lazy = true,
 	event = "BufEnter",
 	opts = { signs = false },
+	enabled = false,
 }

@@ -1,0 +1,32 @@
+add_newline = false
+
+[username]
+show_always = true
+format = "[$user](#8aadf4) in "
+
+[directory]
+truncate_to_repo = false
+style = "#c6a0f6"
+
+[git_branch]
+style = "#91d7e3"
+
+[git_status]
+disabled = true
+style = "#ed8796"
+
+[package]
+style = "#eed49f"
+
+[cmd_duration]
+disabled = true
+
+[nodejs]
+style = "#a6da95"
+
+[docker_context]
+disabled = true
+
+[character]
+success_symbol = "[λ](#8bd5ca)"
+error_symbol = "[λ](#ed8796)"

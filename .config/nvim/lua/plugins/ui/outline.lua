@@ -7,7 +7,11 @@ return {
 	},
 	opts = {
 		outline_window = {
+			position = "left",
 			width = 15,
+		},
+		outline_items = {
+			show_symbol_details = true,
 		},
 	},
 }

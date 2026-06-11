@@ -10,18 +10,29 @@ local BACKGROUND_COLORS = {
 	Ayu = "#0B0E14",
 	Black = "#000000",
 	Blue = "#151825",
+	Catppuccin = "#24273a",
 	Dark = "#0F1115",
-	White = "#F2F0EF",
+	Everforest = "#2d353b",
+	GitHub = "#0d1117",
+	Kanagawa = "#1f1f28",
+	Kintsugi = "#161618",
+	LucentOrng = "#2a1a15",
+	Material = "#111219",
+	Macchiato = "#1e1e2e",
+	Mocha = "#1E1E2E",
+	Oasis = "#11151c",
 	Rocket = "#161616",
 	RosePine = "#191724",
-	Material = "#111219",
-	Mocha = "#1E1E2E",
+	Soft = "#22273D",
+	TokyoNight = "#1a1b26",
+	Vesper = "#1a1a2e",
+	White = "#F2F0EF",
 }
 
-local BACKGROUND_COLOR = BACKGROUND_COLORS.Black
+local BACKGROUND_COLOR = BACKGROUND_COLORS.Ayu
 
 -- local catpuccin_theme = function()
--- 	config.color_scheme = "MaterialOcean"
+-- 	config.color_scheme = "Ayu Dark (Gogh)"
 -- 	config.window_frame = {
 -- 		active_titlebar_bg = BACKGROUND_COLOR,
 -- 		active_titlebar_fg = "white",
@@ -47,7 +58,7 @@ local BACKGROUND_COLOR = BACKGROUND_COLORS.Black
 -- end
 
 local material_ocean_scheme = function()
-	config.color_scheme = "MaterialOcean"
+	config.color_scheme = "Ayu Dark (Gogh)"
 	config.window_frame = {
 		active_titlebar_bg = BACKGROUND_COLOR,
 		active_titlebar_fg = "white",
@@ -71,6 +82,8 @@ local material_ocean_scheme = function()
 		},
 	}
 end
+
+config.color_scheme_dirs = { os.getenv("HOME") .. "/.config/wezterm/colors" }
 
 material_ocean_scheme()
 
@@ -164,7 +177,7 @@ local FONTS = {
 		},
 		opts = {
 			line_height = 1.3,
-			font_size = 16,
+			font_size = 17,
 		},
 	},
 	Menlo = {
@@ -189,8 +202,8 @@ local FONTS = {
 			},
 		},
 		opts = {
-			line_height = 1.2,
-			font_size = 16,
+			line_height = 1.3,
+			font_size = 17,
 		},
 	},
 	Proggy = {
@@ -297,6 +310,8 @@ config.keys = {
 	{ key = "t", mods = "CTRL", action = act.SpawnTab("CurrentPaneDomain") },
 	{ key = "v", mods = "CTRL", action = act.PasteFrom("Clipboard") },
 	{ key = "|", mods = "CMD|SHIFT", action = act.SplitHorizontal },
+	{ key = "PageUp", mods = "SHIFT", action = act.ScrollByPage(-1) },
+	{ key = "PageDown", mods = "SHIFT", action = act.ScrollByPage(1) },
 }
 
 for i = 1, 8 do
